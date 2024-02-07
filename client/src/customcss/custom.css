@@ -1,0 +1,79 @@
+#container-class{
+border: 2px solid black;
+}
+#homeLeft{
+    color: rgb(75, 26, 29);
+    font-weight: bold;
+    text-shadow: 2px;
+}
+#btnModule
+{
+    color: black;
+    font-weight: 700;
+    border-radius: 10px;
+}
+#className{
+    color: black;
+    font-weight: 600;
+}
+.footer-container {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: 1rem;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .content {
+    text-align: center;
+  }
+  .custom-navbar {
+    background-color: #3498db; /* Change the background color as per your preference */
+  }
+  
+  .navbar-brand, .navbar-nav .nav-link {
+    color: #fff !important; /* Change the text color as per your preference */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #fff; /* Change the navbar toggler icon color as per your preference */
+  }
+  
+  /* Add more styles based on your design preferences */
+  .login-container {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+  }
+  
+  .login-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 50px;
+  }
+  
+  /* Add more styles based on your design preferences */
+  .signup-container {
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  .signup-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 50px;
+  }
+  
+  /* Add more styles based on your design preferences */
+  
