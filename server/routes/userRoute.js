@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const userModel = require("./model/userModel");
+const userModel = require("../model/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 // installing bcrypt and jwt
@@ -10,11 +10,10 @@ const jwt = require("jsonwebtoken");
 router.post("/signup",async(req,res)=>{
     try {
         // checking if the user exist or not
-        const userExist = await userModel.find({email:req.body.email});
-        if(userExist)
-        {
-            return res.status(200).send({message:"User already Exist",success:false});
-        }
+        const userExist = await userModel.findOne({email:req.body.email});
+        if (userExist) {
+            return res.status(200).send({ message: "User already Exist", success: false });
+          }
         // hasing the password
 
             const salt = await bcrypt.genSalt(10);
@@ -47,7 +46,7 @@ router.post("/signup",async(req,res)=>{
 
 router.post("/login",async(req,res)=>{
     try {
-        const user = await userModel.find({email:req.body.email});
+        const user = await userModel.findOne({email:req.body.email});
         if(!user)
         {
             res.send({

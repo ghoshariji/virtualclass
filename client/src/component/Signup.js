@@ -1,102 +1,99 @@
 import React, { useState } from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom"
+import Navbar from "../navbar/Navbar";
 
 const Signup = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [cpassword, setCpassword] = useState();
-  const navigate = useNavigate();
-  const submitHandle = async () => {
-    if (!name || !email || !password || !cpassword) {
-      alert("Please all the filled");
-      return;
-    }
-    if (password !== cpassword) {
-      alert("Password and confirm password doesn't match");
-      return;
-    }
+  const [post, setPost] = useState({
+    name: "",
+    email: "",
+    password: "",
+    cpassword: "",
+  });
 
+  const handleInput = (event) => {
+    setPost({ ...post, [event.target.name]: event.target.value });
+  };
+
+  const submitHandle = async (event) => {
+    event.preventDefault();
     try {
       const config = {
-        Headers: {
-          "Content-Type": "application/json",
+        headers: {
+          "Content-type": "application/json",
         },
       };
+      console.log(post);
       const { data } = await axios.post(
-        "/api/user/signup",
-        {
-          name,
-          email,
-          password,
-          cpassword,
-        },
+        "http://localhost:7000/api/user/signup",
+        post,
         config
       );
-      alert("Register successfully");
-      localStorage.setItem("userInfo",JSON.stringify(data));
-      navigate("/login");
+      alert("Signup completed");
+      localStorage.setItem("userInfo", JSON.stringify(data));
     } catch (error) {
-      alert("Registration failed");
-      console.log("Error on registration page" + error);
+      alert("Signup failed");
+      console.log("Error from signup page" + error);
     }
   };
+
   return (
-    <div>
+    <div className="signup-container">
+      <Navbar />
       <div className="container-lg">
-        <form>
-          <div class="mb-3">
-            <label for="name" class="form-label">
+        <form onSubmit={submitHandle} className="signup-form">
+          <div className="mb-3">
+            <label htmlFor="name" className="form-label">
               Enter your name
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="name"
-              aria-describedby="emailHelp"
-              placeholder="enter name"
-              onChange={(e) => setName(e.target.value)}
+              name="name"
+              placeholder="Enter name"
+              onChange={handleInput}
             />
           </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">
               Enter email
             </label>
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               id="email"
-              aria-describedby="emailHelp"
-              placeholder="enter email"
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              placeholder="Enter email"
+              onChange={handleInput}
             />
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
               Enter Password
             </label>
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="password"
-              placeholder="enter password"
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              placeholder="Enter password"
+              onChange={handleInput}
             />
           </div>
-          <div class="mb-3">
-            <label for="cpassword" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="cpassword" className="form-label">
               Enter confirm Password
             </label>
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="cpassword"
-              placeholder="enter confirm password"
-              onChange={(e) => setCpassword(e.target.value)}
+              name="cpassword"
+              placeholder="Enter confirm password"
+              onChange={handleInput}
             />
           </div>
-          <button type="submit" class="btn btn-primary" onClick={submitHandle}>
+          <button type="submit" className="btn btn-primary">
             Signup
           </button>
         </form>

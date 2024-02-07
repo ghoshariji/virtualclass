@@ -1,14 +1,23 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
+const corsOptions = {
+    origin: "*", // Update with your frontend URL
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  };
+  
+  app.use(cors(corsOptions));
 const dotenv = require("dotenv");
+
 dotenv.config();
 app.use(express.json());
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 const userRoute = require("./routes/userRoute");
 
 // database connection
 const databaseConnection = require("./connection/conn");
-databaseConnection();
+
 
 
 app.use("/api/user",userRoute);
