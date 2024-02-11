@@ -14,6 +14,7 @@ dotenv.config();
 app.use(express.json());
 const port = process.env.PORT || 4000;
 const userRoute = require("./routes/userRoute");
+const moduleRoute = require("./routes/moduleRoute");
 
 // database connection
 const databaseConnection = require("./connection/conn");
@@ -21,6 +22,7 @@ const databaseConnection = require("./connection/conn");
 
 
 app.use("/api/user",userRoute);
+app.use("/api/module",moduleRoute);
 
 app.get("/",(req,res)=>{
     res.send("Hello from the server side")
