@@ -76,4 +76,33 @@ border: 2px solid black;
   }
   
   /* Add more styles based on your design preferences */
+  .welcome-message {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .module-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .module-box {
+    flex: 1;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .module-box {
+      flex: 0 0 100%;
+    }
+  }
+
+  
+  
   
