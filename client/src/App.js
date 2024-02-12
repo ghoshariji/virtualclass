@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import Afterloginhome from './afterlogin/Afterloginhome';
 import Module from './afterlogin/Module';
 import Giveexam from './afterlogin/Giveexam';
+import Onlineclass from './afterlogin/Onlineclass';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
     <Route path="/afterlogin" element={<Afterloginhome/>} />
     <Route path="/module" element={<Module/>} />
     <Route path="/giveexam" element={<Giveexam/>} />
+    <Route path="/onlineclass" element={<Onlineclass/>} />
   </Routes>
 
   );
