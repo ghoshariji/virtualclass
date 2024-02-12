@@ -1,8 +1,9 @@
 import React from "react";
-import Navbar from "../navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import first from "../image/a.jpeg"
 import Foot from "../footer/Foot";
+import Afternavabr from "./Afternavabr";
+
 const Afterloginhome = () => {
     const navigate = useNavigate();
     const classone = "one"
@@ -17,8 +18,9 @@ const Afterloginhome = () => {
     const classten = "ten"
   return (
     <div>
-    <Navbar />
-    <div class="container text-center">
+      {/* style={{ position: "relative", zIndex: -1 }} */}
+    <Afternavabr />
+    <div class="container text-center" >
       <div class="row g-2" style={{marginTop:"2rem"}}>
       <div class="col-6">
           <div class="p-3" id="container-class" style={{backgroundImage:`URL(${first})`}}>

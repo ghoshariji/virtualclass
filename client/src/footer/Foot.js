@@ -2,7 +2,7 @@ import React from "react";
 
 const Foot = () => {
   return (
-    <footer className="footer-container">
+    <footer className="footer-container" style={{bottom: "0", width: "100%", backgroundColor: "black", padding: "10px", marginTop: "20px", zIndex: 0 }}>
       <div className="container" id="containerFoot">
         <div className="content" id="foot1">
           <p>Home</p>

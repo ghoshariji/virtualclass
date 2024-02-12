@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
-import Navbar from '../navbar/Navbar';
 import Foot from '../footer/Foot';
 import axios from "axios";
+import Afternavabr from './Afternavabr';
 
 const Module = () => {
   const location = useLocation();
@@ -29,11 +29,11 @@ const Module = () => {
 
   return (
     <>
-      <Navbar />
+      <Afternavabr />
       <h1>Welcome class {classValue} student !</h1>
       <div className="module-container">
         <div className="module-box container-first" onClick={() => navigate("/module")}>Module</div>
-        <div className="module-box container-second">Go to online class</div>
+        <div className="module-box container-second" onClick={() => navigate("/onlineclass")}>Go to online class</div>
         <div className="module-box container-third">
           <button type='submit' onClick={moduleHandle}>Go to exam</button>
         </div>
