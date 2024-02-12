@@ -7,7 +7,7 @@ const Onlineclass = () => {
     <div>
 
         <Afternavabr/>
-      <h3>No online class yet</h3>
+      <h3>No online class yet right now</h3>
 
       <Foot/>
     </div>
