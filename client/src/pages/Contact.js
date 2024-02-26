@@ -1,15 +1,21 @@
-import React,{useState} from 'react'
-import Navbar from '../navbar/Navbar'
+import React, { useState } from 'react';
+import '../customcss/contact.css';
+import img from './online.png';
+import Foot from '../footer/Foot';
 
-const Contact = () => {
-
+const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
 
-  const handleChange = (e) => {
+
+
+
+
+
+  const handleInputChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -18,189 +24,183 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
+    // Implement your form submission logic here
     console.log('Form submitted:', formData);
-    // You can send this data to your server or perform any other necessary actions
   };
 
   return (
-//     <>
-//     <div className='contact_info'>
-//        <div className='container-fluid'>
-//        <div className='row'>
+    <div>
 
-//        <div className='col-lg-10 offset-lg-1 d-flex justify-content-between'>
-
-//        {/*  phone number */}
-//        <div className='contact_info_item d-flex justify-content-start align-items-center'>
-//        <img src="smartphone1.png" alt="phone"/>
-
-//        <div className='contact_info_content'>
-
-//        <div className='contact_info_title'>
-//        Phone
-       
-//        </div>
+    {/** Navbar here */}
 
 
-//        <div className='contact_info_text'>
-       
-//        123456
-//        </div>
-       
-//        </div>
-       
-//        </div>
-
-
-
-// {/*  Email */}
-
-//        <div className='contact_info_item d-flex justify-content-start align-items-center'>
-//        <img src="smartphone1.png" alt="phone"/>
-
-//        <div className='contact_info_content'>
-
-//        <div className='contact_info_title'>
-//        Email
-       
-//        </div>
-       
-
-
-//        <div className='contact_info_text'>
-       
-//        niladri123@gmail.com
-//        </div>
-       
-//        </div>
-       
-//        </div>
-
-
-
-// {/*  address number*/}
-
-//        <div className='contact_info_item d-flex justify-content-start align-items-center'>
-//        <img src="smartphone1.png" alt="phone"/>
-
-//        <div className='contact_info_content'>
-
-//        <div className='contact_info_title'>
-//        Address
-       
-//        </div>
-
-
-//        <div className='contact_info_text'>
-       
-//        Pune,MI,!@0
-//        </div>
-       
-//        </div>
-       
-//        </div>
-
-
-//        </div>
-//        </div>
-
-//        </div>
-      
-//     </div>
+      {/*<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#"></a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" style={{backgroundColor:"black"}}></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link" href="/">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/about">
+                  About
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/login">
+                  Login
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/signup">
+                  Signup
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+  </nav>*/}
 
 
 
 
-//     {/*contact us form */}
-
-
-//     <div className='contact_form'>
-//     <div className='container'>
-//     <div className='row'>
-//     <div className='col-lg-10 offset-lg-1'>
-//     <div className='contact_form_container py-5'>
-//     <div className='contact_form_title'>
-//     Get in Touch
-//     </div>
-// <form id="contact_form"> 
-
-// <div className='contact_form_name d-flex justify-content-between align-items-between'>
-// <input type='text' id='contact_form_name'
-// className='contact_form_name input_field'
-// placeholder='Your name' required="true"/>
-
-
-// <input type='email' id='contact_form_email'
-// className='contact_form_email input_field'
-// placeholder='Your email' required="true"/>
-
-
-// <input type='number' id='contact_form_phone'
-// className='contact_form_phone input_field'
-// placeholder='Your Phone Number' required="true"/>
-
-// </div>
-
-// <div className='contact_form_text mt-4'>
-// <textarea className='text_field contact_form_message'  placeholder="Message" id="" cols="74" rows="3"></textarea>
-// </div>
-
-
-// <div className='contact_form_button'>
-// <button type="submit" className='button contact_submit_button' >Send Message</button>
-// </div>
-// </form>
-
-//     </div>
-//     </div>
-//     </div>
-//     </div>
-//     </div>
-//     </>
-
-
-
-
-<div style={styles.container}>
-      <h2>Contact Us</h2>
-      <form style={styles.form} onSubmit={handleSubmit}>
-        <label style={styles.label}>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </label>
-        <label style={styles.label}>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </label>
-        <label style={styles.label}>
-          Message:
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            style={{ ...styles.input, ...styles.textarea }}
-            required
-          ></textarea>
-        </label>
-        <button type="submit" style={styles.button}>
-          Submit
+  <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ backgroundColor: '#2c3e50' }}>
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">eLearn</a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon" style={{backgroundColor:"black"}}></span>
         </button>
-      </form>
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a className="nav-link" href="/">Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/about">About</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/login">Login</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/signup">Signup</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+      {/**Main Container and form also */}
+
+      <div className="container">
+        <div className="row py-5 g-3">
+          <div className="col-md-6 order-md-2">
+            <img src={img} alt="Online Class" className="img-fluid" />
+          </div>
+
+          <div className="col-md-6 order-md-1">
+            <h1 className="text-center mt-3">Contact Us</h1>
+            <form
+              action="submit_form.php"
+              method="post"
+              className="p-4 mt-5"
+              onSubmit={handleSubmit}
+            >
+              <div className="mb-3">
+                <label htmlFor="nameInput" className="form-label">
+                  Enter your name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="nameInput"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  onChange={handleInputChange}
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="emailInput" className="form-label">
+                  Email Id
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="emailInput"
+                  name="email"
+                  placeholder="name@example.com"
+                  required
+                  onChange={handleInputChange}
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="messageInput" className="form-label">
+                  Enter your message
+                </label>
+                <textarea
+                  type="text"
+                  className="form-control"
+                  id="messageInput"
+                  name="message"
+                  rows="3"
+                  placeholder="Your Message"
+                  required
+                  onChange={handleInputChange}
+                ></textarea>
+              </div>
+
+              <div className="mb-3">
+                <button type="submit" className="btn btn-primary">
+                  Send Now
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+      </div>
+
+
+ 
+              {/*  ADDRESS  HERE  */}
+
+
+      <div className="last_row">
+      <div className="row row-cols-1 row-cols-md-3 p-3 text-white">
+        <div className="col mb-3">
+          <h4><i class="fa-solid fa-location-dot"></i> ADDRESS</h4>
+          <p> <a href='https://www.google.co.in/maps/place/CHITKARA+UNIVERSITY,+BADDI/@30.873125,76.8589281,15z/data=!4m6!3m5!1s0x390ff55d9e0ed113:0x34a6cadf9a13d341!8m2!3d30.8773385!4d76.8723344!16s%2Fg%2F11f32916m1?entry=ttu'>Kalujhanda, Baddi, Solan, 174103, Himachal Pradesh</a></p>
+        </div>
+
+        <div className="col mb-3">
+          <h4><i class="fa-solid fa-phone-volume"></i> CALL US</h4>
+          <p> <a href=''>+91-9073587432 /+91-9073345862 /+91-9073099301</a></p>
+        </div>
+
+        <div className="col mb-3">
+          <h4><i class="fa-solid fa-envelope"></i> Email</h4>
+          <p><a href='https://mail.google.com/mail/u/0/#inbox'>niladri1249.be22@chitkarauniversity.edu.in</a></p>
+        </div>
+      </div>
     </div>
 
 
@@ -209,50 +209,29 @@ const Contact = () => {
 
 
 
+         {/*GOOGLE MAP HERE */}
 
 
+      <div className="map-container" id="'map'">
+        <iframe
+          width="100%"
+          height="400"
+          frameBorder="0"
+          style={{ border: '0' }}
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3488.726547647258!2d76.32397991460334!3d30.833805381608487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3904f9d8c505989b%3A0x6998cd5299b4e8fc!2sChitkara%20University%2C%20Himachal%20Pradesh!5e0!3m2!1sen!2sin!4v1676327465915!5m2!1sen!2sin"
+          allowFullScreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
 
 
-    
-  )
-}
+     
+           {/*FOOTER HERE */}
+   <Foot />
 
-
-
-const styles = {
-  container: {
-    maxWidth: '400px',
-    margin: '0 auto',
-    padding: '20px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    borderRadius: '5px',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  label: {
-    margin: '10px 0',
-    fontSize: '16px',
-  },
-  input: {
-    padding: '8px',
-    fontSize: '14px',
-    border: '1px solid #ccc',
-    borderRadius: '3px',
-    margin: '5px 0',
-  },
-  textarea: {
-    minHeight: '100px',
-  },
-  button: {
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    padding: '10px',
-    border: 'none',
-    borderRadius: '3px',
-    cursor: 'pointer',
-  },
+       
+    </div>
+  );
 };
 
-export default Contact
+export default ContactPage;
