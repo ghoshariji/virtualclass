@@ -6,6 +6,7 @@ import Afternavabr from "./Afternavabr";
 
 const Afterloginhome = () => {
     const navigate = useNavigate();
+    const params = new URLSearchParams(document.location.search)
     const classone = "one"
     const classtwo = "two"
     const classthree = "three"
@@ -22,6 +23,7 @@ const Afterloginhome = () => {
     <Afternavabr />
     <div class="container text-center" >
       <div class="row g-2" style={{marginTop:"2rem"}}>
+        <h1>Hello {params.get("name")}</h1>
       <div class="col-6">
           <div class="p-3" id="container-class" style={{backgroundImage:`URL(${first})`}}>
             <h1 id="className">Class 1</h1>

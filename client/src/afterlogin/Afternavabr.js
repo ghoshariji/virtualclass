@@ -20,6 +20,9 @@ const Afternavabr = () => {
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">Logout</a>
             </li>
+            <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="/chat">Chat Us</a>
+              </li>
           </ul>
         </div>
       </div>
