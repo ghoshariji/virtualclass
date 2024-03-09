@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin-bottom: 80px; /* Adjust margin-bottom to give space for the footer */
+}
+
+
+
+
+
+.nav-item:hover {
+    background-color: #555; /* Change the background color on hover */
+  }
+
+  .nav-link:hover {
+    color: #fff; /* Change the text color on hover */
+  }
+
+
+
+h1 {
+    color: #333;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease-in-out;
+}
+
+h1:hover {
+    color: #ff6347; /* Change to your desired hover color */
+}
+
+.first_col {
+    background-color: #f8f9fa;
+    height: 550px;
+    position: relative;
+    width: 550px;
+    margin-top: 50px; /* Adjusted margin-top */
+    margin-bottom: 50px; /* Adjusted margin-bottom */
+    border-radius: 20px;
+}
+
+
+
+form {
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+form:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.img-fluid{
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+    
+}
+.img-fluid:hover{
+    transform: scale(1.1);
+}
+
+.last_row {
+    width: 100%; /* Adjusted width to full width */
+    max-width: 1080px; /* Adjusted max-width for better responsiveness */
+    margin: 0 auto; /* Centering the last_row */
+    background-color: #c1b688;
+    padding: 20px; /* Adjusted padding for better spacing */
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+
+}
+
+
+.last_row:hover {
+    transform: scale(1.05);
+    border:2px solid blueviolet;
+}
+
+.last_row .col {
+    margin-bottom: 20px;
+    text-decoration: underline; /* Adjust the margin between columns */
+}
+
+.btn-primary {
+    background-color: #c1b688;
+    border: #c1b688;
+}
+
+.btn-primary:hover {
+    border-color: black;
+}
+
+.form-control {
+    height: 52px;
+    background-color: #fff;
+    font-size: 14px;
+    border-radius: 2px;
+    box-shadow: none !important;
+    border: 1px solid #555;
+}
+
+.form-control[type=text]:focus {
+    border: 2px solid #555;
+}
+
+@media only screen and (max-width: 600px) {
+    .first_col {
+        position: initial;
+        margin: 0 auto; /* Centering the first_col */
+    }
+
+    .last_row {
+        position: initial;
+        width: 100% !important;
+        max-width: none;
+        border-radius: 0; /* Remove border-radius for small screens */
+    }
+}
+
+.footer {
+    background-color: #343a40;
+    /* Adjust the background color */
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+
+
+/* footer design here */
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+footer{
+    background-color: #111;
+}
+
+footer:hover {
+    box-shadow: 0 0 10px 2px #555;
+}
+
+
+.footerContainer{
+    width:100%;
+    padding: 70px 30px 20px;
+    margin-top: 1rem;
+}
+
+.socialIcons{
+ display:flex ;
+ justify-content: center;
+}
+
+
+.socialIcons a{
+ 
+    text-decoration: none;
+    padding: 10px;
+    background-color: whitesmoke;
+    margin: 10px;
+    border-radius: 50%;
+
+}
+
+.socialIcons a i{
+    font-size: 2em;
+    opacity: 0.9;
+}
+
+.socialIcons a:hover{
+    background-color: #111;
+    transition: 0.5s;
+}
+
+.socialIcons a:hover{
+    color: whitesmoke;
+    transition: 0.5s;
+}
+
+.footerNav{
+    margin: 30px 0;
+}
+
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+}
+
+
+.footerNav ul li a{
+    color:white ;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+
+.footerNav ul li a:hover{
+
+    opacity: 1;
+}
+
+
+.footerBottom{
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.footerBottom p{
+    color:white;
+}
+
+.designer{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+
+}
+
+
+@media(max-width:700px)
+{
+    .footerNav ul{
+        flex-direction: column;
+    }
+    .footerNav ul li{
+        width: 100%;
+        text-align: center;
+        margin: 10px;
+    }
+}
+
+
+/* Navbar Design Here */
+
+
+.navbar-nav .nav-item:hover .nav-link {
+    text-decoration: underline;
+}
+
+
+.navbar-brand {
+    font-family: 'Arial', sans-serif; /* Choose your desired font */
+    font-size: 24px; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    color: #ffffff; /* Set the text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a text shadow */
+}

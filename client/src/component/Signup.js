@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "../navbar/Navbar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const [post, setPost] = useState({
@@ -28,16 +30,21 @@ const Signup = () => {
         post,
         config
       );
-      alert("Signup completed");
+      toast.success("Signup complete", {
+        position: "top-center",
+      });
       localStorage.setItem("userInfo", JSON.stringify(data));
     } catch (error) {
-      alert("Signup failed");
+      toast("Signup failed", {
+        position: "top-center",
+      });
       console.log("Error from signup page" + error);
     }
   };
 
   return (
     <div className="signup-container">
+          <ToastContainer />
       <Navbar />
       <div className="container-lg">
         <form onSubmit={submitHandle} className="signup-form">
