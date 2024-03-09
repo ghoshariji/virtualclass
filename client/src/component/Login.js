@@ -3,12 +3,10 @@ import React from 'react';
 import Navbar from "../navbar/Navbar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-=======
->>>>>>> main
+
 const Login = () => {
   const styles = {
     body: {
@@ -162,45 +160,6 @@ const Login = () => {
     }
   };
   return (
-<<<<<<< HEAD
-    <div className="login-container">
-      <ToastContainer />
-      <Navbar />
-      <div className="container-lg">
-        <form onSubmit={submitHandle} className="login-form">
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Enter email
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-              onChange={handleInput}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">
-              Enter Password
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              placeholder="Enter password"
-              onChange={handleInput}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Login
-          </button>
-        </form>
-      </div>
-=======
     <div style={styles.body}>
       <style>
         {`
@@ -266,7 +225,6 @@ const Login = () => {
             {error && <p style={{ color: "red" }}>{error}</p>}
           </form>
         </div>
->>>>>>> main
     </div>
   );
 };
