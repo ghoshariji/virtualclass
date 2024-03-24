@@ -14,6 +14,19 @@ import AfterLoginAdmin from './afterlogin/AfterLoginAdmin';
 import Chat from './component/Chat';
 import Adminquestion from './afterlogin/Adminquestion';
 import Dynamicmodule from './afterlogin/Dynamicmodule';
+import Addexam from './afterlogin/Addexam';
+import Writeexam from './afterlogin/Writeexam';
+import Instructorhome from './Instructor/Instructorhome';
+import AfterloginHomeins from './Instructor/AfterloginHomeins';
+import Addexamins from './Instructor/Addexamins';
+import Addques from './Instructor/Addques';
+import Dynamicmod from './afterlogin/Dynamicmod';
+import Dynamicdashboard from './afterlogin/Dynamicdashboard';
+import Dynamicexamdash from './afterlogin/Dynamicexamdash';
+import Dynamicexamwrite from './afterlogin/Dynamicexamwrite';
+import Otppage from './afterlogin/Otppage';
+import Changepass from './afterlogin/Changepass';
+import Enteremail from './afterlogin/Enteremail';
 
 function App() {
   return (
@@ -30,6 +43,19 @@ function App() {
     <Route path="/chat" element={<Chat/>} />
     <Route path="/setquestion" element={<Adminquestion/>} />
     <Route path="/gotomodule" element={<Dynamicmodule/>} />
+    <Route path="/addexam" element={<Addexam/>} />
+    <Route path="/writeexam" element={<Writeexam/>} />
+    <Route path="/instructorhome" element={<Instructorhome/>} />
+    <Route path="/afterloginins" element={<AfterloginHomeins/>} />
+    <Route path="/addexamins" element={<Addexamins/>} />
+    <Route path="/addquesins" element={<Addques/>} />
+    <Route path="/gotomoduledy" element={<Dynamicmod/>} />
+    <Route path="/dynamicdashboard" element={<Dynamicdashboard/>} />
+    <Route path="/dynamicexamdash" element={<Dynamicexamdash/>} />
+    <Route path="/dynamicexamwrite" element={<Dynamicexamwrite/>} />
+    <Route path="/otpverification" element={<Otppage/>} />
+    <Route path="/changepass" element={<Changepass/>} />
+    <Route path="/enteremail" element={<Enteremail/>} />
   </Routes>
 
   );

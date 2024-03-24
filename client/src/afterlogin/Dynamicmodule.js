@@ -16,7 +16,7 @@ const Dynamicmodule = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:7000/api/module/one",
+          `http://localhost:7000/api/module/${className}`,
           config
         );
         const data = response.data;

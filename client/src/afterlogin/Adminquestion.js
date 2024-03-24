@@ -5,6 +5,7 @@ import Afternavabr from "./Afternavabr";
 const Adminquestion = () => {
   const params = new URLSearchParams(document.location.search);
   const className = params.get("class");
+  const examname = params.get("exam");
   const [question, setquestion] = useState({
     question: "",
     A: "",
@@ -34,7 +35,7 @@ const Adminquestion = () => {
       };
 
       const { data } = await axios.post(
-        `http://localhost:7000/api/setquestion/${className}`,
+        `http://localhost:7000/api/setquestion/${className}?examname=${examname}`,
         question,
         config
       );
@@ -136,36 +137,7 @@ const Adminquestion = () => {
           <button type="submit">Submit</button>
         </form>
       </div>
-      <div className="container-form2">
-        <p>
-          Set up MODULE for class :{" "}
-          <span style={{ color: "red" }}>{className}</span>
-        </p>
-        <form action="" id="form" onSubmit={submitModule}>
-          <input
-            type="text"
-            onChange={handleModule}
-            name="name"
-            value={module.name}
-            placeholder="Enter the Subject Name"
-          />
-          <input
-            type="text"
-            onChange={handleModule}
-            name="author"
-            value={module.author}
-            placeholder="Name of the Teacher or author"
-          />
-          <input
-            type="text"
-            onChange={handleModule}
-            name="img"
-            value={module.img}
-            placeholder="Enter the video link"
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+     
     </div>
   );
 };
