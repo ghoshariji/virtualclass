@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Afternavabr from "./Afternavabr";
+import "../customcss/Card.css"
+
+ import img from "../image/first.jpg"
 
 const Dynamicmodule = () => {
   const [data, setData] = useState([]);
@@ -30,36 +33,49 @@ const Dynamicmodule = () => {
     fetchData();
   }, []);
 
+
   return (
-    <div>
-      <Afternavabr />
-      <h1>Hello {className}</h1>
+    <>
+    <Afternavabr /> 
+    <h1>Hello {className}</h1>
+    <div className="body-main-card">
+     
+     
       {data.map((val, ind) => {
         return (
-          <div
-            key={ind}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              padding: "1rem",
-              margin: "1rem",
-            }}
-          >
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title">Subject Name is : {val.name}</h5>
-                <p class="card-text">Author is : {val.author}</p>
-                <img src={val.img} alt="" />
-                <a href={val.img} class="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
+
+
+         
+
+
+
+          <div class="card-container" key={ind}>
+          <div class="card">
+            <div class="imgBx">
+              <img className="img9832" src={img} alt="" />
+            </div>
+            <div class="content">
+              <h2 className="head9832"> <i> Subject Name : {val.name}</i></h2>
+              <p className="p1" style={{ fontSize: '11px', color: 'red' }}>Teacher Name : {val.name}</p>
+
+              <a href={val.img} class="button12">Go Here</a>
             </div>
           </div>
+        </div>
+
+
+
         );
       })}
+
+      
     </div>
+    </>
   );
 };
 
 export default Dynamicmodule;
+       
+
+
+              

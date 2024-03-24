@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import '../customcss/contact.css';
 import img from './online.png';
 import Foot from '../footer/Foot';
+import axios from "axios"
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    phone: "",
+    address: "",
   });
 
 
@@ -15,16 +16,30 @@ const ContactPage = () => {
 
 
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (event) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     // Implement your form submission logic here
+    const config = {
+      headers:{
+        "Content-type":"application/json"
+      }
+    }
+    try {
+      const response = await axios.post("http://localhost:7000/api/contact",
+        formData,
+        config
+      )
+    } catch (error) {
+      console.log("error from the contact page" +
+       error);
+    }
     console.log('Form submitted:', formData);
   };
 
@@ -144,7 +159,7 @@ const ContactPage = () => {
                   type="email"
                   className="form-control"
                   id="emailInput"
-                  name="email"
+                  name="phone"
                   placeholder="name@example.com"
                   required
                   onChange={handleInputChange}
@@ -159,7 +174,7 @@ const ContactPage = () => {
                   type="text"
                   className="form-control"
                   id="messageInput"
-                  name="message"
+                  name="address"
                   rows="3"
                   placeholder="Your Message"
                   required

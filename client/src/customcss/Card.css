@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .body-main-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+    background:linear-gradient(45deg,#00bcd4, #ffeb3b);
+  }
+
+
+  .card-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 200px 150px;
+    padding: 2rem;
+
+
+  }
+
+
+  .card-container .card{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 350px;
+    height: 300px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+    transition: 0.5s;
+  }
+
+  .card-container .card:hover{
+    height: 205px;
+  }
+
+
+  .card-container .card .imgBx{
+    position: absolute;
+    top: 20px;
+    width: 300px;
+    height: 220px;
+    background: red;
+    border-radius: 12px;
+    transition: 0.5s;
+  }
+
+  .card-container .card:hover .imgBx{
+    top: -100px;
+    scale: 0.75;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+
+
+  }
+
+  .card-container .card .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .card-container .card .content{
+    position: absolute;
+    top: 252px;
+    width: 100%;
+    padding: 0 30px;
+    height: 35px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.5s;
+  }
+
+  .card-container .card:hover .content{
+    top: 100px;
+    height: 150px;
+  }
+
+  .card-container .card .content .head9832{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: blueviolet;
+  }
+
+  .card-container .card .content .p1{
+    color: #333;
+    font-size: 1.05rem;
+
+  }
+
+  :root {
+    --red: #fb00ff;
+}
+  .button12{
+    padding: 2rem 9%;
+}
+
+.button12{
+    
+    display: inline-block;
+    padding: .6rem .2rem;
+    border: .2rem solid var(--red);
+    color: var(--red);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    margin-top: 1rem;
+    text-decoration: none;
+}
+.button12::before{
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--red);
+  transition: .3s linear;
+  z-index: -1;
+}
+
+.button12:hover::before{
+   width: 100%;
+   left: 0;
+}
+
+.button12:hover{
+    color:#fff;
+}
+
+
+@media screen and(maxwidth:750px){
+    .card-container{
+        display: flex;
+        
+    }
+}
