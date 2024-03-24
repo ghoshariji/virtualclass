@@ -97,6 +97,72 @@ const LoginForm = () => {
         <div className='input-box'>
           <input type="text" placeholder='Username' name='username' />
           <FaUser className='icon'/>
+    <div style={styles.body}>
+      <style>
+        {`
+          @keyframes fadeIn {
+              from {
+                  opacity: 0;
+                  transform: translateY(-20px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+          }
+        `}
+      </style>
+      <ToastContainer />
+      <Navbar />
+        <div style={styles.loginContainer}>
+          <h2 style={styles.loginContainerH2}>Login</h2>
+          <form style={styles.loginForm} onSubmit={submitHandle}>
+            <div style={styles.formGroup}>
+              <label htmlFor="username" style={styles.formGroupLabel}>
+                Username:
+              </label>
+              <input
+                type="text"
+                id="username"
+                name="email"
+                required
+                style={styles.formGroupInput}
+                onChange={handleInput}
+
+              />
+            </div>
+            <div style={styles.formGroup}>
+              <label htmlFor="password" style={styles.formGroupLabel}>
+                Password:
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                style={styles.formGroupInput}
+                onChange={handleInput}
+              />
+            </div>
+            <div style={styles.formGroup}>
+              <button
+                style={styles.formGroupButton}
+                onMouseOver={(e) =>
+                  (e.target.style.backgroundColor =
+                    styles.formGroupButtonHover.backgroundColor)
+                }
+                onMouseOut={(e) =>
+                  (e.target.style.backgroundColor =
+                    styles.formGroupButton.backgroundColor)
+                }
+                disabled={loading}
+              >
+              {loading ? "Logging in..." : "Login"}
+              </button>
+              <button onClick={()=>navigate("/enteremail")}>Forgot password ? Go to</button>
+            </div>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+          </form>
         </div>
         
         

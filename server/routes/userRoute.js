@@ -3,6 +3,7 @@ const userModel = require("../model/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const middleware = require("../middleware/authMiddleware")
+const fs = require("fs").promises;
 // installing bcrypt and jwt
 
 //   creating the user route registration
@@ -100,4 +101,52 @@ router.get("/get-user-info", middleware,async (req, res) => {
   }
 });
 
+router.get("/get-module",async(req,res)=>{
+  try {
+    const dataVal = await fs.readFile("./modulejs/module.json","utf-8");
+    const data = dataVal ? JSON.parse(dataVal) : [];
+    res.status(200).send({
+      message:"Data send succesfully",
+      success:true,
+      data:data
+    })
+  } catch (error) {
+    res.status(500).send({
+      message:error.message,
+      success:false
+    })
+  }
+})
+router.get("/get-ques-list",async(req,res)=>{
+  try {
+    const subname = req.query.subname;
+  const dataVal = await fs.readFile("./modulejs/insmodule.json","utf-8");
+  const data = dataVal ? JSON.parse(dataVal) : [];
+  let resArray = []
+  for(let i=0;i<data.length;i++)
+  {
+    const subJectArray =  data[i].allSubject;
+    for(let i=0;i<subJectArray.length;i++)
+    {
+      if(subJectArray[i].subjectname===subname)
+      {
+        const resData = subJectArray[i].Examname
+        res.send({
+          message:"Data send succesfully",
+          success:true,
+          data:resData
+        })
+        return;
+      }
+    }
+  }
+res.status(500).send({
+  message:"No Exam yet now",
+  success:false
+})
+  } catch (error) {
+    console.log("Error from getting exam list" + error)
+  }
+  
+})
 module.exports = router;
