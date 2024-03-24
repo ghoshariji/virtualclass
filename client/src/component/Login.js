@@ -175,7 +175,8 @@ const Login = () => {
           }
         `}
       </style>
-   
+      <ToastContainer />
+      <Navbar />
         <div style={styles.loginContainer}>
           <h2 style={styles.loginContainerH2}>Login</h2>
           <form style={styles.loginForm} onSubmit={submitHandle}>
@@ -221,6 +222,7 @@ const Login = () => {
               >
               {loading ? "Logging in..." : "Login"}
               </button>
+              <button onClick={()=>navigate("/enteremail")}>Forgot password ? Go to</button>
             </div>
             {error && <p style={{ color: "red" }}>{error}</p>}
           </form>

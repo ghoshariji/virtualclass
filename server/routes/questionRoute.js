@@ -4,10 +4,19 @@ const fs = require("fs").promises;
 
 router.post("/one", async (req, res) => {
   try {
-    const dataVal = await fs.readFile("./examjson/one.json", "utf-8");
-    const data = dataVal ? JSON.parse(dataVal) : [];
-    data.push(req.body);
-    await fs.writeFile("./examjson/one.json", JSON.stringify(data));
+    const queryParams = req.query.examname;
+    const originData = await fs.readFile("./examjson/one.json", "utf-8");
+    const dataMain = originData ? JSON.parse(originData) : [];
+    const categoryIndex = dataMain.findIndex(category => category.examname === queryParams);
+    if (categoryIndex !== -1) {
+      const existingQuestionSet = dataMain[categoryIndex].questionSet || [];
+      existingQuestionSet.push(req.body);
+      // dataMain[categoryIndex].questionSet = existingQuestionSet;
+    } else {
+      dataMain.push({ examname: queryParams, questionSet: [req.body] });
+    }
+    await fs.writeFile("./examjson/one.json", JSON.stringify(dataMain));
+    res.status(200).json({ success: true, message: "Data successfully added." });
   } catch (error) {
     console.log("Error" + error);
   }

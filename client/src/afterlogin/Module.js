@@ -23,8 +23,8 @@ const Module = () => {
         config
       );
       // navigate(`/giveexam?ques=${JSON.stringify(data)}`);
-      navigate("/giveexam", { state: { ques: data.data } });
-      console.log(data);
+      navigate(`/giveexam?queslist=${JSON.stringify(data.data)}`);
+      console.log(data.data);
     } catch (error) {
       console.log(error);
     }
