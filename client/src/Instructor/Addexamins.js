@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import Afternavabr from "../afterlogin/Afternavabr";
-
+import Finalnavbar from "../navbar/Finalnavbar";
+import img from "../image/first.jpg"
 
 const Addexamins = () => {
   const quesParam = new URLSearchParams(document.location.search);
   const examName = quesParam.get("name");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [exam, setExam] = useState([]);
   const id = quesParam.get("id");
   const [post, setPost] = useState({
@@ -57,37 +58,81 @@ const Addexamins = () => {
     fetchData();
   }, []);
   return (
-    <div>
-        <Afternavabr />
-        <div className="container-exam-list">
-            {
-                exam.map((val,ind)=>{
-                    return <div key={ind}>
-                        <p>{val.examname}</p>
-                        <p>{val.time}</p>
-                        <button onClick={()=>navigate(`/addquesins?examname=${val.examname}&id=${id}&subname=${examName}`)}>Add Question</button>
-                    </div>
-                })
-            }
+    <>
+      <Finalnavbar />
+      <div style={{ marginTop: "10rem" }}>
+        <div
+          className="container-home-ins"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginLeft: "auto",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {exam.map((val, ind) => {
+            return (
+              <div class="card-container" key={ind}>
+                <div
+                  class="card"
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div class="imgBx">
+                    <img className="img9832" src={img} alt="" />
+                  </div>
+                  <div class="content">
+                    <h2 className="head9832">
+                      {" "}
+                      <i> Exam Name : {val.examname}</i>
+                    </h2>
+                    <p
+                      className="p1"
+                      style={{ fontSize: "11px", color: "red" }}
+                    >
+                      Time : {val.time}
+                    </p>
+                    <button
+                      onClick={() =>
+                        navigate(
+                          `/addquesins?examname=${val.examname}&id=${id}&subname=${examName}`
+                        )
+                      }
+                    >
+                      Add Question
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
-      <div className="container-ins-exam">
-        <form action="" onSubmit={formSubmit}>
-          <input
-            type="text"
-            name="examname"
-            placeholder="Enter the exam name"
-            onChange={handleInput}
-          />
-          <input
-            type="text"
-            name="time"
-            placeholder="Enter duration"
-            onChange={handleInput}
-          />
-          <button type="submit">Add exam</button>
-        </form>
+
+        <div className="container-ins-exam">
+          <form action="" onSubmit={formSubmit}>
+            <input
+              type="text"
+              name="examname"
+              placeholder="Enter the exam name"
+              onChange={handleInput}
+            />
+            <input
+              type="text"
+              name="time"
+              placeholder="Enter duration"
+              onChange={handleInput}
+            />
+            <button type="submit">Add exam</button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

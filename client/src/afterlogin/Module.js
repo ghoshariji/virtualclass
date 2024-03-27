@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Foot from "../footer/Foot";
 import axios from "axios";
 import Afternavabr from "./Afternavabr";
+import Finalnavbar from "../navbar/Finalnavbar";
 
 const Module = () => {
   const location = useLocation();
@@ -32,7 +33,8 @@ const Module = () => {
 
   return (
     <>
-      <Afternavabr />
+    <div style={{marginTop:"10rem", background:"linear-gradient(45deg, #00bcd4, #ffeb3b)"}}>
+      <Finalnavbar />
       <h1>Welcome class {classValue} student !</h1>
       <div className="module-container">
         <div
@@ -50,6 +52,7 @@ const Module = () => {
         <div className="module-box container-third" onClick={moduleHandle}>
           Go to Exam
         </div>
+      </div>
       </div>
     </>
   );

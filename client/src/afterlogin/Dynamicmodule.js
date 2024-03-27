@@ -5,6 +5,7 @@ import Afternavabr from "./Afternavabr";
 import "../customcss/Card.css"
 
  import img from "../image/first.jpg"
+import Finalnavbar from "../navbar/Finalnavbar";
 
 const Dynamicmodule = () => {
   const [data, setData] = useState([]);
@@ -36,7 +37,8 @@ const Dynamicmodule = () => {
 
   return (
     <>
-    <Afternavabr /> 
+    <div style={{marginTop:"10rem", background:"linear-gradient(45deg, #00bcd4, #ffeb3b)"}}>
+    <Finalnavbar /> 
     <h1>Hello {className}</h1>
     <div className="body-main-card">
      
@@ -69,6 +71,7 @@ const Dynamicmodule = () => {
       })}
 
       
+    </div>
     </div>
     </>
   );

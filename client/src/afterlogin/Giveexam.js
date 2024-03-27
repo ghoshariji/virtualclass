@@ -105,6 +105,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Afternavabr from "./Afternavabr";
+import Finalnavbar from "../navbar/Finalnavbar";
 
 const Giveexam = () => {
   const params = new URLSearchParams(document.location.search);
@@ -120,7 +121,7 @@ const Giveexam = () => {
 
   return (
     <div>
-      <Afternavabr />
+      <Finalnavbar />
       {data.map((exam, examIndex) => (
         <div key={examIndex}>
           <p> Exam Name : {exam.examname}</p>

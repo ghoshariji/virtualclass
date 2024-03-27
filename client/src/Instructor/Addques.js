@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Afternavabr from '../afterlogin/Afternavabr'
 import axios from "axios"
+import Finalnavbar from '../navbar/Finalnavbar'
 const Addques = () => {
     const queParams = new URLSearchParams(document.location.search)
     const examname = queParams.get("examname")
@@ -35,9 +36,10 @@ const Addques = () => {
     }
   return (
     <div>
-        <Afternavabr />
+        <Finalnavbar />
+      
+      <div className="container-ins" style={{marginTop:"10rem"}}>
       <h1>Add question here</h1>
-      <div className="container-ins">
         <form action="" onSubmit={submitForm}>
             <input type="text" name='question' placeholder='Enter question' onChange={handleInput} />
             <input type="text" name='optionA' placeholder='optionA' onChange={handleInput} />

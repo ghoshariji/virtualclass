@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import '../customcss/contact.css';
-import img from './online.png';
-import Foot from '../footer/Foot';
-import axios from "axios"
+import React, { useState } from "react";
+import "../customcss/contact.css";
+import img from "./online.png";
+import Foot from "../footer/Foot";
+import axios from "axios";
+import Finalnavbar from "../navbar/Finalnavbar";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -10,11 +11,6 @@ const ContactPage = () => {
     phone: "",
     address: "",
   });
-
-
-
-
-
 
   const handleInputChange = (event) => {
     setFormData({
@@ -27,102 +23,27 @@ const ContactPage = () => {
     event.preventDefault();
     // Implement your form submission logic here
     const config = {
-      headers:{
-        "Content-type":"application/json"
-      }
-    }
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
     try {
-      const response = await axios.post("http://localhost:7000/api/contact",
+      const response = await axios.post(
+        "http://localhost:7000/api/contact",
         formData,
         config
-      )
+      );
     } catch (error) {
-      console.log("error from the contact page" +
-       error);
+      console.log("error from the contact page" + error);
     }
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
   return (
     <div>
+      <Finalnavbar />
 
-    {/** Navbar here */}
-
-
-      {/*<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#"></a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" style={{backgroundColor:"black"}}></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link" href="/">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/about">
-                  About
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/login">
-                  Login
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/signup">
-                  Signup
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-  </nav>*/}
-
-
-
-
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ backgroundColor: '#2c3e50' }}>
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">eLearn</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon" style={{backgroundColor:"black"}}></span>
-        </button>
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link" href="/">Home</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/about">About</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/login">Login</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/signup">Signup</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-
-
-      {/**Main Container and form also */}
-
-      <div className="container">
+      <div className="container" style={{marginTop:"10rem"}}>
         <div className="row py-5 g-3">
           <div className="col-md-6 order-md-2">
             <img src={img} alt="Online Class" className="img-fluid" />
@@ -190,61 +111,63 @@ const ContactPage = () => {
             </form>
           </div>
         </div>
-
-
       </div>
 
-
- 
-              {/*  ADDRESS  HERE  */}
-
+      {/*  ADDRESS  HERE  */}
 
       <div className="last_row">
-      <div className="row row-cols-1 row-cols-md-3 p-3 text-white">
-        <div className="col mb-3">
-          <h4><i class="fa-solid fa-location-dot"></i> ADDRESS</h4>
-          <p> <a href='https://www.google.co.in/maps/place/CHITKARA+UNIVERSITY,+BADDI/@30.873125,76.8589281,15z/data=!4m6!3m5!1s0x390ff55d9e0ed113:0x34a6cadf9a13d341!8m2!3d30.8773385!4d76.8723344!16s%2Fg%2F11f32916m1?entry=ttu'>Kalujhanda, Baddi, Solan, 174103, Himachal Pradesh</a></p>
-        </div>
+        <div className="row row-cols-1 row-cols-md-3 p-3 text-white">
+          <div className="col mb-3">
+            <h4>
+              <i class="fa-solid fa-location-dot"></i> ADDRESS
+            </h4>
+            <p>
+              {" "}
+              <a href="https://www.google.co.in/maps/place/CHITKARA+UNIVERSITY,+BADDI/@30.873125,76.8589281,15z/data=!4m6!3m5!1s0x390ff55d9e0ed113:0x34a6cadf9a13d341!8m2!3d30.8773385!4d76.8723344!16s%2Fg%2F11f32916m1?entry=ttu">
+                Kalujhanda, Baddi, Solan, 174103, Himachal Pradesh
+              </a>
+            </p>
+          </div>
 
-        <div className="col mb-3">
-          <h4><i class="fa-solid fa-phone-volume"></i> CALL US</h4>
-          <p> <a href=''>+91-9073587432 /+91-9073345862 /+91-9073099301</a></p>
-        </div>
+          <div className="col mb-3">
+            <h4>
+              <i class="fa-solid fa-phone-volume"></i> CALL US
+            </h4>
+            <p>
+              {" "}
+              <a href="">+91-9073587432 /+91-9073345862 /+91-9073099301</a>
+            </p>
+          </div>
 
-        <div className="col mb-3">
-          <h4><i class="fa-solid fa-envelope"></i> Email</h4>
-          <p><a href='https://mail.google.com/mail/u/0/#inbox'>niladri1249.be22@chitkarauniversity.edu.in</a></p>
+          <div className="col mb-3">
+            <h4>
+              <i class="fa-solid fa-envelope"></i> Email
+            </h4>
+            <p>
+              <a href="https://mail.google.com/mail/u/0/#inbox">
+                niladri1249.be22@chitkarauniversity.edu.in
+              </a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-
-
-
-
-
-
-         {/*GOOGLE MAP HERE */}
-
+      {/*GOOGLE MAP HERE */}
 
       <div className="map-container" id="'map'">
         <iframe
           width="100%"
           height="400"
           frameBorder="0"
-          style={{ border: '0' }}
+          style={{ border: "0" }}
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3488.726547647258!2d76.32397991460334!3d30.833805381608487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3904f9d8c505989b%3A0x6998cd5299b4e8fc!2sChitkara%20University%2C%20Himachal%20Pradesh!5e0!3m2!1sen!2sin!4v1676327465915!5m2!1sen!2sin"
           allowFullScreen=""
           loading="lazy"
         ></iframe>
       </div>
 
-
-     
-           {/*FOOTER HERE */}
-   <Foot />
-
-       
+      {/*FOOTER HERE */}
+      <Foot />
     </div>
   );
 };

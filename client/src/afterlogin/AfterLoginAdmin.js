@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Afternavabr from "./Afternavabr";
 import axios from "axios";
+import Finalnavbar from "../navbar/Finalnavbar";
 
 const AfterLoginAdmin = () => {
   const [data, setData] = useState([]);
@@ -67,59 +68,33 @@ const AfterLoginAdmin = () => {
     fetchdata();
   }, []);
   return (
-    <div>
-      <Afternavabr />
+    <>
+    <Finalnavbar />
+    <div style={{marginTop:"10rem"}}>
+     
       <div className="container-admin">
-        <h1>Hello from admin {params.get("name")}</h1>
-        <h3>Below the Classes for put the question and study module</h3>
-        <div className="button-admin-first">
-          <button onClick={() => navigate(`/addexam?class=${classone}`)}>
-            Class One
-          </button>
-          <button onClick={() => navigate(`/addexam?class=${classtwo}`)}>
-            Class Two
-          </button>
-          <button onClick={() => navigate(`/setquestion?class=${classthree}`)}>
-            Class Three
-          </button>
-          <button onClick={() => navigate(`/setquestion?class=${classfour}`)}>
-            Class Four
-          </button>
-          <button onClick={() => navigate(`/setquestion?class=${classfive}`)}>
-            Class Five
-          </button>
-          <button onClick={() => navigate(`/setquestion?class=${classsix}`)}>
-            Class Six
-          </button>
-          <button onClick={() => navigate(`/setquestion?class=${classseven}`)}>
-            Class Seven
-          </button>
-          <button onClick={() => navigate(`/setquestion?class=${classeight}`)}>
-            Class Eight
-          </button>
-          <button onClick={() => navigate(`/setquestion?class=${classnine}`)}>
-            Class Nine
-          </button>
-          <button onClick={() => navigate(`/setquestion?class=${classten}`)}>
-            Class Ten
-          </button>
-        </div>
+        <h1 style={{fontSize:"2rem"}}>Hello admin : {params.get("name")}</h1>
+        <h2 style={{fontWeight:'900'}}>Below all the List Who have applied for the Become a Instructor</h2>
         {data.map((val, ind) => {
           return (
-            <div key={ind}>
-              <p>{val.email}</p>
-              <p> isInstructor : {JSON.stringify(val.isInstructor)}</p>
-              <button onClick={() => makeIns(val.email)}>
+            <div key={ind} style={{display:"flex",justifyContent:'center',flexDirection:'column',alignItems:'center',padding:'1rem'}}>
+              
+              <p style={{fontSize:"2rem"}}>{val.email}</p>
+              <p style={{fontSize:"2rem"}}> isInstructor : {JSON.stringify(val.isInstructor)}</p>
+              <div style={{alignItems:'center'}}>
+              <button onClick={() => makeIns(val.email)} style={{display:'grid',gap:'2px',fontSize:'15px'}}>
                 Make instructor
               </button>
-              <button onClick={() => removIns(val.email)}>
+              <button onClick={() => removIns(val.email)} style={{display:'grid',gap:'2px',fontSize:'15px'}}>
                 Remove instructor
               </button>
+              </div>
             </div>
           );
         })}
       </div>
     </div>
+    </>
   );
 };
 

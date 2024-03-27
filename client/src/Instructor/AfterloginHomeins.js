@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Afternavabr from "../afterlogin/Afternavabr";
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
+import Finalnavbar from "../navbar/Finalnavbar";
+import img from "../image/first.jpg"
 const AfterloginHomeins = () => {
   const queParams = new URLSearchParams(document.location.search);
   const [allsub,setAllsub] = useState([])
@@ -56,22 +58,56 @@ const AfterloginHomeins = () => {
     fetchData();
   }, []);
   return (
-    <div>
-      <Afternavabr />
+    <>
+    <Finalnavbar />
+    <div style={{marginTop:"10rem"}}>
+    
 
-      <h5>Hello {nameIns}</h5>
-      <div className="container-admin-class">
-        {
-          allsub.map((val,ind)=>{
-            return <div key={ind}>
-              <p>{val.subjectname}</p>
-              <p>{val.about}</p>
-              <button onClick={()=>navigate(`/addexamins?name=${val.subjectname}&id=${userId}`)}>Change Module</button>
-              <br/>
+
+      <h5 style={{display:"flex",justifyContent:"center",alignItems:'center',fontSize:"3rem"}}>Hello Instructor : {nameIns}</h5>
+
+      <div
+        className="container-home-ins"
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          marginLeft: "auto",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {allsub.map((val, ind) => {
+          return (
+            <div class="card-container" key={ind}>
+              <div
+                class="card"
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div class="imgBx">
+                  <img className="img9832" src={img} alt="" />
+                </div>
+                <div class="content">
+                  <h2 className="head9832">
+                    {" "}
+                    <i> Subject Name : {val.subjectname}</i>
+                  </h2>
+                  <p className="p1" style={{ fontSize: "11px", color: "red" }}>
+                    About : {val.about}
+                  </p>
+                  <button onClick={()=>navigate(`/addexamins?name=${val.subjectname}&id=${userId}`)}>Change Module</button>
+                </div>
+              </div>
             </div>
-          })
-        }
+          );
+        })}
       </div>
+
       <div
         className="container-inshome"
         style={{ display: "flex", justifyContent: "center" }}
@@ -93,6 +129,7 @@ const AfterloginHomeins = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

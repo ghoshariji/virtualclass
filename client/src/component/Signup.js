@@ -3,6 +3,7 @@ import axios from "axios";
 import Navbar from "../navbar/Navbar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Finalnavbar from "../navbar/Finalnavbar";
 
 const Signup = () => {
   const [post, setPost] = useState({
@@ -43,9 +44,9 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup-container">
+    <div className="signup-container" style={{marginTop:"10rem"}}>
           <ToastContainer />
-      <Navbar />
+      <Finalnavbar />
       <div className="container-lg">
         <form onSubmit={submitHandle} className="signup-form">
           <div className="mb-3">

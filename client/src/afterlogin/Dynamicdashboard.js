@@ -1,6 +1,7 @@
 import React from "react";
 import Afternavabr from "./Afternavabr";
 import { useNavigate } from "react-router-dom";
+import Finalnavbar from "../navbar/Finalnavbar";
 
 const Dynamicdashboard = () => {
   const queParams = new URLSearchParams(document.location.search);
@@ -10,8 +11,8 @@ const Dynamicdashboard = () => {
 
   };
   return (
-    <div>
-      <Afternavabr />
+    <div style={{marginTop:"10rem", background:"linear-gradient(45deg, #00bcd4, #ffeb3b)"}}>
+      <Finalnavbar />
       <h1>Hello student</h1>
       <div className="module-container">
         <div

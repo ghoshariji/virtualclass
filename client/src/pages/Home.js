@@ -86,7 +86,7 @@ const Home = () => {
     <>
 
   <header>
-    <a href="" class="logo"><i class="fa-solid fa-chalkboard-user"></i>e-Learning</a>
+    <a href="" class="logo" ><i class="fa-solid fa-chalkboard-user"></i>e-Learning</a>
      <div id="menu-bar" class="fas fa-bars"></div>
      <nav class="navbar">
        <a href="/home">Home</a>

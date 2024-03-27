@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Afternavabr from "./Afternavabr";
 import { useNavigate } from "react-router-dom";
+import Finalnavbar from "../navbar/Finalnavbar";
 
 const Addexam = () => {
   const params = new URLSearchParams(document.location.search);
@@ -101,7 +102,7 @@ const Addexam = () => {
   
   return (
     <div>
-      <Afternavabr />
+    <Finalnavbar />
       <h3>Set up question or module for {className}</h3>
       <h2>All exam List</h2>
       {

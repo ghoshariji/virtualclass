@@ -3,6 +3,8 @@ import Afternavabr from "../afterlogin/Afternavabr";
 import Navbar from "../navbar/Navbar";
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
+import Finalnavbar from "../navbar/Finalnavbar";
+import img from "../image/first.jpg"
 
 const Instructorhome = () => {
   const navigate = useNavigate();
@@ -82,9 +84,10 @@ const Instructorhome = () => {
   };
   return (
     <div>
-      <Navbar />
+      <Finalnavbar />
+      
+      <div className="container-instructor" style={{marginTop:"10rem"}}>
       <h3>Send your Details</h3>
-      <div className="container-instructor">
         <form action="" onSubmit={submitForm}>
           <input
             type="text"
