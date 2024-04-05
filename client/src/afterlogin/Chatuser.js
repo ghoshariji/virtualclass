@@ -16,7 +16,7 @@ const Chatuser = () => {
             },
           };
           const response = await axios.post(
-            "http://localhost:7000/api/chat/save-chat-user",
+            "https://virtualclass-yz7w.onrender.com/api/chat/save-chat-user",
             { mesg, id1,name },
             config
           );
@@ -29,7 +29,7 @@ const Chatuser = () => {
       const getChat = async (id) => {
         try {
           const response = await axios.post(
-            "http://localhost:7000/api/chat/get-chat-user",{id}
+            "https://virtualclass-yz7w.onrender.com/api/chat/get-chat-user",{id}
           );
           setData(response.data.data)
           console.log(response.data)
