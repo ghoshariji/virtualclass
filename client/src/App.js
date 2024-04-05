@@ -33,9 +33,9 @@ import Enteremail from './afterlogin/Enteremail';
 function App() {
   return (
   <Routes>
-    <Route path="/" element={<Home/>}/>
+    <Route path="/" element={<Login/>}  exact/>
+    <Route path="/home" element={<Home/>}/>
     <Route path="/contact" element={<Contact/>} />
-    <Route path="/login" element={<Login/>}  exact/>
     <Route path="/signup" element={<Signup/>} />
     <Route path="/afterlogin" element={<Afterloginhome/>} />
     <Route path="/module" element={<Module/>} />
