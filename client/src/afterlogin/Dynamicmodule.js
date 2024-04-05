@@ -20,7 +20,7 @@ const Dynamicmodule = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:7000/api/module/${className}`,
+          `https://virtualclass-yz7w.onrender.com/api/module/${className}`,
           config
         );
         const data = response.data;

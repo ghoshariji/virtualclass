@@ -28,7 +28,7 @@ const Addexamins = () => {
     };
     try {
       const response = await axios.post(
-        `http://localhost:7000/api/instructor/addexam-ins?examName=${examName}&id=${id}`,
+        `https://virtualclass-yz7w.onrender.com/api/instructor/addexam-ins?examName=${examName}&id=${id}`,
         post,
         config
       );
@@ -46,7 +46,7 @@ const Addexamins = () => {
       };
       try {
         const response = await axios.get(
-          `http://localhost:7000/api/instructor/get-exam-instructor?id=${id}&examName=${examName}`,
+          `https://virtualclass-yz7w.onrender.com/api/instructor/get-exam-instructor?id=${id}&examName=${examName}`,
           config
         );
         setExam(response.data.data);

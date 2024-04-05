@@ -18,7 +18,7 @@ const Adminmesg = () => {
         },
       };
       const response = await axios.post(
-        "http://localhost:7000/api/chat/save-chat-admin",
+        "https://virtualclass-yz7w.onrender.com/api/chat/save-chat-admin",
         { message, id },
         config
       );
@@ -31,7 +31,7 @@ const Adminmesg = () => {
   const getChat = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:7000/api/chat/get-chat-admin/?id=${id}`
+        `https://virtualclass-yz7w.onrender.com/api/chat/get-chat-admin/?id=${id}`
       );
       setData(response.data.chat);
       console.log(response.data.data);

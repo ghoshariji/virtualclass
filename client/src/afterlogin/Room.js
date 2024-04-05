@@ -20,7 +20,7 @@ const Room = () => {
       sharedLinks: [
         {
           name: "Copy Link",
-          url: `http://localhost:3000/joinroom/${roomID}`,
+          url: `https://virtualclass-yz7w.onrender.com/joinroom/${roomID}`,
         },
       ],
       scenario: {

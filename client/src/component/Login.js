@@ -30,7 +30,7 @@ const LoginForm = () => {
       };
 
       const { data } = await axios.post(
-        "http://localhost:7000/api/user/login",
+        "https://virtualclass-yz7w.onrender.com/api/user/login",
         post,
         config
       );
@@ -45,7 +45,7 @@ const LoginForm = () => {
         const userId = data.userId;
 
         const response = await axios.get(
-          `http://localhost:7000/api/user/get-user-info?userId=${userId}`,
+          `https://virtualclass-yz7w.onrender.com/api/user/get-user-info?userId=${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

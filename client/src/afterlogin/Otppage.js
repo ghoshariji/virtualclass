@@ -25,7 +25,7 @@ const Otppage = () => {
     try {
       console.log(email);
       const response = await axios.get(
-        `http://localhost:7000/api/admin/generate-otp?email=${email}`
+        `https://virtualclass-yz7w.onrender.com/api/admin/generate-otp?email=${email}`
       );
       setData(response.data);
     } catch (error) {

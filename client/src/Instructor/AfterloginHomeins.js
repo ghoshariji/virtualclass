@@ -28,7 +28,7 @@ const AfterloginHomeins = () => {
     };
     try {
       const response = await axios.post(
-        `http://localhost:7000/api/instructor/addclass?id=${userId}`,
+        `https://virtualclass-yz7w.onrender.com/api/instructor/addclass?id=${userId}`,
         post,
         config
       );
@@ -46,7 +46,7 @@ const AfterloginHomeins = () => {
       };
       try {
         const response = await axios.get(
-          `http://localhost:7000/api/instructor/get-class-admin?userId=${userId}`,
+          `https://virtualclass-yz7w.onrender.com0/api/instructor/get-class-admin?userId=${userId}`,
           config
         );
         console.log(response.data.data);

@@ -29,7 +29,7 @@ const ContactPage = () => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:7000/api/contact",
+        "https://virtualclass-yz7w.onrender.com/api/contact",
         formData,
         config
       );

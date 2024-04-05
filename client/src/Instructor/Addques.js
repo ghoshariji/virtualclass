@@ -23,7 +23,7 @@ const Addques = () => {
             }
         }
         try {
-           const response = await axios.post(`http://localhost:7000/api/instructor/add-ques-ins?examname=${examname}&id=${id}&subname=${subname}`,
+           const response = await axios.post(`https://virtualclass-yz7w.onrender.com/api/instructor/add-ques-ins?examname=${examname}&id=${id}&subname=${subname}`,
            post,
            config) 
            alert("Question added")

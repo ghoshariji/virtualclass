@@ -32,7 +32,7 @@ const Addexam = () => {
     };
     try {
       const response  = await axios.post(
-        "http://localhost:7000/api/exam/addexam",
+        "https://virtualclass-yz7w.onrender.com/api/exam/addexam",
         post,
         config
       );
@@ -56,7 +56,7 @@ const Addexam = () => {
         "Content-type": "application/json",
       };
       const { data } = await axios.post(
-        `http://localhost:7000/api/module/${className}`,
+        `https://virtualclass-yz7w.onrender.com/api/module/${className}`,
         module,
         config
       );
@@ -74,7 +74,7 @@ const Addexam = () => {
   };
   const deletExam = async(examName) =>{
     try {
-      const response = axios.delete(`http://localhost:7000/api/deleteexam/${className}?examname=${examName}`)
+      const response = axios.delete(`https://virtualclass-yz7w.onrender.com/api/deleteexam/${className}?examname=${examName}`)
       alert("Exam deleted")
     } catch (error) {
       console.log("Error from delete exam" + error
@@ -89,7 +89,7 @@ const Addexam = () => {
             "Content-type": "application/json",
           },
         };
-        const { data } = await axios.get("http://localhost:7000/api/exam/getexam", config);
+        const { data } = await axios.get("https://virtualclass-yz7w.onrender.com/api/exam/getexam", config);
         setprevExam(data.data); // Use data.data directly
         console.log(data.data);
       } catch (error) {

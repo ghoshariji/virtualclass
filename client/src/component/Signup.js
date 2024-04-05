@@ -27,7 +27,7 @@ const Signup = () => {
       };
       console.log(post);
       const { data } = await axios.post(
-        "http://localhost:7000/api/user/signup",
+        "https://virtualclass-yz7w.onrender.com/api/user/signup",
         post,
         config
       );

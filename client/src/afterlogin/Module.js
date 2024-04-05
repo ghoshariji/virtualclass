@@ -20,7 +20,7 @@ const Module = () => {
       };
 
       const { data } = await axios.get(
-        `http://localhost:7000/api/getquestion/${classValue}`,
+        `https://virtualclass-yz7w.onrender.com/api/getquestion/${classValue}`,
         config
       );
       // navigate(`/giveexam?ques=${JSON.stringify(data)}`);

@@ -45,7 +45,7 @@ const Afterloginhome = () => {
       };
       try {
         const response = await axios.get(
-          "http://localhost:7000/api/user/get-module",
+          "https://virtualclass-yz7w.onrender.com/api/user/get-module",
           config
         );
         console.log(response.data.data);

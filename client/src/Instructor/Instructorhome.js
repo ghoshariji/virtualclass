@@ -32,7 +32,7 @@ const Instructorhome = () => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:7000/api/instructor/signup",
+        "https://virtualclass-yz7w.onrender.com/api/instructor/signup",
         post,
         config
       );
@@ -50,7 +50,7 @@ const Instructorhome = () => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:7000/api/instructor/login",
+        "https://virtualclass-yz7w.onrender.com/api/instructor/login",
         loginData,
         config
       );
@@ -62,7 +62,7 @@ const Instructorhome = () => {
         const token = response.data.token;
 
         const resData = await axios.get(
-          `http://localhost:7000/api/instructor/get-ins-info?insId=${insID}`,
+          `https://virtualclass-yz7w.onrender.com/api/instructor/get-ins-info?insId=${insID}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

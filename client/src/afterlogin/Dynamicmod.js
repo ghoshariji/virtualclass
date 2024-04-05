@@ -18,7 +18,7 @@ const Dynamicmod = () => {
       };
       try {
         const response = await axios.get(
-          `http://localhost:7000/api/instructor/get-ques-user?subname=${className}`,
+          `https://virtualclass-yz7w.onrender.com/api/instructor/get-ques-user?subname=${className}`,
           config
         );
         setSubjects(response.data.data);

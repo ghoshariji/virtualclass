@@ -12,7 +12,7 @@ const Adminchat = () => {
   const getAllChat = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:7000/api/chat/get-allchat-admin"
+        "https://virtualclass-yz7w.onrender.com/api/chat/get-allchat-admin"
       );
       setData(response.data.data);
       console.log(response.data);

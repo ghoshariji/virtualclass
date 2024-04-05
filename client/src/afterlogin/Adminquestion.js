@@ -35,7 +35,7 @@ const Adminquestion = () => {
       };
 
       const { data } = await axios.post(
-        `http://localhost:7000/api/setquestion/${className}?examname=${examname}`,
+        `https://virtualclass-yz7w.onrender.com/api/setquestion/${className}?examname=${examname}`,
         question,
         config
       );
@@ -62,7 +62,7 @@ const Adminquestion = () => {
         "Content-type": "application/json",
       };
       const { data } = await axios.post(
-        `http://localhost:7000/api/module/${className}`,
+        `https://virtualclass-yz7w.onrender.com/api/module/${className}`,
         module,
         config
       );

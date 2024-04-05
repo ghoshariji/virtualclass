@@ -17,7 +17,7 @@ const Dynamicexamdash = () => {
             }
         }
         try {
-            const response = await axios.get(`http://localhost:7000/api/user/get-ques-list?subname=${subname}`)
+            const response = await axios.get(`https://virtualclass-yz7w.onrender.com/api/user/get-ques-list?subname=${subname}`)
             console.log(response.data.data)
             setExamlist(response.data.data)
         } catch (error) {

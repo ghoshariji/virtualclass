@@ -26,7 +26,7 @@ const AfterLoginAdmin = () => {
     };
     try {
       const response = await axios.put(
-        `http://localhost:7000/api/admin/makeins/?email=${email}`
+        `https://virtualclass-yz7w.onrender.com/api/admin/makeins/?email=${email}`
       );
       alert("Done");
     } catch (error) {
@@ -41,7 +41,7 @@ const AfterLoginAdmin = () => {
     };
     try {
       const response = await axios.put(
-        `http://localhost:7000/api/admin/removins/?email=${email}`
+        `https://virtualclass-yz7w.onrender.com/api/admin/removins/?email=${email}`
       );
       alert("Done");
     } catch (error) {
@@ -57,7 +57,7 @@ const AfterLoginAdmin = () => {
       };
       try {
         const response = await axios.get(
-          "http://localhost:7000/api/admin/get-ins-details",
+          "https://virtualclass-yz7w.onrender.com/api/admin/get-ins-details",
           config
         );
         setData(response.data.data);
