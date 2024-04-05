@@ -1,22 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Afternavabr from "./Afternavabr";
 import axios from "axios";
-import Finalnavbar from "../navbar/Finalnavbar";
+import Navbar from "../navbar/Navbar";
+import Foot from "../footer/Foot";
 
 const AfterLoginAdmin = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
-  const classone = "one";
-  const classtwo = "two";
-  const classthree = "three";
-  const classfour = "four";
-  const classfive = "five";
-  const classsix = "six";
-  const classseven = "seven";
-  const classeight = "eight";
-  const classnine = "nine";
-  const classten = "ten";
   const params = new URLSearchParams(document.location.search);
   const makeIns = async (email) => {
     const config = {
@@ -69,7 +59,7 @@ const AfterLoginAdmin = () => {
   }, []);
   return (
     <>
-    <Finalnavbar />
+   <Navbar/>
     <div style={{marginTop:"10rem"}}>
      
       <div className="container-admin">
@@ -94,6 +84,7 @@ const AfterLoginAdmin = () => {
         })}
       </div>
     </div>
+    <Foot/>
     </>
   );
 };

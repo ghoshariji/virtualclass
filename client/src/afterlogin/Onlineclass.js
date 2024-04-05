@@ -1,21 +1,27 @@
-import React from 'react'
+import React, { useState } from "react";
 import Foot from "../footer/Foot";
-import Afternavabr from './Afternavabr';
-import Finalnavbar from '../navbar/Finalnavbar';
-
+import Afterloginusernav from "../navbar/Afterloginusernav";
+import { useNavigate } from "react-router-dom";
 const Onlineclass = () => {
+  const navigate = useNavigate()
+  const [value,setValue] = useState("")
+  const handleJoin = () =>{
+    navigate(`/join-room?value=${value}`)
+  }
   return (
     <>
-   
-    <div style={{marginTop:"10rem"}}>
-    <Finalnavbar />
-        
-      <h3>No online class yet right now</h3>
+      <div style={{ marginTop: "10rem" }}>
+        <Afterloginusernav />
 
-      <Foot/>
-    </div>
+        <div>
+          <input type="text" placeholder="Enter name" value={value} onChange={(e)=>setValue(e.target.value)}/>
+          <button type="submit" onClick={handleJoin}>Join</button>
+        </div>
+
+        <Foot />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Onlineclass
+export default Onlineclass;

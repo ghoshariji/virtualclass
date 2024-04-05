@@ -47,6 +47,7 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
+    console.log(req.body)
     const user = await userModel.findOne({ email: req.body.email });
     if (!user) {
       res.status(500).send({ message: "user don't exist" });
@@ -72,33 +73,32 @@ router.post("/login", async (req, res) => {
       message: "User login successfully",
       success: true,
       userId:user._id,
+      name:user.name,
       token:token,
-      success:true
+      success:true,
+      isAdmin: user.isAdmin,
     });
   } catch (error) {
     return res.status(500).send({ message: "Internal Server Error" });
   }
 });
 
-router.get("/get-user-info", middleware,async (req, res) => {
-  try {
-    const userId = req.query.userId; // Retrieve userId from query parameters
-    const user = await userModel.findById(userId);
-
-    res.status(200).send({
-      message: "User info fetch",
-      success: true,
-      data: user,
-      isAdmin: user.isAdmin,
-      name:user.name
-    });
-  } catch (error) {
-    console.log("Error from fetch user details: " + error);
-    res.status(500).send({
-      message: "Internal Server Error",
-      success: false,
-    });
-  }
+router.post("/get-user-info", middleware,async (req, res) => {
+    try {
+      const user = await userModel.findById(req.body.userId)
+      return res.status(200).send({
+        message:"Data send succesfully",
+        success:true,
+        data:user,
+        id:user._id,
+        name:user.name
+      })
+    } catch (error) {
+      return res.status(401).send({
+        message:error.message,
+        success:false
+      })
+    }
 });
 
 router.get("/get-module",async(req,res)=>{

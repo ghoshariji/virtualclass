@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Afternavabr from "./Afternavabr";
 import axios from "axios";
 import img from "../image/first.jpg";
-import Finalnavbar from "../navbar/Finalnavbar";
+import Foot from "../footer/Foot";
+import Afterloginusernav from "../navbar/Afterloginusernav";
 
 const Dynamicmod = () => {
   const [subjects, setSubjects] = useState([]);
@@ -32,7 +32,7 @@ const Dynamicmod = () => {
 
   return (
     <div style={{marginTop:"10rem", background:"linear-gradient(45deg, #00bcd4, #ffeb3b)"}}>
-      <Finalnavbar />
+     <Afterloginusernav/>
 
       <div
         className="container-home-ins"
@@ -75,6 +75,7 @@ const Dynamicmod = () => {
           );
         })}
       </div>
+      <Foot/>
     </div>
   );
 };

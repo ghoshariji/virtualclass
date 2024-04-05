@@ -5,18 +5,12 @@ import Signup from './component/Signup';
 import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import "./customcss/custom.css"
-
 import Contact from './pages/Contact';
 import Afterloginhome from './afterlogin/Afterloginhome';
-import Module from './afterlogin/Module';
-import Giveexam from './afterlogin/Giveexam';
 import Onlineclass from './afterlogin/Onlineclass';
 import AfterLoginAdmin from './afterlogin/AfterLoginAdmin';
 import Chat from './component/Chat';
-import Adminquestion from './afterlogin/Adminquestion';
 import Dynamicmodule from './afterlogin/Dynamicmodule';
-import Addexam from './afterlogin/Addexam';
-import Writeexam from './afterlogin/Writeexam';
 import Instructorhome from './Instructor/Instructorhome';
 import AfterloginHomeins from './Instructor/AfterloginHomeins';
 import Addexamins from './Instructor/Addexamins';
@@ -28,7 +22,10 @@ import Dynamicexamwrite from './afterlogin/Dynamicexamwrite';
 import Otppage from './afterlogin/Otppage';
 import Changepass from './afterlogin/Changepass';
 import Enteremail from './afterlogin/Enteremail';
-
+import Chatuser from './afterlogin/Chatuser';
+import Adminmesg from './afterlogin/Adminmesg';
+import Adminchat from './afterlogin/Adminchat';
+import Room from './afterlogin/Room';
 
 function App() {
   return (
@@ -38,15 +35,10 @@ function App() {
     <Route path="/contact" element={<Contact/>} />
     <Route path="/signup" element={<Signup/>} />
     <Route path="/afterlogin" element={<Afterloginhome/>} />
-    <Route path="/module" element={<Module/>} />
-    <Route path="/giveexam" element={<Giveexam/>} />
     <Route path="/onlineclass" element={<Onlineclass/>} />
     <Route path="/afteradmin" element={<AfterLoginAdmin/>} />
     <Route path="/chat" element={<Chat/>} />
-    <Route path="/setquestion" element={<Adminquestion/>} />
     <Route path="/gotomodule" element={<Dynamicmodule/>} />
-    <Route path="/addexam" element={<Addexam/>} />
-    <Route path="/writeexam" element={<Writeexam/>} />
     <Route path="/instructorhome" element={<Instructorhome/>} />
     <Route path="/afterloginins" element={<AfterloginHomeins/>} />
     <Route path="/addexamins" element={<Addexamins/>} />
@@ -58,6 +50,10 @@ function App() {
     <Route path="/otpverification" element={<Otppage/>} />
     <Route path="/changepass" element={<Changepass/>} />
     <Route path="/enteremail" element={<Enteremail/>} />
+    <Route path="/chat-with-admin" element={<Chatuser/>} />
+    <Route path="/chat-with-user-by-id" element={<Adminmesg/>} />
+    <Route path="/chat-with-user" element={<Adminchat/>} />
+    <Route path="/join-room" element={<Room/>} />
   </Routes>
 
   );

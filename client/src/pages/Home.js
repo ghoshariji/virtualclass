@@ -36,6 +36,7 @@ import img32 from "../image/review-4.webp"
 import img33 from "../image/Homepage4-logo.png"
 
 import '../customcss/home.css';
+import Afterloginusernav from "../navbar/Afterloginusernav";
 
 
 
@@ -85,22 +86,7 @@ const Home = () => {
   return (
     <>
 
-  <header>
-    <a href="" class="logo" ><i class="fa-solid fa-chalkboard-user"></i>e-Learning</a>
-     <div id="menu-bar" class="fas fa-bars"></div>
-     <nav class="navbar">
-       <a href="/home">Home</a>
-       <a href="/about">About</a>
-       <a href="/contact">Contact</a>
-       <a href="/signup">Singup</a>
-       <a href="/login">Login</a>
-       
-      </nav>
-  </header>
-
-
-
-
+<Afterloginusernav/>
 
 <section className="home" id="home">
 <div className="content">

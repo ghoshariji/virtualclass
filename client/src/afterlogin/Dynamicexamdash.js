@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Afternavabr from './Afternavabr';
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import img from "../image/first.jpg";
-import Finalnavbar from '../navbar/Finalnavbar';
+import Foot from '../footer/Foot';
+import Afterloginusernav from '../navbar/Afterloginusernav';
 const Dynamicexamdash = () => {
     const queParams = new URLSearchParams(document.location.search);
     const subname = queParams.get("class")
@@ -28,7 +28,8 @@ const Dynamicexamdash = () => {
         fetchData()
     },[])
   return (
-    <>  <Finalnavbar />
+    <>  
+    <Afterloginusernav/>
     <div style={{marginTop:"10rem", background:"linear-gradient(45deg, #00bcd4, #ffeb3b)"}}>
       
         <h1>All exam details</h1>
@@ -76,6 +77,7 @@ const Dynamicexamdash = () => {
       </div>
       
     </div>
+    <Foot/>
     </>
   )
 }

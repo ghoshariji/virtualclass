@@ -1,6 +1,8 @@
 import React,{useEffect} from "react";
 import '../customcss/home.css';
-const Finalnavbar = () => {
+import { useNavigate } from "react-router-dom";
+const Insnav = () => {
+    const navigate = useNavigate()
     useEffect(() => {
         const menu = document.querySelector("#menu-bar");
         const navbar = document.querySelector(".navbar");
@@ -38,6 +40,11 @@ const Finalnavbar = () => {
           window.onscroll = null;
         };
       }, []);
+
+      const logout = () =>{
+        localStorage.removeItem("token");
+        navigate("/")
+      }
   return (
     <>
       <header>
@@ -46,17 +53,11 @@ const Finalnavbar = () => {
         </a>
         <div id="menu-bar" class="fas fa-bars"></div>
         <nav class="navbar">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/signup">Singup</a>
-          <a href="/login">Login</a>
-          <a href="/instructorhome">Become a Instructor</a>
-              
+          <a onClick={logout}>Logout</a>         
         </nav>
       </header>
     </>
   );
 };
 
-export default Finalnavbar;
+export default Insnav;

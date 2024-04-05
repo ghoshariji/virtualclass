@@ -1,4 +1,15 @@
-import React, { useState } from 'react';
-import '../customcss/contact.css';
-import img from './online.png';
-import Foot from '../footer/Foot';
+
+
+import React from 'react'
+import Afterloginusernav from '../navbar/Afterloginusernav'
+
+const About = () => {
+  return (
+    <div>
+        <Afterloginusernav/>
+      
+    </div>
+  )
+}
+
+export default About

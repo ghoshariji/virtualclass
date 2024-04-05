@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 import '../customcss/home.css';
 import { useNavigate } from "react-router-dom";
-const Navbar = () => {
+const Afterloginusernav = ({userId}) => {
     const navigate = useNavigate()
     useEffect(() => {
         const menu = document.querySelector("#menu-bar");
@@ -43,6 +43,8 @@ const Navbar = () => {
 
       const logout = () =>{
         localStorage.removeItem("token");
+        localStorage.removeItem("id");
+        localStorage.removeItem("name");
         navigate("/")
       }
   return (
@@ -53,12 +55,17 @@ const Navbar = () => {
         </a>
         <div id="menu-bar" class="fas fa-bars"></div>
         <nav class="navbar">
-          <a href="/chat-with-user">Chat</a>
-          <a href="/">Logout</a>         
+          <a href="/home">Home</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/afterlogin">Course</a>
+          <a href="/onlineclass">Online class</a>
+          <a onClick={logout}>Logout</a>
+          <a href="/chat-with-admin">Chat us</a>             
         </nav>
       </header>
     </>
   );
 };
 
-export default Navbar
+export default Afterloginusernav;

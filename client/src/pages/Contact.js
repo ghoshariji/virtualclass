@@ -3,7 +3,7 @@ import "../customcss/contact.css";
 import img from "./online.png";
 import Foot from "../footer/Foot";
 import axios from "axios";
-import Finalnavbar from "../navbar/Finalnavbar";
+import Afterloginusernav from "../navbar/Afterloginusernav";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +41,7 @@ const ContactPage = () => {
 
   return (
     <div>
-      <Finalnavbar />
+    <Afterloginusernav/>
 
       <div className="container" style={{marginTop:"10rem"}}>
         <div className="row py-5 g-3">

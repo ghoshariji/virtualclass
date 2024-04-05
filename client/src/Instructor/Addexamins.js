@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Afternavabr from "../afterlogin/Afternavabr";
-import Finalnavbar from "../navbar/Finalnavbar";
-import img from "../image/first.jpg"
+import img from "../image/first.jpg";
+import Insnav from "../navbar/Insnav";
 
 const Addexamins = () => {
   const quesParam = new URLSearchParams(document.location.search);
@@ -59,7 +58,7 @@ const Addexamins = () => {
   }, []);
   return (
     <>
-      <Finalnavbar />
+      <Insnav />
       <div style={{ marginTop: "10rem" }}>
         <div
           className="container-home-ins"
@@ -114,23 +113,38 @@ const Addexamins = () => {
           })}
         </div>
 
-        <div className="container-ins-exam">
-          <form action="" onSubmit={formSubmit}>
-            <input
-              type="text"
-              name="examname"
-              placeholder="Enter the exam name"
-              onChange={handleInput}
-            />
-            <input
-              type="text"
-              name="time"
-              placeholder="Enter duration"
-              onChange={handleInput}
-            />
-            <button type="submit">Add exam</button>
-          </form>
-        </div>
+        <section class="sec" style={{display:'flex',justifyContent:'center'}}>
+          <div class="contentBoxes">
+            <div class="formBx">
+              <h2>Add exam</h2>
+              <form action="" onSubmit={formSubmit}>
+                <div class="inputBoxes">
+                  <span>Exam name</span>
+                  <input
+                    type="text"
+                    name="examname"
+                    placeholder="Enter the exam name"
+                    onChange={handleInput}
+                  />
+                </div>
+
+                <div class="inputBoxes">
+                  <span>Duration</span>
+                  <input
+                    type="text"
+                    name="time"
+                    placeholder="Enter duration"
+                    onChange={handleInput}
+                  />
+                </div>
+
+                <div class="inputBoxes">
+                  <input type="submit" value="submit" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );

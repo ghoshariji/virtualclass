@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import Afternavabr from "./Afternavabr";
 import "../customcss/Card.css"
-
  import img from "../image/first.jpg"
-import Finalnavbar from "../navbar/Finalnavbar";
+import Afterloginusernav from "../navbar/Afterloginusernav";
 
 const Dynamicmodule = () => {
   const [data, setData] = useState([]);
@@ -37,8 +35,8 @@ const Dynamicmodule = () => {
 
   return (
     <>
+    <Afterloginusernav/>
     <div style={{marginTop:"10rem", background:"linear-gradient(45deg, #00bcd4, #ffeb3b)"}}>
-    <Finalnavbar /> 
     <h1>Hello {className}</h1>
     <div className="body-main-card">
      

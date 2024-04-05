@@ -16,27 +16,27 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 // for chat ----
-const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:3000",
-  },
-});
-io.on("connection", (socket) => {
-  socket.on("chat", (payload) => {
-    console.log(payload);
-    // Check if the message is not empty before processing
-    if (payload.message.trim() !== "") {
-      const { destination, message } = payload;
-      // socket.id="dsadasbbasda"
-      // Emit the received message to the destination ID
-      io.to(destination).emit("receive-message", {
-        id: socket.id,
-        username: "Server",
-        message,
-      });
-    }
-  });
-});
+// const io = new Server(server, {
+//   cors: {
+//     origin: "http://localhost:3000",
+//   },
+// });
+// io.on("connection", (socket) => {
+//   socket.on("chat", (payload) => {
+//     console.log(payload);
+//     // Check if the message is not empty before processing
+//     if (payload.message.trim() !== "") {
+//       const { destination, message } = payload;
+//       // socket.id="dsadasbbasda"
+//       // Emit the received message to the destination ID
+//       io.to(destination).emit("receive-message", {
+//         id: socket.id,
+//         username: "Server",
+//         message,
+//       });
+//     }
+//   });
+// });
 
 const port = process.env.PORT || 4000;
 const userRoute = require("./routes/userRoute");
@@ -50,6 +50,7 @@ const getExam = require("./routes/getexamRoute");
 const deleteExam = require("./routes/delexamRoute");
 const instructorRoute = require("./routes/instructorRoute");
 const adminRoute = require("./routes/adminRoute");
+const chatRoute = require("./routes/chatRoute");
 // const chatRoute = require("./routes/chatRoute");
 
 // database connection
@@ -66,6 +67,7 @@ app.use("/api/exam", getExam);
 app.use("/api/deleteexam", deleteExam);
 app.use("/api/instructor", instructorRoute);
 app.use("/api/admin", adminRoute);
+app.use("/api/chat",chatRoute)
 // app.use("/api/chat", chatRoute);
 
 app.get("/", (req, res) => {

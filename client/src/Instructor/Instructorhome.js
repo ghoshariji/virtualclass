@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import Afternavabr from "../afterlogin/Afternavabr";
-import Navbar from "../navbar/Navbar";
 import axios from "axios";
-import {useNavigate} from "react-router-dom"
-import Finalnavbar from "../navbar/Finalnavbar";
-import img from "../image/first.jpg"
-
+import { useNavigate } from "react-router-dom";
+import img from "../image/first.jpg";
+import Insnav from "../navbar/Insnav";
+import Foot from "../footer/Foot";
+import "../customcss/form.css";
 const Instructorhome = () => {
   const navigate = useNavigate();
-  const [id,setId] = useState("")
+  const [id, setId] = useState("");
   const [loginData, setloginData] = useState({
     email: "",
     password: "",
@@ -72,7 +71,7 @@ const Instructorhome = () => {
         if (resData.status === 200 && resData.data) {
           if (resData.data.isInstruct) {
             alert("Admin login");
-         navigate(`/afterloginins?name=${resData.data.email}&id=${insID}`)
+            navigate(`/afterloginins?name=${resData.data.email}&id=${insID}`);
           } else {
             alert("You have no permission for the instrcutor login");
           }
@@ -84,48 +83,92 @@ const Instructorhome = () => {
   };
   return (
     <div>
-      <Finalnavbar />
-      
-      <div className="container-instructor" style={{marginTop:"10rem"}}>
-      <h3>Send your Details</h3>
-        <form action="" onSubmit={submitForm}>
-          <input
-            type="text"
-            name="email"
-            placeholder="Enter name"
-            onChange={handleInput}
-            value={post.name}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter password"
-            onChange={handleInput}
-            value={post.password}
-          />
-          <button type="submit">Send Us</button>
-        </form>
+      <Insnav />
+
+      <div
+        className="container-instructor"
+        style={{
+          marginTop: "10rem",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+        }}
+      >
+        <div class="form-box">
+          <form action="" onSubmit={submitForm}>
+            <h3
+              style={{
+                color: "wheat",
+                textAlign: "center",
+                fontSize: "2.5rem",
+              }}
+            >
+              Apply a Instructor
+            </h3>
+            <div class="inputBox">
+              <input
+                type="text"
+                name="email"
+                placeholder="Enter name"
+                onChange={handleInput}
+                value={post.name}
+              />
+              <span>Username</span>
+              <i></i>
+            </div>
+            <div class="inputBox">
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                onChange={handleInput}
+                value={post.password}
+              />
+              <span>Password</span>
+              <i></i>
+            </div>
+            <input type="submit" value="submit" />
+          </form>
+        </div>
+
+        <div class="form-box">
+          <form action="" onSubmit={submitFormLogin}>
+            <h3
+              style={{
+                color: "wheat",
+                textAlign: "center",
+                fontSize: "2.5rem",
+              }}
+            >
+              Login here
+            </h3>
+            <div class="inputBox">
+              <input
+                type="text"
+                name="email"
+                placeholder="Enter name"
+                onChange={handleInput1}
+                value={loginData.name}
+              />
+              <span>Username</span>
+              <i></i>
+            </div>
+            <div class="inputBox">
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                onChange={handleInput1}
+                value={loginData.password}
+              />
+              <span>Password</span>
+              <i></i>
+            </div>
+            <input type="submit" value="submit" />
+          </form>
+        </div>
       </div>
-      <h3>Login </h3>
-      <div className="container-instructor">
-        <form action="" onSubmit={submitFormLogin}>
-          <input
-            type="text"
-            name="email"
-            placeholder="Enter name"
-            onChange={handleInput1}
-            value={loginData.name}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter password"
-            onChange={handleInput1}
-            value={loginData.password}
-          />
-          <button type="submit">Send Us</button>
-        </form>
-      </div>
+      <Foot />
     </div>
   );
 };
