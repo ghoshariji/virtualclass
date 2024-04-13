@@ -45,7 +45,6 @@ const LoginForm = () => {
         localStorage.setItem("name",name)
         localStorage.setItem("token", token);
         setTimeout(()=>{
-          window.location.reload();
           navigate("/afteradmin");
         },1000)
         
@@ -57,7 +56,6 @@ const LoginForm = () => {
         localStorage.setItem("id",id)
         localStorage.setItem("name",name)
         setTimeout(() => {
-          window.location.reload();
           navigate("/afterlogin");
         }, 1000);
         
@@ -92,7 +90,6 @@ const LoginForm = () => {
       localStorage.setItem("id",id)
       localStorage.setItem("name",name)
       setTimeout(() => {
-        window.location.reload();
         navigate("/afterlogin");
       }, 1000);
     } catch (error) {
