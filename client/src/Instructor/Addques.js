@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import Insnav from '../navbar/Insnav';
+import { toast,ToastContainer } from 'react-toastify';
 
 const Addques = () => {
     const queParams = new URLSearchParams(document.location.search);
@@ -29,7 +30,7 @@ const Addques = () => {
             const response = await axios.post(`https://virtualclass-yz7w.onrender.com/api/instructor/add-ques-ins?examname=${examname}&id=${id}&subname=${subname}`,
                 post,
                 config);
-            alert("Question added");
+            toast.success("Question Added")
         } catch (error) {
             console.log("Error from the question page error" + error);
         }
@@ -40,6 +41,8 @@ const Addques = () => {
     };
 
     return (
+        <>
+        <ToastContainer/>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "100vh", backgroundColor: "#f8f9fa", fontSize: "2rem",marginTop:'5rem' }}>
             <Insnav />
             <div className="container-ins" style={{ marginTop: "5rem", maxWidth: "500px", width: "90%" }}>
@@ -55,6 +58,7 @@ const Addques = () => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 

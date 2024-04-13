@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import Afterloginusernav from '../navbar/Afterloginusernav';
+import Foot from '../footer/Foot';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Dynamicexamwrite = () => {
+    const navigate = useNavigate()
     const queParams = new URLSearchParams(document.location.search);
     const quesList = JSON.parse(queParams.get("ques"));
 
@@ -35,18 +38,20 @@ const Dynamicexamwrite = () => {
         const totalQuestions = quesList.length;
         const percentageScore = (score / totalQuestions) * 100;
         alert(`Your score: ${score}/${totalQuestions} (${percentageScore}%)`);
+        navigate("/afterlogin")
     };
 
     return (
-        <div>
+        <>
+        <div style={{ fontFamily: 'Arial, sans-serif', textAlign: 'center',display:"flex",justifyContent:'cernter',alignItems:"center",flexDirection:'column' }}>
             <Afterloginusernav />
-            <h1>Welcome to the exam</h1>
+            <h1 style={{ fontSize: '2rem', color: 'blue',marginTop:"10rem",display:"flex",justifyContent:'cernter',alignItems:"center",borderRadius:'100px' }}>Welcome to the exam</h1>
             {quesList.map((question, index) => (
                 index === currentQuestion && (
-                    <div key={index}>
-                        <p>{question.question}</p>
-                        <ul>
-                            <li>
+                    <div key={index} style={{ marginTop: "2rem",backgroundColor:'#c7c9c9',width:'50%',borderRadius:'10px'}}>
+                        <p style={{ fontSize: '3rem', marginBottom: '1rem' }}>Q. {question.question}</p>
+                        <ul style={{ listStyleType: 'none', padding: 0 }}>
+                            <li style={{ marginBottom: '2rem' }}>
                                 <input
                                     type="radio"
                                     id={`optionA_${index}`}
@@ -55,9 +60,9 @@ const Dynamicexamwrite = () => {
                                     checked={selectedOption === question.optionA}
                                     onChange={() => handleOptionSelect(question.optionA)}
                                 />
-                                <label htmlFor={`optionA_${index}`}>{question.optionA}</label>
+                                <label htmlFor={`optionA_${index}`} style={{ marginLeft: '2rem', fontSize: '2rem', color: 'green' }}>{question.optionA}</label>
                             </li>
-                            <li>
+                            <li style={{ marginBottom: '2rem' }}>
                                 <input
                                     type="radio"
                                     id={`optionB_${index}`}
@@ -66,9 +71,9 @@ const Dynamicexamwrite = () => {
                                     checked={selectedOption === question.optionB}
                                     onChange={() => handleOptionSelect(question.optionB)}
                                 />
-                                <label htmlFor={`optionB_${index}`}>{question.optionB}</label>
+                                <label htmlFor={`optionB_${index}`} style={{ marginLeft: '2rem', fontSize: '2rem', color: 'blue' }}>{question.optionB}</label>
                             </li>
-                            <li>
+                            <li style={{ marginBottom: '2rem' }}>
                                 <input
                                     type="radio"
                                     id={`optionC_${index}`}
@@ -77,9 +82,9 @@ const Dynamicexamwrite = () => {
                                     checked={selectedOption === question.optionC}
                                     onChange={() => handleOptionSelect(question.optionC)}
                                 />
-                                <label htmlFor={`optionC_${index}`}>{question.optionC}</label>
+                                <label htmlFor={`optionC_${index}`} style={{ marginLeft: '2rem', fontSize: '2rem', color: 'red' }}>{question.optionC}</label>
                             </li>
-                            <li>
+                            <li style={{ marginBottom: '2rem' }}>
                                 <input
                                     type="radio"
                                     id={`optionD_${index}`}
@@ -88,7 +93,7 @@ const Dynamicexamwrite = () => {
                                     checked={selectedOption === question.optionD}
                                     onChange={() => handleOptionSelect(question.optionD)}
                                 />
-                                <label htmlFor={`optionD_${index}`}>{question.optionD}</label>
+                                <label htmlFor={`optionD_${index}`} style={{ marginLeft: '2rem', fontSize: '2rem', color: 'purple' }}>{question.optionD}</label>
                             </li>
                         </ul>
                     </div>
@@ -96,15 +101,18 @@ const Dynamicexamwrite = () => {
             ))}
             <div>
                 {currentQuestion > 0 && (
-                    <button onClick={handlePreviousQuestion}>Previous</button>
+                    <button style={{ fontSize: '1rem', padding: '2rem 1rem', marginRight: '1rem', backgroundColor: 'orange', color: 'white', border: 'none', borderRadius: '0.3rem' }} onClick={handlePreviousQuestion}>Previous</button>
                 )}
                 {currentQuestion < quesList.length - 1 ? (
-                    <button onClick={handleNextQuestion}>Next</button>
+                    <button style={{ fontSize: '1rem', padding: '2rem 1rem', backgroundColor: 'green', color: 'white', border: 'none', borderRadius: '0.3rem' }} onClick={handleNextQuestion}>Next</button>
                 ) : (
-                    <button onClick={handleFinishExam}>Finish</button>
+                    <button style={{ fontSize: '1rem', padding: '2rem 1rem', backgroundColor: 'blue', color: 'white', border: 'none', borderRadius: '0.3rem' }} onClick={handleFinishExam}>Finish</button>
                 )}
             </div>
+            
         </div>
+        <Foot/>
+       </>
     );
 };
 

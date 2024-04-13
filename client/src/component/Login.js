@@ -32,10 +32,7 @@ const LoginForm = () => {
         post,
         config
       );
-      console.log(post);
-      console.log(response);
       const { data } = response;
-      console.log(data);
       const id = data.userId;
       const name = data.name;
       const token = data.token;
@@ -46,7 +43,12 @@ const LoginForm = () => {
         });
         localStorage.setItem("id",id)
         localStorage.setItem("name",name)
-        navigate("/afteradmin");
+        localStorage.setItem("token", token);
+        setTimeout(()=>{
+          window.location.reload();
+          navigate("/afteradmin");
+        },1000)
+        
       } else {
         toast.success("Login successful", {
           position: "top-center",
@@ -54,11 +56,18 @@ const LoginForm = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("id",id)
         localStorage.setItem("name",name)
-        navigate("/afterlogin");
+        setTimeout(() => {
+          window.location.reload();
+          navigate("/afterlogin");
+        }, 1000);
+        
       }
     } catch (error) {
       console.error("Error fetching login", error);
       console.log("Login failed" + error);
+      toast.error("Login failed", {
+        position: "top-center",
+      });
     }
   };
   const checkAuth = async (token) => {
@@ -79,9 +88,13 @@ const LoginForm = () => {
       toast.success("Login successful", {
         position: "top-center",
       });
-      navigate("/afterlogin");
+      
       localStorage.setItem("id",id)
       localStorage.setItem("name",name)
+      setTimeout(() => {
+        window.location.reload();
+        navigate("/afterlogin");
+      }, 1000);
     } catch (error) {
       console.log("Error from the user page" + error);
     }

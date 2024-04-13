@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Afterloginusernav from "../navbar/Afterloginusernav";
+import Foot from "../footer/Foot";
 
 const Dynamicdashboard = () => {
   const queParams = new URLSearchParams(document.location.search);
@@ -10,6 +11,7 @@ const Dynamicdashboard = () => {
 
   };
   return (
+    <>
     <div style={{marginTop:"10rem"}}>
     <Afterloginusernav/>
       <h1>Hello student</h1>
@@ -30,7 +32,10 @@ const Dynamicdashboard = () => {
           Go to Exam
         </div>
       </div>
+     
     </div>
+    <Foot/>
+    </>
   );
 };
 

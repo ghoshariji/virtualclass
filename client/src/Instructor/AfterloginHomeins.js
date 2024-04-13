@@ -5,6 +5,7 @@ import img from "../image/first.jpg";
 import Insnav from "../navbar/Insnav";
 import Foot from "../footer/Foot";
 import "../customcss/form2.css";
+import { toast,ToastContainer } from "react-toastify";
 const AfterloginHomeins = () => {
   const queParams = new URLSearchParams(document.location.search);
   const [allsub, setAllsub] = useState([]);
@@ -32,7 +33,7 @@ const AfterloginHomeins = () => {
         post,
         config
       );
-      alert("added successfully");
+     toast.success("Added succesfully")
     } catch (error) {
       console.log("Error from the Instructor module added time" + error);
     }
@@ -49,7 +50,6 @@ const AfterloginHomeins = () => {
           `https://virtualclass-yz7w.onrender.com/api/instructor/get-class-admin?userId=${userId}`,
           config
         );
-        console.log(response.data.data);
         setAllsub(response.data.data);
       } catch (error) {
         console.log("Error from the admin getting data" + error);
@@ -60,6 +60,7 @@ const AfterloginHomeins = () => {
   return (
     <>
       <Insnav />
+      <ToastContainer />
       <div style={{ marginTop: "10rem" }}>
         <h5
           style={{

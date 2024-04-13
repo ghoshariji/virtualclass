@@ -54,7 +54,7 @@ const Navbar = () => {
         <div id="menu-bar" class="fas fa-bars"></div>
         <nav class="navbar">
           <a href="/chat-with-user">Chat</a>
-          <a href="/">Logout</a>         
+          <a onClick={logout}>Logout</a>         
         </nav>
       </header>
     </>

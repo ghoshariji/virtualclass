@@ -42,8 +42,8 @@ const Insnav = () => {
       }, []);
 
       const logout = () =>{
-        localStorage.removeItem("token");
-        navigate("/")
+        localStorage.removeItem("instoken");
+        navigate("/instructorhome")
       }
   return (
     <>

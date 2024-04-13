@@ -12,7 +12,7 @@ const userModel = mongoose.Schema({
         type:String,
         required:true
     },
-    cpassword:
+    about:
     {
         type:String,
         required:true

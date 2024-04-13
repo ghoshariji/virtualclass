@@ -5,6 +5,8 @@ import img from "../image/first.jpg";
 import Insnav from "../navbar/Insnav";
 import Foot from "../footer/Foot";
 import "../customcss/form.css";
+import { ToastContainer, toast } from "react-toastify";
+import Inshomenav from "../navbar/Inshomenav";
 const Instructorhome = () => {
   const navigate = useNavigate();
   const [id, setId] = useState("");
@@ -35,9 +37,13 @@ const Instructorhome = () => {
         post,
         config
       );
-      alert("data send succesfully");
+      toast.success("Apply succesfully", {
+        position: "top-center",
+      });
     } catch (error) {
-      console.log("Error from the instructor signup page" + error);
+      toast.success("Error to send data", {
+        position: "top-center",
+      });
     }
   };
   const submitFormLogin = async (event) => {
@@ -53,13 +59,12 @@ const Instructorhome = () => {
         loginData,
         config
       );
-      console.log(response.data.insID);
       setId(response.data.insID);
       if (response.data.insID) {
         localStorage.setItem("insInfo", JSON.stringify(response.data));
         const insID = response.data.insID;
         const token = response.data.token;
-
+        localStorage.setItem("instoken",token)
         const resData = await axios.get(
           `https://virtualclass-yz7w.onrender.com/api/instructor/get-ins-info?insId=${insID}`,
           {
@@ -70,37 +75,65 @@ const Instructorhome = () => {
         );
         if (resData.status === 200 && resData.data) {
           if (resData.data.isInstruct) {
-            alert("Admin login");
-            navigate(`/afterloginins?name=${resData.data.email}&id=${insID}`);
+            toast.success("Login complete", {
+              position: "top-center",
+            });
+            setTimeout(() => {
+              navigate(`/afterloginins?name=${resData.data.email}&id=${insID}`);
+              window.location.reload()
+            }, 1000);
+           
           } else {
-            alert("You have no permission for the instrcutor login");
+            toast.success("Login failed", {
+              position: "top-center",
+            });
+           
           }
+        }
+        else{
+            toast.error("Login failed", {
+              position: "top-center",
+            });
         }
       }
     } catch (error) {
-      console.log("Error from the Instructor login" + error);
+      toast.error("Login failed", {
+        position: "top-center",
+      });
     }
   };
   return (
     <div>
-      <Insnav />
-
+    <Inshomenav/>
+<ToastContainer/>
+<div   style={{
+          marginTop: "10rem",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+          alignItems:'center',
+        
+        }}>
       <div
         className="container-instructor"
         style={{
-          marginTop: "10rem",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "column",
           justifyContent: "space-around",
+          alignItems:'center',
+         margin:'2rem',
+         padding:'3rem'
+        
         }}
       >
-        <div class="form-box">
+        <div class="form-box" style={{margin:'2rem'}}>
           <form action="" onSubmit={submitForm}>
             <h3
               style={{
                 color: "wheat",
                 textAlign: "center",
                 fontSize: "2.5rem",
+                
               }}
             >
               Apply a Instructor
@@ -113,7 +146,7 @@ const Instructorhome = () => {
                 onChange={handleInput}
                 value={post.name}
               />
-              <span>Username</span>
+              <span style={{fontSize:'12px'}}>Username</span>
               <i></i>
             </div>
             <div class="inputBox">
@@ -123,15 +156,16 @@ const Instructorhome = () => {
                 placeholder="Enter password"
                 onChange={handleInput}
                 value={post.password}
+                style={{fontSize:'12px'}}
               />
-              <span>Password</span>
+              <span style={{fontSize:'12px'}}>Password</span>
               <i></i>
             </div>
-            <input type="submit" value="submit" />
+            <input type="submit" value="Send Data" style={{fontSize:'12px'}}/>
           </form>
         </div>
 
-        <div class="form-box">
+        <div class="form-box" style={{margin:'2rem'}}>
           <form action="" onSubmit={submitFormLogin}>
             <h3
               style={{
@@ -150,7 +184,7 @@ const Instructorhome = () => {
                 onChange={handleInput1}
                 value={loginData.name}
               />
-              <span>Username</span>
+              <span style={{fontSize:'12px'}}>Username</span>
               <i></i>
             </div>
             <div class="inputBox">
@@ -161,12 +195,13 @@ const Instructorhome = () => {
                 onChange={handleInput1}
                 value={loginData.password}
               />
-              <span>Password</span>
+              <span style={{fontSize:'12px'}}>Password</span>
               <i></i>
             </div>
-            <input type="submit" value="submit" />
+            <input type="submit" value="Login" style={{fontSize:'12px'}}/>
           </form>
         </div>
+      </div>
       </div>
       <Foot />
     </div>

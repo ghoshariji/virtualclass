@@ -26,34 +26,53 @@ import Chatuser from './afterlogin/Chatuser';
 import Adminmesg from './afterlogin/Adminmesg';
 import Adminchat from './afterlogin/Adminchat';
 import Room from './afterlogin/Room';
+import { useEffect, useState } from 'react';
+
+
+
 
 function App() {
+  const [auth,setAuth] = useState("")
+  const [authIns,setAuthIns] =useState("")
+  const fetchLogin = async() =>{
+    const token = await localStorage.getItem("token");
+    setAuth(token)
+  }
+  const fetchIns = async() =>{
+    const token = await localStorage.getItem("instoken");
+    setAuthIns(token)
+  }
+  
+  useEffect(()=>{
+    fetchLogin()
+    fetchIns()
+   },[])
   return (
   <Routes>
     <Route path="/" element={<Login/>}  exact/>
-    <Route path="/home" element={<Home/>}/>
-    <Route path="/contact" element={<Contact/>} />
+    <Route path="/home" element={auth == null ? <Login/> :  <Home/>}/>
+    <Route path="/contact" element={auth == null ? <Login/> :  <Contact/>} />
     <Route path="/signup" element={<Signup/>} />
-    <Route path="/afterlogin" element={<Afterloginhome/>} />
-    <Route path="/onlineclass" element={<Onlineclass/>} />
-    <Route path="/afteradmin" element={<AfterLoginAdmin/>} />
+    <Route path="/afterlogin" element={auth == null ? <Login/> :  <Afterloginhome/>} />
+    <Route path="/onlineclass" element={auth == null ? <Login/> :  <Onlineclass/>} />
+    <Route path="/afteradmin" element={ auth == null ? <Login/> : <AfterLoginAdmin/>} />
     <Route path="/chat" element={<Chat/>} />
     <Route path="/gotomodule" element={<Dynamicmodule/>} />
     <Route path="/instructorhome" element={<Instructorhome/>} />
-    <Route path="/afterloginins" element={<AfterloginHomeins/>} />
-    <Route path="/addexamins" element={<Addexamins/>} />
-    <Route path="/addquesins" element={<Addques/>} />
-    <Route path="/gotomoduledy" element={<Dynamicmod/>} />
-    <Route path="/dynamicdashboard" element={<Dynamicdashboard/>} />
-    <Route path="/dynamicexamdash" element={<Dynamicexamdash/>} />
-    <Route path="/dynamicexamwrite" element={<Dynamicexamwrite/>} />
+    <Route path="/afterloginins" element={authIns==null ? <Instructorhome/> :<AfterloginHomeins/>} />
+    <Route path="/addexamins" element={authIns==null ? <Instructorhome/> : <Addexamins/>} />
+    <Route path="/addquesins" element={authIns==null ? <Instructorhome/> : <Addques/>} />
+    <Route path="/gotomoduledy" element={authIns==null ? <Instructorhome/> : <Dynamicmod/>} />
+    <Route path="/dynamicdashboard" element={auth == null ? <Login/> :  <Dynamicdashboard/>} />
+    <Route path="/dynamicexamdash" element={auth == null ? <Login/> :  <Dynamicexamdash/>} />
+    <Route path="/dynamicexamwrite" element={auth == null ? <Login/> :  <Dynamicexamwrite/>} />
     <Route path="/otpverification" element={<Otppage/>} />
     <Route path="/changepass" element={<Changepass/>} />
     <Route path="/enteremail" element={<Enteremail/>} />
-    <Route path="/chat-with-admin" element={<Chatuser/>} />
-    <Route path="/chat-with-user-by-id" element={<Adminmesg/>} />
-    <Route path="/chat-with-user" element={<Adminchat/>} />
-    <Route path="/join-room" element={<Room/>} />
+    <Route path="/chat-with-admin" element={auth == null ? <Login/> :  <Chatuser/>} />
+    <Route path="/chat-with-user-by-id" element={auth == null ? <Login/> :<Adminmesg/>} />
+    <Route path="/chat-with-user" element={auth == null ? <Login/> :<Adminchat/>} />
+    <Route path="/join-room/:roomID" element={<Room/>} />
   </Routes>
 
   );

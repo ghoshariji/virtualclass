@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import img from "../image/first.jpg";
 import Insnav from "../navbar/Insnav";
+import { toast,ToastContainer } from "react-toastify";
 
 const Addexamins = () => {
   const quesParam = new URLSearchParams(document.location.search);
@@ -31,7 +32,7 @@ const Addexamins = () => {
         post,
         config
       );
-      alert("Added exam");
+      toast.success("Exam Added")
     } catch (error) {
       console.log("error from the instructor save exam" + error);
     }
@@ -59,6 +60,7 @@ const Addexamins = () => {
   return (
     <>
       <Insnav />
+      <ToastContainer/>
       <div style={{ marginTop: "10rem" }}>
         <div
           className="container-home-ins"

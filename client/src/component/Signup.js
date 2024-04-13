@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../customcss/login.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate()
   const [post, setPost] = useState({
     name: "",
     email: "",
     password: "",
-    cpassword: "",
+    about: "",
   });
 
   const handleInput = (event) => {
@@ -23,7 +26,6 @@ const Signup = () => {
           "Content-type": "application/json",
         },
       };
-      console.log(post);
       const { data } = await axios.post(
         "https://virtualclass-yz7w.onrender.com/api/user/signup",
         post,
@@ -32,9 +34,12 @@ const Signup = () => {
       toast.success("Signup complete", {
         position: "top-center",
       });
-      localStorage.setItem("userInfo", JSON.stringify(data));
+      setTimeout(() => {
+        window.location.reload();
+        navigate("/")
+      }, 1000);
     } catch (error) {
-      toast("Signup failed", {
+      toast.error("Signup failed", {
         position: "top-center",
       });
       console.log("Error from signup page" + error);
@@ -42,68 +47,66 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup-container" style={{marginTop:"10rem"}}>
-          <ToastContainer />
-      <div className="container-lg">
-        <form onSubmit={submitHandle} className="signup-form">
-          <div className="mb-3">
-            <label htmlFor="name" className="form-label">
-              Enter your name
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
-              placeholder="Enter name"
-              onChange={handleInput}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Enter email
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              placeholder="Enter email"
-              onChange={handleInput}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">
-              Enter Password
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              placeholder="Enter password"
-              onChange={handleInput}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="cpassword" className="form-label">
-              Enter confirm Password
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="cpassword"
-              name="cpassword"
-              placeholder="Enter confirm password"
-              onChange={handleInput}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Signup
-          </button>
-        </form>
+    <>
+      <div className="body">
+        <ToastContainer />
+        <div className="wrapper">
+          <form action="" onSubmit={submitHandle}>
+            <h1>Signup here...</h1>
+            <div className="input-box">
+              <input
+                type="text"
+                className="form-control"
+                id="name"
+                name="name"
+                placeholder="Enter name"
+                onChange={handleInput}
+              />
+            </div>
+            <div className="input-box">
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter email"
+                onChange={handleInput}
+              />
+            </div>
+            <div className="input-box">
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                onChange={handleInput}
+              />
+            </div>
+
+            <div className="input-box">
+              <input
+                type="text"
+                className="form-control"
+                id="cpassword"
+                name="about"
+                placeholder="About yourself"
+                onChange={handleInput}
+              />
+            </div>
+
+            <button type="submit" className="btn btn-primary">
+              Signup
+            </button>
+            <div className="register-link">
+              <p>
+               Already have an account ? <a href="/login">Login</a>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
