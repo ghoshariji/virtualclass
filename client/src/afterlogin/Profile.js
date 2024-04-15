@@ -39,7 +39,7 @@ const Profile = () => {
                 const response = await axios.post("http://localhost:7000/api/user/profile-pic-upload",formData)
                 console.log(response.data)
                 console.log(response.data.image)
-                setProfilePic("http://localhost:7000/" + response.data.image);
+                setProfilePic("https://virtualclass-yz7w.onrender.com/" + response.data.image);
             }
             input.click()
         } catch (error) {
