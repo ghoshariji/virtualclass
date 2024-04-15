@@ -36,7 +36,7 @@ const Profile = () => {
                 const formData = new FormData();
                 formData.append("file", file);
                 formData.append("email", email);
-                const response = await axios.post("http://localhost:7000/api/user/profile-pic-upload",formData)
+                const response = await axios.post("https://virtualclass-yz7w.onrender.com/api/user/profile-pic-upload",formData)
                 console.log(response.data)
                 console.log(response.data.image)
                 setProfilePic("https://virtualclass-yz7w.onrender.com/" + response.data.image);
