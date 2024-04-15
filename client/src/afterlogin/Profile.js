@@ -4,8 +4,11 @@ import Foot from "../footer/Foot";
 import axios from "axios"
 const Profile = () => {
     const [profilePic, setProfilePic] = useState('');
-    const [email,setEmail] = useState("aq@gmail.com")
+    const [email,setEmail] = useState("")
     const fetchImg = async() =>{
+        const email = localStorage.getItem("email")
+        console.log(email)
+        setEmail(email)
         try {
             const config = {
                 headers:{
@@ -20,9 +23,6 @@ const Profile = () => {
         }
     }
     useEffect(()=>{
-        const email = localStorage.getItem("email")
-        console.log(email)
-        setEmail(email)
         fetchImg()
     },[])
 
