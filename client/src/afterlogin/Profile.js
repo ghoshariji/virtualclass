@@ -15,9 +15,9 @@ const Profile = () => {
                     "Content-Type":"application/json"
                 }
             }
-            const res = await axios.post("http://localhost:7000/api/user/get-img",{email},config);
+            const res = await axios.post("https://virtualclass-yz7w.onrender.com/api/user/get-img",{email},config);
             console.log(res.data.data.image)
-            setProfilePic("http://localhost:7000/" + res.data.data.image)
+            setProfilePic("https://virtualclass-yz7w.onrender.com/" + res.data.data.image)
         } catch (error) {
             console.log("Error " + error)
         }
