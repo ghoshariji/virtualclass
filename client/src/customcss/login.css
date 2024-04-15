@@ -108,13 +108,13 @@ code {
     transition: background-color 0.5s ease;
     cursor: pointer;
     font-size: 16px;
-     color: #333;
-     font-weight: 700;
+    color: #333;
+    font-weight: 700;
+    transition: 0.5 ease;
 }
 
 .wrapper button:hover {
     background: #e3f1c9; 
-    font-size: 22px;
 }
 
 .wrapper .register-link{
