@@ -45,6 +45,7 @@ const Afterloginusernav = ({userId}) => {
         localStorage.removeItem("token");
         localStorage.removeItem("id");
         localStorage.removeItem("name");
+        localStorage.removeItem("email");
         navigate("/")
       }
   return (
@@ -63,9 +64,7 @@ const Afterloginusernav = ({userId}) => {
           <a href="/onlineclass">Online class</a>
           <a onClick={logout}>Logout</a>
           <a href="/chat-with-admin">Chat us</a>   
-
-
-  
+          <a href="/profile">Profile</a>
         </nav>
       </header>
       

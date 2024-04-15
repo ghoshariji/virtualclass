@@ -27,6 +27,7 @@ import Adminmesg from './afterlogin/Adminmesg';
 import Adminchat from './afterlogin/Adminchat';
 import Room from './afterlogin/Room';
 import { useEffect, useState } from 'react';
+import Profile from './afterlogin/Profile';
 
 
 
@@ -73,6 +74,7 @@ function App() {
     <Route path="/chat-with-user-by-id" element={auth == null ? <Login/> :<Adminmesg/>} />
     <Route path="/chat-with-user" element={auth == null ? <Login/> :<Adminchat/>} />
     <Route path="/join-room/:roomID" element={<Room/>} />
+    <Route path="/profile" element={<Profile/>} />
   </Routes>
 
   );

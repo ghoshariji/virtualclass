@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors(corsOptions));
 const dotenv = require("dotenv");
 dotenv.config();
-
+app.use("/uploads",express.static("uploads"))
 // for chat ----
 // const io = new Server(server, {
 //   cors: {
