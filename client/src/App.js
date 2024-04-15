@@ -63,7 +63,7 @@ function App() {
     <Route path="/afterloginins" element={authIns==null ? <Instructorhome/> :<AfterloginHomeins/>} />
     <Route path="/addexamins" element={authIns==null ? <Instructorhome/> : <Addexamins/>} />
     <Route path="/addquesins" element={authIns==null ? <Instructorhome/> : <Addques/>} />
-    <Route path="/gotomoduledy" element={authIns==null ? <Instructorhome/> : <Dynamicmod/>} />
+    <Route path="/gotomoduledy" element={auth==null ? <Login/> : <Dynamicmod/>} />
     <Route path="/dynamicdashboard" element={auth == null ? <Login/> :  <Dynamicdashboard/>} />
     <Route path="/dynamicexamdash" element={auth == null ? <Login/> :  <Dynamicexamdash/>} />
     <Route path="/dynamicexamwrite" element={auth == null ? <Login/> :  <Dynamicexamwrite/>} />
