@@ -42,10 +42,11 @@ const Afterloginusernav = ({userId}) => {
       }, []);
 
       const logout = () =>{
-        localStorage.removeItem("token");
-        localStorage.removeItem("id");
-        localStorage.removeItem("name");
-        localStorage.removeItem("email");
+        // localStorage.removeItem("token");
+        // localStorage.removeItem("id");
+        // localStorage.removeItem("name");
+        // localStorage.removeItem("email");
+        localStorage.clear()
         navigate("/")
       }
   return (

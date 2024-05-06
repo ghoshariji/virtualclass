@@ -1,0 +1,49 @@
+/* profile.css */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-content {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .profile-pic {
+    width: 200px; /* Set width of profile picture */
+    height: 200px; /* Set height of profile picture */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 50%; /* Round the corners to make it circular */
+    margin-bottom: 1rem;
+  }
+  
+  .edit-profile-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-content {
+      width: 80%; /* Adjust width for smaller screens */
+    }
+  
+    .profile-pic {
+      width: 150px; /* Reduce size for smaller screens */
+      height: 150px;
+    }
+  
+    .edit-profile-button {
+      font-size: 0.8rem; /* Reduce font size for smaller screens */
+    }
+  }
+  

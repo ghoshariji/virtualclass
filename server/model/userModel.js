@@ -24,7 +24,11 @@ const userModel = mongoose.Schema({
     image:{
         type:String,
         default:""
-    }
+    },
+    course: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Course'
+    }]
 });
 
 const userSchema = mongoose.model("User",userModel);

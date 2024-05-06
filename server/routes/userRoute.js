@@ -5,6 +5,10 @@ const jwt = require("jsonwebtoken");
 const middleware = require("../middleware/authMiddleware");
 const fs = require("fs").promises;
 const multer = require("multer");
+const Razorpay = require("razorpay");
+const crypto = require("crypto");
+const courseModel = require("../model/courseModel");
+
 const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     const unique = file.mimetype.split("/");
@@ -96,8 +100,10 @@ router.post("/login", async (req, res) => {
       name: user.name,
       token: token,
       success: true,
-      email:user.email,
+      email: user.email,
       isAdmin: user.isAdmin,
+      image: user.image,
+      course:[user.course]
     });
   } catch (error) {
     return res.status(500).send({ message: "Internal Server Error" });
@@ -169,8 +175,8 @@ router.get("/get-ques-list", async (req, res) => {
 
 router.post("/profile-pic-upload", upload.single("file"), async (req, res) => {
   try {
-    console.log(req.file.path)
-    console.log(req.body.email)
+    console.log(req.file.path);
+    console.log(req.body.email);
     const data = await userModel.findOneAndUpdate(
       { email: req.body.email },
       { image: req.file.path }
@@ -188,20 +194,93 @@ router.post("/profile-pic-upload", upload.single("file"), async (req, res) => {
   }
 });
 
-router.post("/get-img",async(req,res)=>{
+router.post("/get-img", async (req, res) => {
   try {
-    console.log(req.body)
-    const data = await userModel.findOne({email:req.body.email});
+    console.log(req.body);
+    const data = await userModel.findOne({ email: req.body.email });
     return res.status(200).send({
-      message:"Data send succesfully",
-      data:data,
-      success:true
-    })
+      message: "Data send succesfully",
+      data: data,
+      success: true,
+    });
   } catch (error) {
     res.status(500).send({
       message: error.message,
       success: false,
     });
   }
-})
+});
+
+const instance = new Razorpay({
+  key_id: "rzp_test_6Fsll3myRMs9xe",
+  key_secret: "2ZxuxUnbMuIvBPz0avekYoh6",
+});
+
+router.post("/checkout", async (req, res) => {
+  try {
+    console.log(req.body);
+    const options = {
+      amount: Number(req.body.price * 100),
+      currency: "INR",
+    };
+    const order = await instance.orders.create(options);
+    console.log(order);
+    res.status(200).send({
+      message: "Done",
+      data: order,
+    });
+  } catch (error) {
+    console.log("error" + error);
+  }
+});
+
+router.post("/paymentverification", async (req, res) => {
+  const { razorpay_payment_id, razorpay_order_id, razorpay_signature } =
+    req.body;
+  const body = razorpay_order_id + "|" + razorpay_payment_id;
+  const expectedSignature = crypto
+    .createHmac("sha256", "2ZxuxUnbMuIvBPz0avekYoh6")
+    .update(body.toString())
+    .digest("hex");
+  const isAuth = razorpay_signature === expectedSignature;
+  if (isAuth) {
+    const id = req.query.id;
+    const course = req.query.courseid;
+    try {
+      const user = await userModel.findByIdAndUpdate(id,{$push:{course:course}},{new:true})
+      res.redirect(`http://localhost:3000/verify/?id=${razorpay_order_id}`);
+    } catch (error) {
+      console.error("Error updating user:", error);
+      return res.status(500).send({ message: "Internal server error" });
+    }
+  } else {
+    return res.status(401).send({
+      message: "Payment failed",
+    });
+  }
+});
+router.get("/get-course-user", async (req, res) => {
+  try {
+    console.log(req.query.id)
+    const data = await userModel.findById(req.query.id);
+    const courseIds = data.course; 
+
+    let allCourses = [];
+    for (const courseId of courseIds) {
+      const courseData = await courseModel.findById(courseId);
+      allCourses.push(courseData);
+    }
+
+    return res.status(200).send({
+      message: "Data sent successfully",
+      success: true,
+      user: data,
+      courses: allCourses
+    });
+  } catch (error) {
+    return res.status(401).send({
+      message: error.message,
+    });
+  }
+});
 module.exports = router;

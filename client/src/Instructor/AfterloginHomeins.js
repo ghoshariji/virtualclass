@@ -5,20 +5,30 @@ import img from "../image/first.jpg";
 import Insnav from "../navbar/Insnav";
 import Foot from "../footer/Foot";
 import "../customcss/form2.css";
-import { toast,ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 const AfterloginHomeins = () => {
   const queParams = new URLSearchParams(document.location.search);
   const [allsub, setAllsub] = useState([]);
   const navigate = useNavigate();
   const nameIns = queParams.get("name");
   const userId = queParams.get("id");
+  const [prem,setPrem] = useState([])
   const [post, setPost] = useState({
     subjectname: "",
     about: "",
     Examname: [],
   });
+  const [post1, setPost1] = useState({
+    name: "",
+    about: "",
+    price:"",
+    insId:userId
+  });
   const handleInput = (event) => {
     setPost({ ...post, [event.target.name]: event.target.value });
+  };
+  const handleInput1 = (event) => {
+    setPost1({ ...post1, [event.target.name]: event.target.value });
   };
   const submitModule = async (event) => {
     event.preventDefault();
@@ -33,11 +43,37 @@ const AfterloginHomeins = () => {
         post,
         config
       );
-     toast.success("Added succesfully")
+      toast.success("Added succesfully");
     } catch (error) {
       console.log("Error from the Instructor module added time" + error);
     }
   };
+  const submitModule1 = async (event) => {
+    event.preventDefault();
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
+    try {
+      const response = await axios.post(
+        `http://localhost:7000/api/instructor/addclass-premium`,
+        post1,
+        config
+      );
+      toast.success("Added succesfully");
+    } catch (error) {
+      console.log("Error from the Instructor module added time" + error);
+    }
+  };
+  const fetchPrem = async() =>{
+    try {
+      const res = await axios.get(`http://localhost:7000/api/instructor/get-premium/?id=${userId}`)
+      setPrem(res.data.data)
+    } catch (error) {
+      console.log("Error" + error)
+    }
+  }
   useEffect(() => {
     const fetchData = async () => {
       const config = {
@@ -56,6 +92,7 @@ const AfterloginHomeins = () => {
       }
     };
     fetchData();
+    fetchPrem()
   }, []);
   return (
     <>
@@ -84,6 +121,7 @@ const AfterloginHomeins = () => {
             alignItems: "center",
           }}
         >
+           <h3>Normal Course</h3>
           {allsub.map((val, ind) => {
             return (
               <div class="card-container" key={ind}>
@@ -126,40 +164,143 @@ const AfterloginHomeins = () => {
           })}
         </div>
 
+        <div
+          className="container-home-ins"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginLeft: "auto",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h3>Premiuim Course</h3>
+          {prem.map((val, ind) => {
+            return (
+              <div class="card-container" key={ind}>
+                
+                <div
+                  class="card"
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <h2>Status : {JSON.stringify(val.isPremium)}</h2>
+                  <div class="imgBx">
+                    <img className="img9832" src={img} alt="" />
+                  </div>
+                  <div class="content">
+                    <h2 className="head9832">
+                      {" "}
+                      <i> Subject Name : {val.name}</i>
+                    </h2>
+                    <p
+                      className="p1"
+                      style={{ fontSize: "11px", color: "red" }}
+                    >
+                      About : {val.about}
+                    </p>
+                    <button
+                      onClick={() =>
+                        navigate(
+                          `/upload-video?name=${val.name}&id=${userId}&cid=${val._id}`
+                        )
+                      }
+                    >
+                      Change Module
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
-        <section class="sec" style={{ display: "flex", justifyContent: "center" }}>
+      </div>
+      <section
+        class="sec"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <div
+          class="contentBoxes"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <div class="formBx">
+            <h2 style={{ fontSize: "2rem" }}>Add Subject here</h2>
+            <form action="" onSubmit={submitModule}>
+              <div class="inputBoxes">
+                <span>Enter the subject name</span>
+                <input
+                  type="text"
+                  name="subjectname"
+                  placeholder="Enter the subject name"
+                  onChange={handleInput}
+                />
+              </div>
 
-          <div class="contentBoxes" style={{ display: "flex", justifyContent: "center" }}>
-            <div class="formBx">
-              <h2 style={{fontSize:'2rem'}}>Add Subject here</h2>
-              <form action="" onSubmit={submitModule}>
-                <div class="inputBoxes">
-                  <span>Enter the subject name</span>
-                  <input
-                    type="text"
-                    name="subjectname"
-                    placeholder="Enter the subject name"
-                    onChange={handleInput}
-                  />
-                </div>
+              <div class="inputBoxes">
+                <span>About the subject</span>
+                <input
+                  type="text"
+                  name="about"
+                  placeholder="Enter about the subject"
+                  onChange={handleInput}
+                />
+              </div>
 
-                <div class="inputBoxes">
-                  <span>About the subject</span>
-                  <input
-                    type="text"
-                    name="about"
-                    placeholder="Enter about the subject"
-                    onChange={handleInput}
-                  />
-                </div>
-
-                <div class="inputBoxes">
-                  <input type="submit" value="submit" />
-                </div>
-              </form>
-            </div>
+              <div class="inputBoxes">
+                <input type="submit" value="submit" />
+              </div>
+            </form>
           </div>
-    </section>
+        </div>
+
+        <div
+          class="contentBoxes"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <div class="formBx">
+            <h2 style={{ fontSize: "2rem" }}>Add Premium course</h2>
+            <form action="" onSubmit={submitModule1}>
+              <div class="inputBoxes">
+                <span>Enter the subject name</span>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter the subject name"
+                  onChange={handleInput1}
+                />
+              </div>
+
+              <div class="inputBoxes">
+                <span>About the subject</span>
+                <input
+                  type="text"
+                  name="about"
+                  placeholder="Enter about the subject"
+                  onChange={handleInput1}
+                />
+              </div>
+              <div class="inputBoxes">
+                <span>Enter the Price</span>
+                <input
+                  type="text"
+                  name="price"
+                  placeholder="Enter Course Price"
+                  onChange={handleInput1}
+                />
+              </div>
+
+              <div class="inputBoxes">
+                <input type="submit" value="submit" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
       <Foot />
     </>
   );

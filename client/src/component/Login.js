@@ -28,8 +28,8 @@ const LoginForm = () => {
     console.log(post);
     try {
       const response = await axios.post(
-        "https://virtualclass-yz7w.onrender.com/api/user/login",
-        // "http://localhost:7000/api/user/login",
+        // "https://virtualclass-yz7w.onrender.com/api/user/login",
+        "http://localhost:7000/api/user/login",
         post,
         config
       );
@@ -38,6 +38,9 @@ const LoginForm = () => {
       const name = data.name;
       const token = data.token;
       const email = data.email
+      const image = data.image
+      const course = data.course
+
 
       if (data.isAdmin) {
         toast.success("Login successful", {
@@ -47,6 +50,8 @@ const LoginForm = () => {
         localStorage.setItem("name",name)
         localStorage.setItem("token", token);
         localStorage.setItem("email",email)
+       
+        
         setTimeout(()=>{
           navigate("/afteradmin");
         },1000)
@@ -59,6 +64,8 @@ const LoginForm = () => {
         localStorage.setItem("id",id)
         localStorage.setItem("name",name)
         localStorage.setItem("email",email)
+        localStorage.setItem("image",image)
+        localStorage.setItem("course",course)
         setTimeout(() => {
           navigate("/afterlogin");
         }, 1000);

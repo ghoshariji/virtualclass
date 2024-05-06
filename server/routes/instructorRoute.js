@@ -4,6 +4,22 @@ const insModel = require("../model/instructor");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const middleware = require("../middleware/authMiddleware");
+const courseModel = require("../model/courseModel");
+const multer = require("multer")
+const storage1 = multer.diskStorage({
+  destination:function(req,file,cb){
+    cb(null,"./videouploads")
+  },
+  filename:function(req,file,cb){
+    cb(null, file.originalname)
+  }
+})
+const upload = multer({
+  storage:storage1,
+  limits:{
+    fileSize: 1024 * 1024 * 100
+  }
+})
 router.post("/signup", async (req, res) => {
   try {
     console.log(req.body);
@@ -308,7 +324,10 @@ router.post("/add-ques-ins", async (req, res) => {
             for (let k = 0; k < finalData.length; i++) {
               if (finalData[k].examname === examname) {
                 finalData[k].questionSet.push(req.body);
-                await fs.writeFile("./modulejs/insmodule.json",JSON.stringify(data))
+                await fs.writeFile(
+                  "./modulejs/insmodule.json",
+                  JSON.stringify(data)
+                );
                 res.status(200).send({
                   message: "Question added succesfully",
                   success: true,
@@ -336,19 +355,132 @@ router.get("/get-ques-user", async (req, res) => {
     const subname = req.query.subname;
     const dataVal = await fs.readFile("./modulejs/module.json", "utf-8");
     const data = dataVal ? JSON.parse(dataVal) : [];
-    
-    const matchingSubjects = data.filter(item => item.subjectname === subname);
-    
+
+    const matchingSubjects = data.filter(
+      (item) => item.subjectname === subname
+    );
+
     res.send({
       message: "Data sent successfully",
       success: true,
-      data: matchingSubjects
+      data: matchingSubjects,
     });
   } catch (error) {
     console.log("Error from dynamic data fetch: " + error);
     res.status(500).send({
-      message: "Internal Server Error"
+      message: "Internal Server Error",
     });
   }
 });
-module.exports = router
+router.post("/addclass-premium", async (req, res) => {
+  try {
+    const id = req.query.id;
+    console.log(req.body);
+    const data = new courseModel(req.body);
+    await data.save();
+    return res.status(201).send({
+      message: "Saved succesfully",
+      success: true,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
+});
+router.get("/get-premium-course", async (req, res) => {
+  try {
+    const data = await courseModel.find({});
+    return res.status(201).send({
+      message: "fetch succesfully",
+      success: true,
+      data: data,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
+});
+router.get("/get-course-admin",async(req,res)=>{
+  try {
+    const data = await courseModel.find({});
+    return res.status(201).send({
+      message: "fetch succesfully",
+      success: true,
+      data: data,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
+})
+router.put("/update-course",async(req,res)=>{
+  try {
+    const data = await courseModel.findById(req.query.id);
+    const update = !data.isPremium;
+    await courseModel.findByIdAndUpdate(req.query.id,{isPremium:update},{new:true})
+    return res.status(201).send({
+      message: "fetch succesfully",
+      success: true,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
+})
+router.get("/get-premium",async(req,res)=>{
+  try {
+    const data = await courseModel.find({insId:req.query.id});
+    return res.status(201).send({
+      message: "fetch succesfully",
+      success: true,
+      data: data,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
+})
+router.post("/upload-video",upload.single("videoFile"),async(req,res)=>{
+  try {
+    const id = req.query.id;
+    const cid = req.query.cid;
+    const data = await courseModel.findById(cid);
+    data.examname.push({
+      name:req.body.topicName,
+      description:req.body.description,
+      video:req.file.originalname
+    })
+    await data.save()
+    return res.status(201).send({
+      message: "fetch succesfully",
+      success: true,
+      data: data,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
+})
+router.get("/get-prem-course-data",async(req,res)=>{
+  try {
+    const id = req.query.id;
+    const data = await courseModel.findById(id);
+    return res.status(201).send({
+      message: "fetch succesfully",
+      success: true,
+      data: data,
+      courseDetail:data.examname
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
+})
+module.exports = router;

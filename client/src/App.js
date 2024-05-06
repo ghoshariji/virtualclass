@@ -28,6 +28,10 @@ import Adminchat from './afterlogin/Adminchat';
 import Room from './afterlogin/Room';
 import { useEffect, useState } from 'react';
 import Profile from './afterlogin/Profile';
+import Paymentdone from './afterlogin/Paymentdone';
+import Addvideo from './Instructor/Addvideo';
+import Premdash from './afterlogin/Premdash';
+import Premmodule from './afterlogin/Premmodule';
 
 
 
@@ -75,6 +79,10 @@ function App() {
     <Route path="/chat-with-user" element={auth == null ? <Login/> :<Adminchat/>} />
     <Route path="/join-room/:roomID" element={<Room/>} />
     <Route path="/profile" element={<Profile/>} />
+    <Route path="/verify" element={<Paymentdone/>} />
+    <Route path="/upload-video" element={authIns == null ? <Login/> : <Addvideo/>} />
+    <Route path="/dashboard" element={auth == null ? <Login/> : <Premdash/>} />
+    <Route path="/go-to-module" element={auth == null ? <Login/> : <Premmodule/>} />
   </Routes>
 
   );

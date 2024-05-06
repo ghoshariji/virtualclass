@@ -1,0 +1,68 @@
+/* styles.css */
+.online-class-container {
+    margin-top: 10rem;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .class-join-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    background-color: #e9c7fc;
+    border-radius: 10px;
+  }
+  
+  .join-label {
+    font-size: 2.5rem;
+    padding: 1rem;
+  }
+  
+  .join-input {
+    padding: 0.5rem;
+    font-size: 2.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid #ccc;
+    margin-right: 1rem;
+  }
+  
+  .join-button {
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .class-join-container {
+      width: 80%;
+    }
+  }
+  /* styles.css */
+.join-input {
+    padding: 0.5rem;
+    font-size: 2.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid #ccc;
+    margin-right: 1rem;
+    width: 100%; /* Initially set width to 100% */
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .join-input {
+      width: calc(100% - 2rem); /* Adjust width for smaller screens */
+      /* You can adjust the subtraction value to fine-tune the width */
+    }
+  }
+  

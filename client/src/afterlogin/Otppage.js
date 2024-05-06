@@ -23,10 +23,16 @@ const Otppage = () => {
   };
   const fetchData = async () => {
     try {
+      const config = {
+        headers:{
+          "Content-Type":"application/json"
+        }
+      }
       console.log(email);
-      const response = await axios.get(
-        `https://virtualclass-yz7w.onrender.com/api/admin/generate-otp?email=${email}`
+      const response = await axios.post(
+        "http://lcoalhost:7000/api/admin/verify/generate-otp",{email},config
       );
+      console.log(response.data)
       setData(response.data);
     } catch (error) {
       console.log("Error " + error);

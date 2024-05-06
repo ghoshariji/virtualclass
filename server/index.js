@@ -12,9 +12,11 @@ const corsOptions = {
 };
 app.use(express.json());
 app.use(cors(corsOptions));
+app.use(express.urlencoded({extended:true}))
 const dotenv = require("dotenv");
 dotenv.config();
 app.use("/uploads",express.static("uploads"))
+app.use("/upload-video",express.static("videouploads"))
 // for chat ----
 // const io = new Server(server, {
 //   cors: {

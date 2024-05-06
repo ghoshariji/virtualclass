@@ -55,9 +55,9 @@ router.put("/removins", async (req, res) => {
     });
   }
 });
-router.get("/generate-otp", async (req, res) => {
+router.post("/verify/generate-otp", async (req, res) => {
   try {
-    const senderEmail = req.query.email;
+    const senderEmail = req.body.email;
     console.log(senderEmail)
     const otp = Math.floor(100000 + Math.random() * 900000);
     const transport = nodemailer.createTransport({
