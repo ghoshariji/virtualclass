@@ -1,52 +1,80 @@
 
-/* .profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .profile-content {
-    margin-top: 2rem;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+.profile{
+  background: linear-gradient(57deg, #ff5722 30%, #00000000 30%),
+  linear-gradient(23deg, #ff9800 60%, #e91e63 60%); 
+}
+
+.afterprofile{
+  margin-top: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageProfile{
+
+  margin-top: 5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  margin-left: 140px;
+
+  margin-bottom: 30px;
+   margin-left: auto;
+  margin-right: auto; 
+  margin-bottom: 2rem; 
+}
+
+
+
+
+.profileButton{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .profile-pic {
-    width: 200px; 
-    height: 200px; 
-    object-fit: cover; 
-    border-radius: 50%; 
-    margin-bottom: 1rem;
-  }
-  
-  .edit-profile-button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-  }
-  
-  @media (max-width: 768px) {
-    .profile-content {
-      width: 80%;
-    }
-  
-    .profile-pic {
-      width: 150px; 
-      height: 150px;
-    }
-  
-    .edit-profile-button {
-      font-size: 0.8rem;
-    }
-  }
-   */
+    margin-left: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
 
+.profileButton button {
+  margin: 0 10px;
+  border: 2px solid #000;
+  border-radius: 18px;
+  color: #fff;
+  background:transparent;
+  font-size: 14px;
+}
 
-   
+@media screen and (max-width: 768px) {
+  .profile{
+    width: auto;
+    height: auto;
+  }
+  .afterprofile {
+      margin-top: 7rem; 
+  }
+
+  .imageProfile {
+      margin-top: 3rem; 
+  }
+
+  .profileButton button {
+      width: 100%; 
+      margin: 1rem;
+      margin-right: 40px;
+  }
+}
