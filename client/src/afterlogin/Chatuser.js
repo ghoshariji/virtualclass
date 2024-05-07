@@ -56,7 +56,7 @@ const Chatuser = () => {
             maxHeight: "70vh",
             overflowY: "scroll",
             padding: "1rem",
-            backgroundColor: "#f4f4f4",
+            backgroundColor: "#d8efe6",
             borderRadius: "8px",
           }}
         >

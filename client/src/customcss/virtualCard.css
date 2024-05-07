@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+.outer{
+    height: 50vh;
+    /* background: #f2f2f2; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:20px;
+}
+
+
+
+
+#switch:checked ~ .outer
+{
+    background: #092c3e;
+}
+.outer .contentMaa{
+    display: flex;
+    max-width: 570px;
+    background: #fff;
+    padding: 15px;
+    border: 12px;
+    box-shadow: 0px 5px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+#switch:checked ~ .outer .contentMaa{
+    background: #092c3e;
+}
+
+/* .contentMaa  .toggle{
+    position: absolute;
+    right: 15px;
+    top: 13px;
+    width: 40px;
+    height: 20px;
+    border-radius: 20px;
+    background: #092c3e;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
+#switch:checked ~ .outer .toggle{
+    background: #fff;
+} */
+
+/* .toggle .circle{
+    height: 16px;
+    width: 16px;
+    background: #fff;
+    border-radius: 50%;
+    margin-left: 3px;
+    transition: all 0.3s ease;
+    
+} */
+
+/* #switch:checked ~ .outer .circle{
+    margin-left: 22px;
+    background: #092c3e;
+   
+} */
+
+.contentMaa .image-boxMaa{
+    height: 232px;
+    width: 200px;
+    border-radius: 12px;
+    background: #092c3e;
+    padding: 3px;
+}
+
+/* #switch:checked ~ .outer .image-boxMaa{
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.15);
+} */
+
+.contentMaa .image-boxMaa img{
+    height: 100%;
+    width:100% ;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #fff;
+}
+
+
+/* #switch:checked ~ .outer .image-boxMaa img{
+    border-color: transparent;
+} */
+
+.contentMaa .details{
+  width: 58%;
+  margin: 10px 0px 20px 20px;
+}
+
+/* #switch:checked ~ .outer .details{
+    color: #fff;
+} */
+
+.contentMaa .details .name{
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.contentMaa .details .teacher{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contentMaa .details p{
+    font-size: 15px;
+     margin-top: 6px;
+}
+.contentMaa .details button{
+    display: block;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    padding: 6px 14px;
+    margin-top: 16px;
+    background: #092c3e;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+/* #switch:checked ~ .outer button{
+    color:#092c3e;
+    background: #fff;
+} */
+
+.contentMaa .details button:hover{
+    transform: scale(0.97);
+}
+
+
+
+
+  
+  .moduleUser {
+    margin-top: 1rem;
+    background: linear-gradient(45deg,#d2001a,#7462ff,#f48e21,#23d5ab);
+    background-size: 300% 300%;
+    animation: color 12s ease-in-out infinite;
+  }
+  
+  @keyframes color {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .premium {
+    margin-top: 9rem;
+    background: linear-gradient(57deg, #ff5722 30%, #00000000 30%),
+                linear-gradient(23deg, #ff9800 60%, #e91e63 60%); 
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .outer {
+        height: auto; /* Adjust height as needed */
+    }
+
+    .outer .contentMaa {
+        max-width: 100%; /* Allow content to take full width */
+    }
+
+    .contentMaa .image-boxMaa {
+        width: 100%; /* Make image box full width */
+        height: auto; /* Allow height to adjust */
+    }
+
+    .contentMaa .details {
+        width: 100%; /* Make details section full width */
+        margin: 10px; /* Adjust margins */
+    }
+
+    .contentMaa .details .name {
+        font-size: 20px; /* Adjust font size */
+    }
+
+    .contentMaa .details .teacher {
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .contentMaa .details p {
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .contentMaa .details button {
+        font-size: 15px; /* Adjust font size */
+        padding: 8px 16px; /* Adjust padding */
+        margin-top: 12px; /* Adjust margin */
+    }
+}

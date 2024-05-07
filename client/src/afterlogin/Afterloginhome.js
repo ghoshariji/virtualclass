@@ -4,8 +4,10 @@ import first from "../image/a.jpeg";
 import Foot from "../footer/Foot";
 import axios from "axios";
 import "../customcss/Card.css";
-import img from "../image/first.jpg";
+// import img from "../image/first.jpg";
 import Afterloginusernav from "../navbar/Afterloginusernav";
+import img1 from "../image/virtualcard.webp";
+import "../customcss/virtualCard.css";
 
 const Afterloginhome = () => {
   const [data, setData] = useState([]);
@@ -15,7 +17,7 @@ const Afterloginhome = () => {
   const userID = params.get("id");
   const [prem, setPrem] = useState([]);
   const [id, setId] = useState("");
-  const [courseId,setCourseId] = useState([])
+  const [courseId, setCourseId] = useState([]);
   const fetchData = async () => {
     const config = {
       headers: {
@@ -55,27 +57,29 @@ const Afterloginhome = () => {
     }
   };
   useEffect(() => {
-
     // fetchPremium()
     const id = localStorage.getItem("id");
-    const courseId = localStorage.getItem("course")
+    const courseId = localStorage.getItem("course");
     // setId(id)
-    setCourseId(courseId)
+    setCourseId(courseId);
     fetchData();
     fetchPremuim(id);
-   
   }, []);
   return (
-    <>
+    <div className="moduleUser">
       <Afterloginusernav />
-      <div
+         <div 
         style={{
-          marginTop: "10rem",
-          background: "linear-gradient(45deg, #00bcd4, #ffeb3b)",
+            marginTop: "9rem",
+          // background: "linear-gradient(45deg, #00bcd4, #ffeb3b)",
+          // background:"#fff",
         }}
       >
-        <h1 style={{ textAlign: "center" }}>Your premium couses</h1>
-        
+        <h1 style={{ textAlign: "center", fontSize: "26px" }}>
+          {" "}
+          <i>Your premium couses</i>
+        </h1>
+
         <div
           className="container-home-ins"
           style={{
@@ -89,37 +93,32 @@ const Afterloginhome = () => {
         >
           {prem.map((val, ind) => {
             return (
-              <div class="card-container" key={ind}>
-                <div
-                  class="card"
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <div class="imgBx">
-                    <img className="img9832" src={img} alt="" />
-                  </div>
-                  <div class="content">
-                    <h2 className="head9832">
-                      {" "}
-                      <i> Subject Name : {val.name}</i>
-                    </h2>
-                    <p
-                      className="p1"
-                      style={{ fontSize: "11px", color: "red" }}
-                    >
-                      About : {val.about}
-                    </p>
-                    <button
-                    onClick={() =>
-                      navigate(`/dashboard/?id=${val._id}`)
-                    }
-                    >
-                      Go to Module
-                    </button>
+              <div className="containerMaa" key={ind}>
+                <input
+                  type="checkbox"
+                  id="switch"
+                  style={{ display: "none" }}
+                />
+                <div className="outer">
+                  <div className="contentMaa">
+                    <label htmlFor="switch">
+                      <span className="toggle">
+                        <span className="circle"></span>
+                      </span>
+                    </label>
+
+                    <div className="image-boxMaa">
+                      <img src={img1} alt="" />
+                    </div>
+                    <div className="details">
+                      <div className="name"> Subject Name: {val.name}</div>
+                      <p>About:{val.about}</p>
+                      <button
+                        onClick={() => navigate(`/dashboard/?id=${val._id}`)}
+                      >
+                        Read More
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -129,13 +128,15 @@ const Afterloginhome = () => {
       </div>
 
       <div
-        className="moduleUser"
+        
         style={{
-          marginTop: "10rem",
-          background: "linear-gradient(45deg, #00bcd4, #ffeb3b)",
+          marginTop:"9rem"
         }}
       >
-        <h1 style={{ textAlign: "center" }}>Other courses</h1>
+        <h1 style={{ textAlign: "center", fontSize: "26px" }}>
+          {" "}
+          <i>OTHER COURSES</i>
+        </h1>
         <div
           className="container-home-ins"
           style={{
@@ -149,37 +150,36 @@ const Afterloginhome = () => {
         >
           {data.map((val, ind) => {
             return (
-              <div class="card-container" key={ind}>
-                <div
-                  class="card"
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <div class="imgBx">
-                    <img className="img9832" src={img} alt="" />
-                  </div>
-                  <div class="content">
-                    <h2 className="head9832">
-                      {" "}
-                      <i> Subject Name : {val.subjectname}</i>
-                    </h2>
-                    <p
-                      className="p1"
-                      style={{ fontSize: "11px", color: "red" }}
-                    >
-                      About : {val.about}
-                    </p>
-                    <button
-                      onClick={() =>
-                        navigate(`/dynamicdashboard?data=${val.subjectname}`)
-                      }
-                    >
-                      Go to Module
-                    </button>
+              <div className="containerMaa" key={ind}>
+                <input
+                  type="checkbox"
+                  id="switch"
+                  style={{ display: "none" }}
+                />
+                <div className="outer">
+                  <div className="contentMaa">
+                    <label htmlFor="switch">
+                      <span className="toggle">
+                        <span className="circle"></span>
+                      </span>
+                    </label>
+                    <div className="image-boxMaa">
+                      <img src={img1} alt="" />
+                    </div>
+                    <div className="details">
+                      <div className="name">
+                        {" "}
+                        Subject Name: {val.subjectname}
+                      </div>
+                      <p>About:{val.about}</p>
+                      <button
+                        onClick={() =>
+                          navigate(`/dynamicdashboard?data=${val.subjectname}`)
+                        }
+                      >
+                        Read More
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -189,7 +189,7 @@ const Afterloginhome = () => {
       </div>
 
       <Foot />
-    </>
+    </div>
   );
 };
 
