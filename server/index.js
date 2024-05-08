@@ -40,7 +40,7 @@ app.use("/upload-video",express.static("videouploads"))
 //   });
 // });
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 7000;
 const userRoute = require("./routes/userRoute");
 const moduleRoute = require("./routes/moduleRoute");
 const contactRoute = require("./routes/contactRoute");
