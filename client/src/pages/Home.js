@@ -56,7 +56,7 @@ const Home = () => {
       },
     };
     const res = await axios.post(
-      "http://localhost:7000/api/user/checkout",
+      "https://virtualclass-yz7w.onrender.com/api/user/checkout",
       { price },
       config
     );
@@ -70,7 +70,7 @@ const Home = () => {
         "A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami",
       image: "https://example.com/your_logo",
       order_id: res.data.data.id,
-      callback_url: `http://localhost:7000/api/user/paymentverification/?id=${id}&courseid=${courseId}`,
+      callback_url: `https://virtualclass-yz7w.onrender.com/api/user/paymentverification/?id=${id}&courseid=${courseId}`,
       prefill: {
         name: name,
         email: email,
@@ -88,7 +88,7 @@ const Home = () => {
   const fetchData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:7000/api/instructor/get-premium-course"
+        "https://virtualclass-yz7w.onrender.com/api/instructor/get-premium-course"
       );
       console.log(res.data.data);
       setData(res.data.data);

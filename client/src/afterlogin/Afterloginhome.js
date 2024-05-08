@@ -49,7 +49,7 @@ const Afterloginhome = () => {
   const fetchPremuim = async (id) => {
     try {
       const res = await axios.get(
-        `http://localhost:7000/api/user/get-course-user/?id=${id}`
+        `https://virtualclass-yz7w.onrender.com/api/user/get-course-user/?id=${id}`
       );
       setPrem(res.data.courses);
     } catch (error) {

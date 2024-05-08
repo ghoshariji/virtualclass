@@ -27,7 +27,7 @@ const Changepass = () => {
         
       );
       alert("Succesfully chnage password");
-      navigate("/login");
+      navigate("/");
       setPost("")
     } catch (error) {
       console.log("Error from the chnagepass page" + error);
