@@ -117,57 +117,102 @@ const LoginForm = () => {
     fetchLogin();
   }, []);
   return (
-    <div className="body">
-      <ToastContainer />
-      <div className="wrapper">
-        <form action="" onSubmit={submitHandle}>
-          <h1>Login</h1>
-          <div className="input-box">
-            <input
-              type="text"
-              placeholder="Username"
-              name="email"
-              onChange={handleInput}
-              value={post.email}
-            />
-            <FaUser className="icon" />
-          </div>
+    // <div className="body">
+    //   <ToastContainer />
+    //   <div className="wrapper">
+    //     <form action="" onSubmit={submitHandle}>
+    //       <h1>Login</h1>
+    //       <div className="input-box">
+    //         <input
+    //           type="text"
+    //           placeholder="Username"
+    //           name="email"
+    //           onChange={handleInput}
+    //           value={post.email}
+    //         />
+    //         <FaUser className="icon" />
+    //       </div>
 
-          <div className="input-box">
-            <input
-              type="password"
-              placeholder="Enter Password"
-              name="password"
-              onChange={handleInput}
-              value={post.password}
-            />
-            <FaLock className="icon" />
-          </div>
+    //       <div className="input-box">
+    //         <input
+    //           type="password"
+    //           placeholder="Enter Password"
+    //           name="password"
+    //           onChange={handleInput}
+    //           value={post.password}
+    //         />
+    //         <FaLock className="icon" />
+    //       </div>
 
-          <div className="remenber-forgot">
-            <label>
-              <input type="checkbox" />
-              Remenber me
-            </label>
-            <a href="/enteremail"> Forgot password</a>
-          </div>
+    //       <div className="remenber-forgot">
+    //         <label>
+    //           <input type="checkbox" />
+    //           Remenber me
+    //         </label>
+    //         <a href="/enteremail"> Forgot password</a>
+    //       </div>
 
-          <button type="submit">Login</button>
+    //       <button type="submit">Login</button>
 
-          <div className="register-link">
-            <p>
-              Login as ? <a href="/instructorhome">Instructor</a>{" "}
-            </p>
-          </div>
+    //       <div className="register-link">
+    //         <p>
+    //           Login as ? <a href="/instructorhome">Instructor</a>{" "}
+    //         </p>
+    //       </div>
 
-          <div className="register-link">
-            <p>
-              Don't have an account ? <a href="/signup">Register</a>{" "}
-            </p>
-          </div>
-        </form>
+    //       <div className="register-link">
+    //         <p>
+    //           Don't have an account ? <a href="/signup">Register</a>{" "}
+    //         </p>
+    //       </div>
+    //     </form>
+    //   </div>
+    // </div>
+
+    <div className="BODYLOGIN">
+
+      <div className="Welcome">
+      <h1>Welcome Our eLearning Website</h1>
       </div>
+
+
+    <div className="container1000">
+           <ToastContainer />
+            <div className="drop">
+                <div className="content100">
+                    <h2 >SIGN IN</h2>
+                    <form action="" onSubmit={submitHandle}>
+                        <div className="inputBox">
+                            <input 
+                            type="text" 
+                            placeholder="Email"
+                            onChange={handleInput}
+                            value={post.email}
+                            name="email"
+                            />
+                         </div>
+
+                        <div className="inputBox">
+                            <input
+                             type="password" 
+                             placeholder="Password" 
+                             onChange={handleInput}
+                             value={post.password}
+                             name="password"
+                             />
+                        </div>
+                        <div className="inputBox">
+                            <input type="submit" value="Login"  style={{fontSize:"16px"}}/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <a href="/enteremail" className="btns100" style={{fontSize:"14px"}}>Forgot Password</a>
+            <a href="/signup" className="btns100 signup"  style={{fontSize:"14px"}}>Signup</a>
+            <a href="/instructorhome" className="btns Instructor"  style={{fontSize:"14px"}}>Instructor Login?</a>
+        </div>
     </div>
+
   );
 };
 

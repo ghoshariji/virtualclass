@@ -99,6 +99,18 @@ const Dynamicexamwrite = () => {
                     </div>
                 )
             ))}
+
+
+
+
+
+
+
+
+
+
+
+            
             <div>
                 {currentQuestion > 0 && (
                     <button style={{ fontSize: '1rem', padding: '2rem 1rem', marginRight: '1rem', backgroundColor: 'orange', color: 'white', border: 'none', borderRadius: '0.3rem' }} onClick={handlePreviousQuestion}>Previous</button>
@@ -117,3 +129,12 @@ const Dynamicexamwrite = () => {
 };
 
 export default Dynamicexamwrite;
+
+
+
+
+
+
+
+
+

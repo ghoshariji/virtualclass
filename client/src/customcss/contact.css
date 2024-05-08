@@ -48,16 +48,6 @@ h1:hover {
 
 
 
-form {
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-form:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-
-
 .img-fluid{
     border-radius: 20px;
     transition: transform 0.3s ease-in-out;
