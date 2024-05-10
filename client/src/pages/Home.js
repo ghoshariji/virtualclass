@@ -156,7 +156,7 @@ const Home = () => {
     <>
       <Afterloginusernav />
 
-      <section className="home" id="home">
+      <section className="home" id="home" style={{marginTop:"8rem"}}>
         <div className="content">
         {/* {courseId1.map((val,ind)=>{
           return (

@@ -174,40 +174,30 @@
 
 
 
-@media screen and (max-width: 768px) {
-    .outer {
-        height: auto; /* Adjust height as needed */
+@media (max-width: 768px) {
+    .payment-card {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the content vertically */
     }
-
-    .outer .contentMaa {
-        max-width: 100%; /* Allow content to take full width */
+    .payment-data h2 {
+        font-size: 28px;
     }
-
-    .contentMaa .image-boxMaa {
-        width: 100%; /* Make image box full width */
-        height: auto; /* Allow height to adjust */
+    .payment-data span {
+        font-size: 16px;
     }
-
-    .contentMaa .details {
-        width: 100%; /* Make details section full width */
-        margin: 10px; /* Adjust margins */
+    .row {
+        flex-direction: column; /* Display the row items in column */
+        align-items: center; /* Center the row items horizontally */
     }
-
-    .contentMaa .details .name {
-        font-size: 20px; /* Adjust font size */
+    .row .info {
+        flex-basis: 100%;
+        text-align: center; /* Center the text within the info */
     }
-
-    .contentMaa .details .teacher {
-        font-size: 16px; /* Adjust font size */
-    }
-
-    .contentMaa .details p {
-        font-size: 14px; /* Adjust font size */
-    }
-
-    .contentMaa .details button {
-        font-size: 15px; /* Adjust font size */
-        padding: 8px 16px; /* Adjust padding */
-        margin-top: 12px; /* Adjust margin */
+    .pay-btn {
+        width: 100%;
+        margin-top: 30px;
     }
 }
+

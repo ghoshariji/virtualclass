@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Afterloginusernav from "../navbar/Afterloginusernav";
 import Foot from "../footer/Foot";
 import "../customcss/onlinejoin.css"
+import img from "../image/Live-Class-Image.png"
 const Onlineclass = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
@@ -13,14 +14,12 @@ const Onlineclass = () => {
 
   return (
     <>
-      <div
-        className="online-class-container"
-      >
+
+
+     {/*  <div className="online-class-container">
         <Afterloginusernav />
 
-        <div
-          className="class-join-container"
-        >
+        <div className="class-join-container">
           <label htmlFor="" className="join-label">
             Below the link for join the class
           </label>
@@ -29,19 +28,56 @@ const Onlineclass = () => {
             placeholder="Enter your name"
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            className="join-input"
-          />
+            className="join-input"/>
           <button
             type="submit"
             onClick={handleJoin}
-            className="join-button"
-          >
+            className="join-button">
             Join
           </button>
         </div>
       </div>
+  */}
+
+
+
+      <div className="main1000">
+      <Afterloginusernav />
+      <div className="payment-card">
+        <div className="image">
+          <img src={img} alt="" className="payment-pic" />
+        </div>
+
+        <div className="payment-data">
+          <h2>Join the Live Class</h2>
+          
+        </div>
+
+        <input
+       type="text"
+       placeholder="Enter your name"
+       value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="transparent-input"
+/>
+      
+        <div className="pay-btn">
+          <button 
+          className="btn100"
+          type="submit"
+          onClick={handleJoin}
+          >
+          Join Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
       <Foot />
     </>
+    
   );
 };
 
