@@ -27,7 +27,7 @@ const Dynamicexamwrite = () => {
       };
       try {
         const response = await axios.get(
-          `http://localhost:7000/api/user/get-ques-list-examname?subname=${subname}&exam=${examname}`
+          `https://virtualclass-yz7w.onrender.com/api/user/get-ques-list-examname?subname=${subname}&exam=${examname}`
         );
         setExamlist(response.data.data);
       } catch (error) {
