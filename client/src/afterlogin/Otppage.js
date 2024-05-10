@@ -30,7 +30,8 @@ const Otppage = () => {
       }
       console.log(email);
       const response = await axios.post(
-        "https://virtualclass-yz7w.onrender.com/api/admin/verify/generate-otp",{email},config
+         "https://virtualclass-yz7w.onrender.com/api/admin/verify/generate-otp",{email},config
+        // "http://localhost:7000/api/admin/verify/generate-otp",{email},config
       );
       console.log(response.data)
       setData(response.data);
