@@ -68,7 +68,7 @@ const Dynamicexamdash = () => {
                   <p className="p1" style={{ fontSize: "11px", color: "red" }}>
                     Time : {val.time}
                   </p>
-                  <button onClick={()=>navigate(`/dynamicexamwrite?ques=${JSON.stringify(val.questionSet)}`)}>Attempt</button>
+                  <button onClick={()=>navigate(`/dynamicexamwrite?class=${subname}&exam=${val.examname}`)}>Attempt</button>
                 </div>
               </div>
             </div>

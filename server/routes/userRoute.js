@@ -172,6 +172,43 @@ router.get("/get-ques-list", async (req, res) => {
     console.log("Error from getting exam list" + error);
   }
 });
+router.get("/get-ques-list-examname", async (req, res) => {
+  try {
+    const subname = req.query.subname;
+    const dataVal = await fs.readFile("./modulejs/insmodule.json", "utf-8");
+    const data = dataVal ? JSON.parse(dataVal) : [];
+    let resArray = [];
+    for (let i = 0; i < data.length; i++) {
+      const subJectArray = data[i].allSubject;
+      for (let i = 0; i < subJectArray.length; i++) {
+        if (subJectArray[i].subjectname === subname) {
+          const resData = subJectArray[i].Examname;
+          for(let i=0;i<resData.length;i++)
+            {
+              if(resData[i].examname === req.query.exam)
+                {
+                  const resData1 = resData[i].questionSet
+                  res.status(201).send({
+                    message: "Data send succesfully",
+                    success: true,
+                    data: resData1,
+                  });
+                  return;
+                }
+             
+            }
+         
+        }
+      }
+    }
+    res.status(500).send({
+      message: "No Exam yet now",
+      success: false,
+    });
+  } catch (error) {
+    console.log("Error from getting exam list" + error);
+  }
+});
 
 router.post("/profile-pic-upload", upload.single("file"), async (req, res) => {
   try {
