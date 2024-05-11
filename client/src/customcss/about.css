@@ -186,6 +186,8 @@ text-align: center;
     object-fit: cover;
 }
 
+
+
 .clientMama .imgMamaBx img:hover{
     opacity: 1;
 }
@@ -284,6 +286,9 @@ text-align: center;
   }
   .clientMama .imgMamaBx{
      justify-content: center; 
+  }
+  .clientMama .imgMamaBx .Niladri{
+     width: 300px;
   }
 
   .testimonials{
