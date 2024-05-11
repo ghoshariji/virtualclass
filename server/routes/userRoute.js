@@ -285,7 +285,7 @@ router.post("/paymentverification", async (req, res) => {
     const course = req.query.courseid;
     try {
       const user = await userModel.findByIdAndUpdate(id,{$push:{course:course}},{new:true})
-      res.redirect(`http://localhost:3000/verify/?id=${razorpay_order_id}`);
+      res.redirect(`https://elearn-class.vercel.app/verify/?id=${razorpay_order_id}`);
     } catch (error) {
       console.error("Error updating user:", error);
       return res.status(500).send({ message: "Internal server error" });
