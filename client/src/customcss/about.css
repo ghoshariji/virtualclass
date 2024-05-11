@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+.banner{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #3475ca;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;   
+}
+
+.banner .contentMama{
+    position: relative;
+    max-width: 700px;
+    text-align: center;
+}
+.banner .contentMama h2{
+    color: #fff;
+    font-size: 60px;
+}
+
+.banner .contentMama p{
+    color: #fff;
+    font-size: 18px;
+}
+
+.banner header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+}
+.banner header .logoMama{
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.banner header #toggleMaa{
+    position: relative;
+    width: 36px;
+    height: 28px;
+    
+    background-size: cover;
+    cursor: pointer;
+}
+.aboutMama{
+    position: relative;
+    width: 100%;
+    display: flex;
+    background: #162c3b;
+}
+.aboutMama .contentMamaBx{
+    background: #162c3b;
+    padding: 100px;
+    width: 50%;
+}
+.headingMama{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+
+}
+.textMama{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.aboutMama .imgMamaBx{
+    background: url("../image/window.jpg");
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.serviceMama{
+    background: #12222d;
+    padding: 100px;
+    text-align: center;
+}
+
+.serviceMama p{
+    color: #c02647;
+    letter-spacing: 0.5px;
+    font-style: oblique;
+}
+
+
+.serviceMama .containerMama{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     flex-wrap: wrap;
+     margin-top: 60px;
+}
+.serviceMama .containerMama .serviceMamaBx{
+    position: relative;
+    background: #fff;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.serviceMama .containerMama .serviceMamaBx img{
+    max-width: 100px;
+}
+.serviceMama .containerMama .serviceMamaBx h2{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.technologyMama {
+    background: #3f8ffc;
+    width: 100%;
+    padding: 100px;
+    padding-top: 300px;
+    margin-top: -300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.technologyMama .contentMamaBx{
+    max-width: 800px;
+}
+.technologyMama .imgMamaBx {
+   max-width: 250px;
+}
+
+.technologyMama .imgMamaBx img{
+    max-width: 100%;
+}
+
+.clientMama{
+background: #162c3b;
+padding: 80px;
+text-align: center;
+}
+.clientMama .imgMamaBx{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.clientMama .imgMamaBx img{
+    max-width: 200px;
+    margin: 20px;
+    opacity: 0.25;
+    cursor: pointer;
+    border-radius: 5%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.clientMama .imgMamaBx img:hover{
+    opacity: 1;
+}
+
+.testimonials{
+    position: relative;
+    padding: 80px;
+    background: #12222d;
+    text-align: center;
+}
+
+.testimonials .containerMama{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.testimonials .containerMama .contentMamaBx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 60px 50px;
+    width: 450px;
+    text-align: left;
+}
+.testimonials .containerMama .contentMamaBx p{
+    font-style: italic;
+
+}
+
+.testimonials .containerMama .contentMamaBx h3{
+    width: 100%;
+    text-align: end;
+    font-weight: 500;
+    color: #3f8ffc;
+}
+
+@media(max-width:991px){
+   .banner{
+       padding: 50px;
+   }
+   .banner header{
+         padding: 20px 50px;
+   }
+   .banner header .logoMama{
+     margin-right: 20px;
+   }
+   .banner .contentMama h2{
+    font-size: 36px;
+   }
+   .banner .contentMama p{
+    font-size: 16px;
+   }
+  .aboutMama {
+    flex-direction: column;
+  }
+
+  .aboutMama .contentMamaBx,
+  .aboutMama .imgMamaBx{
+    width:100%;
+    padding: 50px;
+    min-height: 400px;
+    text-align: center;
+  }
+
+  .serviceMama{
+    padding: 50px;
+  }
+  .serviceMama .containerMama{
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .serviceMama .containerMama .serviceMamaBx{
+    margin: 20px;
+    width: 300px;
+    height: 350px;
+  }
+  .technologyMama{
+    padding: 50px;
+    padding-top: 300px;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .technologyMama .imgMamaBx{
+    margin-top: 40px;
+    width: 250px;
+  }
+
+  .clientMama{
+    padding: 50px;
+
+  }
+  .clientMama .imgMamaBx{
+     justify-content: center; 
+  }
+
+  .testimonials{
+    padding: 50px;
+  }
+  .testimonials .contentMamaBx{
+    padding: 60px 40px;
+    max-width: 550px;
+    margin-bottom: 40px;
+  }
+
+  .testimonials .contentMamaBx:last-child{
+    margin-bottom: 0px;
+  }
+
+}

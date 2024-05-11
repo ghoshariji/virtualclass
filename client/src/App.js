@@ -4,6 +4,7 @@ import Login from './component/Login';
 import Signup from './component/Signup';
 import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
+import About from './pages/About';
 import "./customcss/custom.css"
 import Contact from './pages/Contact';
 import Afterloginhome from './afterlogin/Afterloginhome';
@@ -57,6 +58,7 @@ function App() {
     <Route path="/" element={<Login/>}  exact/>
     <Route path="/home" element={auth == null ? <Login/> :  <Home/>}/>
     <Route path="/contact" element={auth == null ? <Login/> :  <Contact/>} />
+    <Route path="/about" element={auth == null ? <Login/> :  <About/>} />
     <Route path="/signup" element={<Signup/>} />
     <Route path="/afterlogin" element={auth == null ? <Login/> :  <Afterloginhome/>} />
     <Route path="/onlineclass" element={auth == null ? <Login/> :  <Onlineclass/>} />
