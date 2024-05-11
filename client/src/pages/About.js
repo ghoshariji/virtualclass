@@ -22,14 +22,15 @@ const About = () => {
     });
   }, []);
   return (
-    <div>
+    <div className="HEADAbout">
       <Afterloginusernav />
       {/* Banner */}
       <div className="banner" style={{ marginTop: "8rem" }}>
         <img src={img} alt="" />
-        <div className="contentMama" data-aos="fade-left">
+        <div className="contentMama" data-aos="fade-left" style={{ paddingRight: "0" }}>
           <h2>Success By Learning</h2>
-          <p>
+          <p >
+          
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Praesentium, ducimus perspiciatis vitae mollitia rem omnis illum
             necessitatibus animi expedita, tempore fugit possimus quae corporis

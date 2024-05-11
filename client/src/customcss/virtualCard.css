@@ -175,6 +175,9 @@
 
 
 @media (max-width: 768px) {
+    .moduleUser{
+        overflow-x: hidden;
+    }
     .payment-card {
         height: auto;
         display: flex;

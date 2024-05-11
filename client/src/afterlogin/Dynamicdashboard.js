@@ -12,7 +12,7 @@ const Dynamicdashboard = () => {
 
   };
   return (
-    <>
+    <div className="danamicDashboardHead">
     <div className="containerHead">
      {/* <div style={{marginTop:"10rem"}}>
     <Afterloginusernav/>
@@ -56,7 +56,7 @@ const Dynamicdashboard = () => {
   
     </div>
     <Foot/>
-    </>
+    </div>
   );
 };
 

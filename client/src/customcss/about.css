@@ -229,6 +229,9 @@ text-align: center;
 }
 
 @media(max-width:991px){
+  .HEADAbout{
+    overflow-x: hidden;
+  }
    .banner{
        padding: 50px;
    }
