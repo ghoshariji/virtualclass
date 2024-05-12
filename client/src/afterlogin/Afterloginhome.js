@@ -29,7 +29,7 @@ const Afterloginhome = () => {
         `${process.env.REACT_APP_API_URL}/api/user/get-module`,
         config
       );
-     // console.log(response.data.data);
+      // console.log(response.data.data);
       setData(response.data.data);
     } catch (error) {
       console.log("Error from the userhome fetching data" + error);
@@ -68,9 +68,9 @@ const Afterloginhome = () => {
   return (
     <div className="moduleUser">
       <Afterloginusernav />
-         <div 
+      <div
         style={{
-            marginTop: "9rem",
+          marginTop: "9rem",
           // background: "linear-gradient(45deg, #00bcd4, #ffeb3b)",
           // background:"#fff",
         }}
@@ -128,9 +128,8 @@ const Afterloginhome = () => {
       </div>
 
       <div
-        
         style={{
-          marginTop:"9rem"
+          marginTop: "9rem",
         }}
       >
         <h1 style={{ textAlign: "center", fontSize: "26px" }}>

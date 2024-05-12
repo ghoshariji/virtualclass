@@ -6,8 +6,8 @@ const Room = () => {
   const { roomID } = useParams();
 
   let myMeeting = async (element) => {
-    const appID = process.env.REACT_APP_appID;
-    const serverSecret = process.env.REACT_APP_zegoSecret;
+    const appID = 1576775279;
+    const serverSecret = "c05100dfaab1cb3c9ce2569158a1b350";
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       appID,
       serverSecret,
@@ -21,7 +21,7 @@ const Room = () => {
       sharedLinks: [
         {
           name: "Copy Link",
-          url: `https://elearn-class.vercel.app/join-room/${roomID}`,
+          url: `http://localhost:3000/join-room/${roomID}`,
         },
       ],
       scenario: {
