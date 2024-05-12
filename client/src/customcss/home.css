@@ -496,6 +496,9 @@ header .navbar a:hover {
     }
 
 @media(max-width:768px){
+    .HEadhOMe{
+        overflow-x: hidden;
+    }
   #menu-bar{
     display: initial;
   }

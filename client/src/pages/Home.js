@@ -153,7 +153,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <div className="HEadhOMe">
       <Afterloginusernav />
 
       <section className="home" id="home" style={{ marginTop: "8rem" }}>
@@ -689,7 +689,7 @@ const Home = () => {
       </section>
 
       <Foot />
-    </>
+    </div>
   );
 };
 
