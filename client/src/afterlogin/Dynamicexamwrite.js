@@ -4,6 +4,7 @@ import Foot from "../footer/Foot";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
 const Dynamicexamwrite = () => {
   const navigate = useNavigate();
   // const queParams = new URLSearchParams(document.location.search);
@@ -27,7 +28,7 @@ const Dynamicexamwrite = () => {
       };
       try {
         const response = await axios.get(
-          `https://virtualclass-yz7w.onrender.com/api/user/get-ques-list-examname?subname=${subname}&exam=${examname}`
+          `${process.env.REACT_APP_API_URL}/api/user/get-ques-list-examname?subname=${subname}&exam=${examname}`
         );
         setExamlist(response.data.data);
       } catch (error) {

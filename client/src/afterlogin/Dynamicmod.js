@@ -4,6 +4,7 @@ import img from "../image/first.jpg";
 import Foot from "../footer/Foot";
 import Afterloginusernav from "../navbar/Afterloginusernav";
 
+
 const Dynamicmod = () => {
   const [subjects, setSubjects] = useState([]);
   const queParams = new URLSearchParams(document.location.search);
@@ -18,11 +19,11 @@ const Dynamicmod = () => {
       };
       try {
         const response = await axios.get(
-          `https://virtualclass-yz7w.onrender.com/api/instructor/get-ques-user?subname=${className}`,
+          `${process.env.REACT_APP_API_URL}/api/instructor/get-ques-user?subname=${className}`,
           config
         );
         setSubjects(response.data.data);
-        console.log(response.data.data);
+       // console.log(response.data.data);
       } catch (error) {
         console.log("Error from dynamic data fetch: " + error);
       }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import { toast, ToastContainer } from "react-toastify";
 const Changepass = () => {
   const param = new URLSearchParams(document.location.search);
   const email = param.get("email");
@@ -13,7 +14,7 @@ const Changepass = () => {
     setPost({ ...post, [event.target.name]: event.target.value });
   };
   const formSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -21,16 +22,15 @@ const Changepass = () => {
     };
     try {
       const response = await axios.post(
-        `https://virtualclass-yz7w.onrender.com/api/admin/change-pass?email=${email}`,
+        `${process.env.REACT_APP_API_URL}/api/admin/change-pass?email=${email}`,
         post,
         config
-        
       );
-      alert("Succesfully chnage password");
+      toast.success("Password Updated");
       navigate("/");
-      setPost("")
+      setPost("");
     } catch (error) {
-      console.log("Error from the chnagepass page" + error);
+      //console.log("Error from the chnagepass page" + error);
     }
   };
   return (
@@ -41,6 +41,7 @@ const Changepass = () => {
         alignItems: "center",
       }}
     >
+      <ToastContainer />
       <div>
         <form
           action=""

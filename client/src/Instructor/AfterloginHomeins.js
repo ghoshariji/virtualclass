@@ -6,13 +6,15 @@ import Insnav from "../navbar/Insnav";
 import Foot from "../footer/Foot";
 import "../customcss/form2.css";
 import { toast, ToastContainer } from "react-toastify";
+
+
 const AfterloginHomeins = () => {
   const queParams = new URLSearchParams(document.location.search);
   const [allsub, setAllsub] = useState([]);
   const navigate = useNavigate();
   const nameIns = queParams.get("name");
   const userId = queParams.get("id");
-  const [prem,setPrem] = useState([])
+  const [prem, setPrem] = useState([]);
   const [post, setPost] = useState({
     subjectname: "",
     about: "",
@@ -21,8 +23,8 @@ const AfterloginHomeins = () => {
   const [post1, setPost1] = useState({
     name: "",
     about: "",
-    price:"",
-    insId:userId
+    price: "",
+    insId: userId,
   });
   const handleInput = (event) => {
     setPost({ ...post, [event.target.name]: event.target.value });
@@ -39,7 +41,7 @@ const AfterloginHomeins = () => {
     };
     try {
       const response = await axios.post(
-        `https://virtualclass-yz7w.onrender.com/api/instructor/addclass?id=${userId}`,
+        `${process.env.REACT_APP_API_URL}/api/instructor/addclass?id=${userId}`,
         post,
         config
       );
@@ -57,7 +59,7 @@ const AfterloginHomeins = () => {
     };
     try {
       const response = await axios.post(
-        `http://localhost:7000/api/instructor/addclass-premium`,
+        `${process.env.REACT_APP_API_URL}/api/instructor/addclass-premium`,
         post1,
         config
       );
@@ -66,14 +68,16 @@ const AfterloginHomeins = () => {
       console.log("Error from the Instructor module added time" + error);
     }
   };
-  const fetchPrem = async() =>{
+  const fetchPrem = async () => {
     try {
-      const res = await axios.get(`http://localhost:7000/api/instructor/get-premium/?id=${userId}`)
-      setPrem(res.data.data)
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/instructor/get-premium/?id=${userId}`
+      );
+      setPrem(res.data.data);
     } catch (error) {
-      console.log("Error" + error)
+      console.log("Error" + error);
     }
-  }
+  };
   useEffect(() => {
     const fetchData = async () => {
       const config = {
@@ -83,7 +87,7 @@ const AfterloginHomeins = () => {
       };
       try {
         const response = await axios.get(
-          `https://virtualclass-yz7w.onrender.com/api/instructor/get-class-admin?userId=${userId}`,
+          `${process.env.REACT_APP_API_URL}/api/instructor/get-class-admin?userId=${userId}`,
           config
         );
         setAllsub(response.data.data);
@@ -92,7 +96,7 @@ const AfterloginHomeins = () => {
       }
     };
     fetchData();
-    fetchPrem()
+    fetchPrem();
   }, []);
   return (
     <>
@@ -121,7 +125,7 @@ const AfterloginHomeins = () => {
             alignItems: "center",
           }}
         >
-           <h3>Normal Course</h3>
+          <h3>Normal Course</h3>
           {allsub.map((val, ind) => {
             return (
               <div class="card-container" key={ind}>
@@ -179,7 +183,6 @@ const AfterloginHomeins = () => {
           {prem.map((val, ind) => {
             return (
               <div class="card-container" key={ind}>
-                
                 <div
                   class="card"
                   style={{

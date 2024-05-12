@@ -38,16 +38,16 @@ import img33 from "../image/Homepage4-logo.png";
 import "../customcss/home.css";
 import Afterloginusernav from "../navbar/Afterloginusernav";
 
+
 import axios from "axios";
 
 const Home = () => {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [id, setId] = useState("");
   const [data, setData] = useState([]);
-  const [courseId1,setCourseId] = useState([])
-  const [final,setFinal] = useState([])
+  const [courseId1, setCourseId] = useState([]);
+  const [final, setFinal] = useState([]);
   const handlePayment = async (price, courseId) => {
     // const price = 4999;
     const config = {
@@ -56,21 +56,21 @@ const Home = () => {
       },
     };
     const res = await axios.post(
-      "https://virtualclass-yz7w.onrender.com/api/user/checkout",
+      `${process.env.REACT_APP_API_URL}/api/user/checkout`,
       { price },
       config
     );
-    console.log(res.data.data);
-    console.log(window);
+    // console.log(res.data.data);
+    // console.log(window);
     const options = {
-      key: "rzp_test_6Fsll3myRMs9xe",
+      key: `${process.env.REACT_APP_razorPay}`,
       amount: res.data.data.amout,
       name: name,
       description:
         "A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami",
       image: "https://example.com/your_logo",
       order_id: res.data.data.id,
-      callback_url: `https://virtualclass-yz7w.onrender.com/api/user/paymentverification/?id=${id}&courseid=${courseId}`,
+      callback_url: `${process.env.REACT_APP_API_URL}/api/user/paymentverification/?id=${id}&courseid=${courseId}`,
       prefill: {
         name: name,
         email: email,
@@ -88,9 +88,9 @@ const Home = () => {
   const fetchData = async () => {
     try {
       const res = await axios.get(
-        "https://virtualclass-yz7w.onrender.com/api/instructor/get-premium-course"
+        `${process.env.REACT_APP_API_URL}/api/instructor/get-premium-course`
       );
-      console.log(res.data.data);
+      // console.log(res.data.data);
       setData(res.data.data);
       // const filterData = data.filter((val) => !courseId1.includes(val._id));
       // setFinal(filterData);
@@ -107,7 +107,7 @@ const Home = () => {
     const name = localStorage.getItem("name");
     const email = localStorage.getItem("email");
     const id = localStorage.getItem("id");
-    const course = localStorage.getItem("course")
+    const course = localStorage.getItem("course");
     if (course) {
       const courseArray = course.split(",");
       setCourseId(courseArray);
@@ -156,9 +156,9 @@ const Home = () => {
     <>
       <Afterloginusernav />
 
-      <section className="home" id="home" style={{marginTop:"8rem"}}>
+      <section className="home" id="home" style={{ marginTop: "8rem" }}>
         <div className="content">
-        {/* {courseId1.map((val,ind)=>{
+          {/* {courseId1.map((val,ind)=>{
           return (
             <div>
               <p>{val}</p>
@@ -293,25 +293,27 @@ const Home = () => {
           {/* getting fetchData */}
           {data.map((val, ind) => {
             return (
-             val.isPremium && <div className="box" key={ind}>
-                <span className="price">Rs. {val.price}/-</span>
-                <img src={img13} alt="English" />
-                <h3>{val.name}</h3>
-                <h4>{val.about}</h4>
-                <div className="stars">
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="far fa-star"></i>
+              val.isPremium && (
+                <div className="box" key={ind}>
+                  <span className="price">Rs. {val.price}/-</span>
+                  <img src={img13} alt="English" />
+                  <h3>{val.name}</h3>
+                  <h4>{val.about}</h4>
+                  <div className="stars">
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="far fa-star"></i>
+                  </div>
+                  <button
+                    onClick={() => handlePayment(val.price, val._id)}
+                    className="btn"
+                  >
+                    Buy Now
+                  </button>
                 </div>
-                <button
-                  onClick={() => handlePayment(val.price, val._id)}
-                  className="btn"
-                >
-                  Buy Now
-                </button>
-              </div>
+              )
             );
           })}
 

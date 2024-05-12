@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [post, setPost] = useState({
     name: "",
     email: "",
@@ -27,7 +27,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "https://virtualclass-yz7w.onrender.com/api/user/signup",
+        `${process.env.REACT_APP_API_URL}/api/user/signup`,
         //"http://localhost:7000/api/user/signup",
         post,
         config
@@ -35,15 +35,15 @@ const Signup = () => {
       toast.success("Signup complete", {
         position: "top-center",
       });
-      setTimeout(() => {
-        window.location.reload();
-        navigate("/")
-      }, 1000);
+      navigate("/");
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 1000);
     } catch (error) {
       toast.error("Signup failed", {
         position: "top-center",
       });
-      console.log("Error from signup page" + error);
+      // console.log("Error from signup page" + error);
     }
   };
 
@@ -101,7 +101,7 @@ const Signup = () => {
             </button>
             <div className="register-link">
               <p>
-               Already have an account ? <a href="/">Login</a>
+                Already have an account ? <a href="/">Login</a>
               </p>
             </div>
           </form>

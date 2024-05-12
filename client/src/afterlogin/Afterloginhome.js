@@ -26,10 +26,10 @@ const Afterloginhome = () => {
     };
     try {
       const response = await axios.get(
-        "https://virtualclass-yz7w.onrender.com/api/user/get-module",
+        `${process.env.REACT_APP_API_URL}/api/user/get-module`,
         config
       );
-      console.log(response.data.data);
+     // console.log(response.data.data);
       setData(response.data.data);
     } catch (error) {
       console.log("Error from the userhome fetching data" + error);
@@ -49,7 +49,7 @@ const Afterloginhome = () => {
   const fetchPremuim = async (id) => {
     try {
       const res = await axios.get(
-        `https://virtualclass-yz7w.onrender.com/api/user/get-course-user/?id=${id}`
+        `${process.env.REACT_APP_API_URL}/api/user/get-course-user/?id=${id}`
       );
       setPrem(res.data.courses);
     } catch (error) {

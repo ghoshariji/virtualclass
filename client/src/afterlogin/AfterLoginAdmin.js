@@ -9,7 +9,7 @@ const AfterLoginAdmin = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const params = new URLSearchParams(document.location.search);
-  const [prem,setPrem] = useState([])
+  const [prem, setPrem] = useState([]);
   const makeIns = async (email) => {
     const config = {
       headers: {
@@ -18,11 +18,11 @@ const AfterLoginAdmin = () => {
     };
     try {
       const response = await axios.put(
-        `https://virtualclass-yz7w.onrender.com/api/admin/makeins/?email=${email}`
+        `${process.env.REACT_APP_API_URL}/api/admin/makeins/?email=${email}`
       );
-      alert("Done");
+      toast.success("Updated");
     } catch (error) {
-      console.log("Error from true false time");
+      //console.log("Error from true false time");
     }
   };
   const removIns = async (email) => {
@@ -33,21 +33,23 @@ const AfterLoginAdmin = () => {
     };
     try {
       const response = await axios.put(
-        `https://virtualclass-yz7w.onrender.com/api/admin/removins/?email=${email}`
+        `${process.env.REACT_APP_API_URL}/api/admin/removins/?email=${email}`
       );
-      alert("Done");
+      toast.success("Updated");
     } catch (error) {
-      console.log("Error from true false time");
+      //console.log("Error from true false time");
     }
   };
-  const fetchPremuicourse = async() =>{
+  const fetchPremuicourse = async () => {
     try {
-      const res = await axios.get("http://localhost:7000/api/instructor/get-course-admin")
-      setPrem(res.data.data)
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/instructor/get-course-admin`
+      );
+      setPrem(res.data.data);
     } catch (error) {
-      console.log("Error from the error" + error)
+      console.log("Error from the error" + error);
     }
-  }
+  };
   useEffect(() => {
     const fetchdata = async () => {
       const config = {
@@ -57,7 +59,7 @@ const AfterLoginAdmin = () => {
       };
       try {
         const response = await axios.get(
-          "https://virtualclass-yz7w.onrender.com/api/admin/get-ins-details",
+          `${process.env.REACT_APP_API_URL}/api/admin/get-ins-details`,
           config
         );
         setData(response.data.data);
@@ -66,61 +68,83 @@ const AfterLoginAdmin = () => {
       }
     };
     fetchdata();
-    fetchPremuicourse()
+    fetchPremuicourse();
   }, []);
-  const makePremium = async(id) =>{
+  const makePremium = async (id) => {
     try {
-      const res = await axios.put(`http://localhost:7000/api/instructor/update-course/?id=${id}`)
-      toast.success("Updated succesfully")
+      const res = await axios.put(
+        `${process.env.REACT_APP_API_URL}/api/instructor/update-course/?id=${id}`
+      );
+      toast.success("Updated succesfully");
       fetchPremuicourse();
     } catch (error) {
-      console.log("Error" + error)
+      console.log("Error" + error);
     }
-  }
+  };
   return (
     <>
-   <Navbar/>
-   <ToastContainer/>
-    <div style={{marginTop:"10rem"}}>
-    <div>
-      {
-        prem.map((val,ind)=>{
-          return (
-            <div key={ind}>
-              <p>name:{val.name}</p>
-              <p>price:{val.price}</p>
-              <p>about:{val.about}</p>
-              <p>Status:{JSON.stringify(val.isPremium)}</p>
-             <button onClick={()=>makePremium(val._id)}>Make premium</button>
-
-            </div>
-          )
-        })
-      }
-    </div>
-      <div className="container-admin">
-        <h1 style={{fontSize:"2rem"}}>Hello admin : {params.get("name")}</h1>
-        <h2 style={{fontWeight:'900'}}>Below all the List Who have applied for the Become a Instructor</h2>
-        {data.map((val, ind) => {
-          return (
-            <div key={ind} style={{display:"flex",justifyContent:'center',flexDirection:'column',alignItems:'center',padding:'1rem'}}>
-              
-              <p style={{fontSize:"2rem"}}>{val.email}</p>
-              <p style={{fontSize:"2rem"}}> isInstructor : {JSON.stringify(val.isInstructor)}</p>
-              <div style={{alignItems:'center'}}>
-              <button onClick={() => makeIns(val.email)} style={{display:'grid',gap:'2px',fontSize:'15px'}}>
-                Make instructor
-              </button>
-              <button onClick={() => removIns(val.email)} style={{display:'grid',gap:'2px',fontSize:'15px'}}>
-                Remove instructor
-              </button>
+      <Navbar />
+      <ToastContainer />
+      <div style={{ marginTop: "10rem" }}>
+        <div>
+          {prem.map((val, ind) => {
+            return (
+              <div key={ind}>
+                <p>name:{val.name}</p>
+                <p>price:{val.price}</p>
+                <p>about:{val.about}</p>
+                <p>Status:{JSON.stringify(val.isPremium)}</p>
+                <button onClick={() => makePremium(val._id)}>
+                  Make premium
+                </button>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        <div className="container-admin">
+          <h1 style={{ fontSize: "2rem" }}>
+            Hello admin : {params.get("name")}
+          </h1>
+          <h2 style={{ fontWeight: "900" }}>
+            Below all the List Who have applied for the Become a Instructor
+          </h2>
+          {data.map((val, ind) => {
+            return (
+              <div
+                key={ind}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  padding: "1rem",
+                }}
+              >
+                <p style={{ fontSize: "2rem" }}>{val.email}</p>
+                <p style={{ fontSize: "2rem" }}>
+                  {" "}
+                  isInstructor : {JSON.stringify(val.isInstructor)}
+                </p>
+                <div style={{ alignItems: "center" }}>
+                  <button
+                    onClick={() => makeIns(val.email)}
+                    style={{ display: "grid", gap: "2px", fontSize: "15px" }}
+                  >
+                    Make instructor
+                  </button>
+                  <button
+                    onClick={() => removIns(val.email)}
+                    style={{ display: "grid", gap: "2px", fontSize: "15px" }}
+                  >
+                    Remove instructor
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
-    <Foot/>
+      <Foot />
     </>
   );
 };

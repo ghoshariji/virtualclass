@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
+
 const Premmodule = () => {
     const param = new URLSearchParams(document.location.search);
     const id = param.get("id")
     const [data,setData] = useState([])
     const fetchData = async() =>{
         try {
-            const res = await axios.get(`http://localhost:7000/api/instructor/get-prem-course-data/?id=${id}`)
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/instructor/get-prem-course-data/?id=${id}`)
             setData(res.data.courseDetail)
         } catch (error) {
             
@@ -17,7 +18,7 @@ const Premmodule = () => {
         fetchData()
     },[])
     const takeClass = (val) =>{
-        window.open(`http://localhost:7000/upload-video/${val}`)
+        window.open(`${process.env.REACT_APP_API_URL}/upload-video/${val}`)
     }
   return (
     <div>

@@ -7,6 +7,8 @@ import Foot from "../footer/Foot";
 import "../customcss/form.css";
 import { ToastContainer, toast } from "react-toastify";
 import Inshomenav from "../navbar/Inshomenav";
+
+
 const Instructorhome = () => {
   const navigate = useNavigate();
   const [id, setId] = useState("");
@@ -33,7 +35,7 @@ const Instructorhome = () => {
     };
     try {
       const response = await axios.post(
-        "https://virtualclass-yz7w.onrender.com/api/instructor/signup",
+        `${process.env.REACT_APP_API_URL}/api/instructor/signup`,
         post,
         config
       );
@@ -55,7 +57,7 @@ const Instructorhome = () => {
     };
     try {
       const response = await axios.post(
-        "https://virtualclass-yz7w.onrender.com/api/instructor/login",
+        `${process.env.REACT_APP_API_URL}/api/instructor/login`,
         loginData,
         config
       );
@@ -66,7 +68,7 @@ const Instructorhome = () => {
         const token = response.data.token;
         localStorage.setItem("instoken",token)
         const resData = await axios.get(
-          `https://virtualclass-yz7w.onrender.com/api/instructor/get-ins-info?insId=${insID}`,
+          `${process.env.REACT_APP_API_URL}/api/instructor/get-ins-info?insId=${insID}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

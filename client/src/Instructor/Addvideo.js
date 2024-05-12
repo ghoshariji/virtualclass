@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Insnav from "../navbar/Insnav";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+
 const Addvideo = () => {
   const [topicName, setTopicName] = useState("");
   const [videoFile, setVideoFile] = useState(null);
@@ -18,12 +20,13 @@ const Addvideo = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:7000/api/instructor/upload-video/?id=${id}&cid=${cid}`,
+        `${process.env.REACT_APP_API_URL}/api/instructor/upload-video/?id=${id}&cid=${cid}`,
         formData
       );
-      console.log("Video uploaded successfully:", res.data);
+      toast.success("Upload successfully");
+      // console.log("Video uploaded successfully:", res.data);
     } catch (error) {
-      console.error("Error uploading video:", error);
+      //console.error("Error uploading video:", error);
     }
   };
 
@@ -33,6 +36,7 @@ const Addvideo = () => {
 
   return (
     <div>
+      <ToastContainer />
       <Insnav />
       <div style={{ marginTop: "10rem" }}>
         <form onSubmit={submitHandle}>
@@ -42,11 +46,7 @@ const Addvideo = () => {
             value={topicName}
             onChange={(e) => setTopicName(e.target.value)}
           />
-          <input
-            type="file"
-            accept="video/*"
-            onChange={handleFileChange}
-          />
+          <input type="file" accept="video/*" onChange={handleFileChange} />
           <input
             type="text"
             placeholder="Enter the description"

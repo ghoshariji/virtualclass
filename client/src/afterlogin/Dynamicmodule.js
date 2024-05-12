@@ -5,6 +5,7 @@ import "../customcss/Card.css"
  import img from "../image/first.jpg"
 import Afterloginusernav from "../navbar/Afterloginusernav";
 
+
 const Dynamicmodule = () => {
   const [data, setData] = useState([]);
   const location = useLocation();
@@ -18,12 +19,12 @@ const Dynamicmodule = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://virtualclass-yz7w.onrender.com/api/module/${className}`,
+          `${process.env.REACT_APP_API_URL}/api/module/${className}`,
           config
         );
         const data = response.data;
         setData(data.data);
-        console.log(data.data);
+       // console.log(data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

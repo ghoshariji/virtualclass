@@ -4,6 +4,8 @@ import {useNavigate} from "react-router-dom"
 import img from "../image/first.jpg";
 import Foot from '../footer/Foot';
 import Afterloginusernav from '../navbar/Afterloginusernav';
+
+
 const Dynamicexamdash = () => {
     const queParams = new URLSearchParams(document.location.search);
     const subname = queParams.get("class")
@@ -17,8 +19,8 @@ const Dynamicexamdash = () => {
             }
         }
         try {
-            const response = await axios.get(`https://virtualclass-yz7w.onrender.com/api/user/get-ques-list?subname=${subname}`)
-            console.log(response.data.data)
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/get-ques-list?subname=${subname}`)
+          //  console.log(response.data.data)
             setExamlist(response.data.data)
         } catch (error) {
             console.log("Error from the getting examList" + error)

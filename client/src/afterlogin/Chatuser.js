@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import Afterloginusernav from '../navbar/Afterloginusernav'
 import axios from "axios"
 
+
 const Chatuser = () => {
     const [data, setData] = useState([]);
     const [mesg, setMesg] = useState("");
@@ -16,23 +17,23 @@ const Chatuser = () => {
             },
           };
           const response = await axios.post(
-            "https://virtualclass-yz7w.onrender.com/api/chat/save-chat-user",
+            `${process.env.REACT_APP_API_URL}/api/chat/save-chat-user`,
             { mesg, id1,name },
             config
           );
           getChat(id1);
           setMesg("");
         } catch (error) {
-          console.log("Error from the save chat admin" + error);
+         // console.log("Error from the save chat admin" + error);
         }
       };
       const getChat = async (id) => {
         try {
           const response = await axios.post(
-            "https://virtualclass-yz7w.onrender.com/api/chat/get-chat-user",{id}
+            `${process.env.REACT_APP_API_URL}/api/chat/get-chat-user`,{id}
           );
           setData(response.data.data)
-          console.log(response.data)
+         // console.log(response.data)
         } catch (error) {
           console.log("Error from the admin get chat data " + error);
         }

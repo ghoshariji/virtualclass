@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 const Otppage = () => {
   const [data, setData] = useState({});
@@ -14,11 +15,13 @@ const Otppage = () => {
     console.log(otpuser);
     if (dataOtp == otpuser) {
       navigate(`/changepass/?email=${email}`);
-      alert("otp match");
+      // alert("otp match");
+      toast.success("OTP match")
       setuserotp("");
     } else {
       setuserotp("");
-      console.log("Error otp don't match");
+      //console.log("Error otp don't match");
+      toast.error("Wrong OTP")
     }
   };
   const fetchData = async () => {
@@ -30,10 +33,10 @@ const Otppage = () => {
       }
       console.log(email);
       const response = await axios.post(
-         "https://virtualclass-yz7w.onrender.com/api/admin/verify/generate-otp",{email},config
+         `${process.env.REACT_APP_API_URL}/api/admin/verify/generate-otp`,{email},config
         // "http://localhost:7000/api/admin/verify/generate-otp",{email},config
       );
-      console.log(response.data)
+      //console.log(response.data)
       setData(response.data);
     } catch (error) {
       console.log("Error " + error);
@@ -49,6 +52,7 @@ const Otppage = () => {
         alignContent: "center",
       }}
     >
+      <ToastContainer/>
       <div
         style={{
           border: "1px solid black",

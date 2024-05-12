@@ -28,13 +28,13 @@ const Addexamins = () => {
     };
     try {
       const response = await axios.post(
-        `https://virtualclass-yz7w.onrender.com/api/instructor/addexam-ins?examName=${examName}&id=${id}`,
+        `${process.env.REACT_APP_API_URL}/api/instructor/addexam-ins?examName=${examName}&id=${id}`,
         post,
         config
       );
       toast.success("Exam Added")
     } catch (error) {
-      console.log("error from the instructor save exam" + error);
+     // console.log("error from the instructor save exam" + error);
     }
   };
   useEffect(() => {
@@ -46,13 +46,13 @@ const Addexamins = () => {
       };
       try {
         const response = await axios.get(
-          `https://virtualclass-yz7w.onrender.com/api/instructor/get-exam-instructor?id=${id}&examName=${examName}`,
+          `${process.env.REACT_APP_API_URL}/api/instructor/get-exam-instructor?id=${id}&examName=${examName}`,
           config
         );
         setExam(response.data.data);
-        console.log(response.data);
+        //console.log(response.data);
       } catch (error) {
-        console.log("Error from the getting exam details" + error);
+        //console.log("Error from the getting exam details" + error);
       }
     };
     fetchData();

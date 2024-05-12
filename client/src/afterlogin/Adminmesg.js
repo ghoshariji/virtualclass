@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Foot from "../footer/Foot";
 import Navbar from "../navbar/Navbar";
+
 const Adminmesg = () => {
   const params = new URLSearchParams(document.location.search);
   const id1 = params.get("id");
@@ -18,24 +19,24 @@ const Adminmesg = () => {
         },
       };
       const response = await axios.post(
-        "https://virtualclass-yz7w.onrender.com/api/chat/save-chat-admin",
+        `${process.env.REACT_APP_API_URL}/api/chat/save-chat-admin`,
         { message, id },
         config
       );
       getChat();
       setMesg("");
     } catch (error) {
-      console.log("Error from the save chat admin" + error);
+      //console.log("Error from the save chat admin" + error);
     }
   };
   const getChat = async () => {
     try {
       const response = await axios.get(
-        `https://virtualclass-yz7w.onrender.com/api/chat/get-chat-id-admin/?id=${id}`
+        `${process.env.REACT_APP_API_URL}/api/chat/get-chat-id-admin/?id=${id}`
       );
       setData(response.data.data);
     } catch (error) {
-      console.log("Error from the admin get chat data " + error);
+     // console.log("Error from the admin get chat data " + error);
     }
   };
   useEffect(() => {

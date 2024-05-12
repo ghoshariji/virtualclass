@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Foot from "../footer/Foot";
 import Navbar from "../navbar/Navbar";
+
 const Adminchat = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
@@ -12,12 +13,11 @@ const Adminchat = () => {
   const getAllChat = async () => {
     try {
       const response = await axios.get(
-        "https://virtualclass-yz7w.onrender.com/api/chat/get-chat-admin"
+        `${process.env.REACT_APP_API_URL}/api/chat/get-chat-admin`
       );
       setData(response.data.data);
-      console.log(response.data);
     } catch (error) {
-      console.log("Error from the get all chat" + error);
+      //console.log("Error from the get all chat" + error);
     }
   };
   useEffect(() => {
