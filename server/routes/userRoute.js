@@ -103,7 +103,7 @@ router.post("/login", async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
       image: user.image,
-      course:[user.course]
+      course: [user.course],
     });
   } catch (error) {
     return res.status(500).send({ message: "Internal Server Error" });
@@ -183,21 +183,17 @@ router.get("/get-ques-list-examname", async (req, res) => {
       for (let i = 0; i < subJectArray.length; i++) {
         if (subJectArray[i].subjectname === subname) {
           const resData = subJectArray[i].Examname;
-          for(let i=0;i<resData.length;i++)
-            {
-              if(resData[i].examname === req.query.exam)
-                {
-                  const resData1 = resData[i].questionSet
-                  res.status(201).send({
-                    message: "Data send succesfully",
-                    success: true,
-                    data: resData1,
-                  });
-                  return;
-                }
-             
+          for (let i = 0; i < resData.length; i++) {
+            if (resData[i].examname === req.query.exam) {
+              const resData1 = resData[i].questionSet;
+              res.status(201).send({
+                message: "Data send succesfully",
+                success: true,
+                data: resData1,
+              });
+              return;
             }
-         
+          }
         }
       }
     }
@@ -249,8 +245,8 @@ router.post("/get-img", async (req, res) => {
 });
 
 const instance = new Razorpay({
-  key_id: "rzp_test_6Fsll3myRMs9xe",
-  key_secret: "2ZxuxUnbMuIvBPz0avekYoh6",
+  key_id: process.env.RAZOR_PAY_ID,
+  key_secret: process.env.RAZOR_PAY_SECRET,
 });
 
 router.post("/checkout", async (req, res) => {
@@ -284,8 +280,14 @@ router.post("/paymentverification", async (req, res) => {
     const id = req.query.id;
     const course = req.query.courseid;
     try {
-      const user = await userModel.findByIdAndUpdate(id,{$push:{course:course}},{new:true})
-      res.redirect(`https://elearn-class.vercel.app/verify/?id=${razorpay_order_id}`);
+      const user = await userModel.findByIdAndUpdate(
+        id,
+        { $push: { course: course } },
+        { new: true }
+      );
+      res.redirect(
+        `${process.env.FRONTEND_URL}/verify/?id=${razorpay_order_id}`
+      );
     } catch (error) {
       console.error("Error updating user:", error);
       return res.status(500).send({ message: "Internal server error" });
@@ -298,9 +300,9 @@ router.post("/paymentverification", async (req, res) => {
 });
 router.get("/get-course-user", async (req, res) => {
   try {
-    console.log(req.query.id)
+    console.log(req.query.id);
     const data = await userModel.findById(req.query.id);
-    const courseIds = data.course; 
+    const courseIds = data.course;
 
     let allCourses = [];
     for (const courseId of courseIds) {
@@ -312,7 +314,7 @@ router.get("/get-course-user", async (req, res) => {
       message: "Data sent successfully",
       success: true,
       user: data,
-      courses: allCourses
+      courses: allCourses,
     });
   } catch (error) {
     return res.status(401).send({
