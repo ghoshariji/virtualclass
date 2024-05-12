@@ -10,7 +10,7 @@ import { FaUser, FaLock } from "react-icons/fa";
 
 const LoginForm = () => {
 
-  console.log(process.env.REACT_APP_API_URL)
+  // console.log(process.env.REACT_APP_API_URL)
   const navigate = useNavigate();
   const [post, setPost] = useState({
     email: "",
