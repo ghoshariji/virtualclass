@@ -181,7 +181,6 @@ const LoginForm = () => {
         <div className="drop">
           <div className="content100">
             <h2>LOG IN</h2>
-          //  <p>{process.env.REACT_APP_API_URL}</p>
             <form onSubmit={submitHandle}>
               <div className="inputBox">
                 <input
