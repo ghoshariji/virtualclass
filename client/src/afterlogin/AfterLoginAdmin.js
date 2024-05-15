@@ -167,7 +167,7 @@ const AfterLoginAdmin = () => {
 
 
           <h1 style={{ fontSize: "2rem" }}>
-          Hello admin : {params.get("name")}
+          Hello admin : {localStorage.getItem("name")}
         </h1>
 
         <h2 style={{ fontWeight: "900" ,textAlign:"center"}}>
