@@ -64,7 +64,7 @@ const Afterloginhome = () => {
           premium courses
         </h1>
          <div className="BoxBhai">
-         <input type="text" placeholder="Search"/>
+         <input type="text" placeholder="Search your course"/>
          
           <i className="fas fa-search"></i>
         
