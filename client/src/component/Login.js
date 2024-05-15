@@ -172,7 +172,6 @@ const LoginForm = () => {
     //   </div>
     // </div>
 <div >
-<Beforelogin/>
     <div className="BODYLOGIN" style={{marginTop:"6rem"}}>
     
       <div className="Welcome" style={{marginTop:"8rem"}}>

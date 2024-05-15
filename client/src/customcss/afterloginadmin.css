@@ -113,6 +113,20 @@
     background-color: #08AEEA;
     background-image: linear-gradient(100deg, #08AEEA 0%,#2AF598 100%);
 }
+
+.boxMami:nth-child(4):after{
+    background-color: #08b9ea;
+    background-image: linear-gradient(100deg, #08b9ea 0%,#a7f52a 100%);
+}
+
+
+
+.boxMami:nth-child(5):after{
+    background-color: #c1ea08;
+    background-image: linear-gradient(100deg, #08eac1 0%,#2accf5 100%);
+}
+
+
 .boxMami:hover::after{
   clip-path: circle(100%);
 }

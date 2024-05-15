@@ -58,7 +58,6 @@ function App() {
   <Routes>
     <Route path="/" element={<Login/>}  exact/>
     <Route path="/home" element={auth == null ? <Login/> :  <Home/>}/>
-    <Route path="/login-home" element={<Beforehome/>}/>
     <Route path="/contact" element={auth == null ? <Login/> :  <Contact/>} />
     <Route path="/about" element={auth == null ? <Login/> :  <About/>} />
     <Route path="/signup" element={<Signup/>} />
