@@ -13,6 +13,7 @@ import img5 from "../image/Arijit-image.jpg";
 import img6 from "../image/Niladri-image.jpg";
 import img7 from "../image/Palsh-image.jpg";
 import img8 from "../image/Snehasish-image.jpg";
+import Beforelogin from "../navbar/Beforeloginnav";
 
 const Beforeabout = () => {
   useEffect(() => {
@@ -23,7 +24,7 @@ const Beforeabout = () => {
   }, []);
   return (
     <div className="HEADAbout">
-      <Afterloginusernav />
+      <Beforelogin/>
       {/* Banner */}
       <div className="banner" style={{ marginTop: "8rem" }}>
         <img src={img} alt="" />
