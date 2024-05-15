@@ -34,6 +34,8 @@ import img30 from "../image/review-2.jpg";
 import img31 from "../image/review-3.avif";
 import img32 from "../image/review-4.webp";
 import img33 from "../image/Homepage4-logo.png";
+import img34 from "../image/bengali-language-picture.webp";
+import img35 from "../image/pemium-course-picture.jpg";
 
 import "../customcss/home.css";
 import Afterloginusernav from "../navbar/Afterloginusernav";
@@ -167,10 +169,10 @@ const Home = () => {
         })} */}
           <h3>Taking failures in your stride. ...</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            minima, magni saepe cumque temporibus odit, eligendi nobis molestiae
-            quia eum impedit deserunt corrupti placeat pariatur itaque a dolores
-            vero sapiente.
+          You have to dream before your dreams can come true."
+          "Excellence is a continuous process and not an accident."
+          "Life is a difficult game. You can win it only by retaining your birthright to be a person."
+          
           </p>
           <a href="#popular" className="btn">
             Get Started
@@ -197,10 +199,7 @@ const Home = () => {
               <img src={img2} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-                excepturi laudantium cupiditate labore! Porro explicabo iusto
-                rem provident. Corporis veniam fugiat consequuntur natus optio.
-                Explicabo magni nobis ullam delectus veniam?
+              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
               </p>
             </div>
           </div>
@@ -212,10 +211,7 @@ const Home = () => {
               <img src={img4} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-                excepturi laudantium cupiditate labore! Porro explicabo iusto
-                rem provident. Corporis veniam fugiat consequuntur natus optio.
-                Explicabo magni nobis ullam delectus veniam?
+              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
               </p>
             </div>
           </div>
@@ -226,10 +222,7 @@ const Home = () => {
               <img src={img6} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-                excepturi laudantium cupiditate labore! Porro explicabo iusto
-                rem provident. Corporis veniam fugiat consequuntur natus optio.
-                Explicabo magni nobis ullam delectus veniam?
+              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
               </p>
             </div>
           </div>
@@ -240,10 +233,7 @@ const Home = () => {
               <img src={img8} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-                excepturi laudantium cupiditate labore! Porro explicabo iusto
-                rem provident. Corporis veniam fugiat consequuntur natus optio.
-                Explicabo magni nobis ullam delectus veniam?
+              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
               </p>
             </div>
           </div>
@@ -254,10 +244,7 @@ const Home = () => {
               <img src={img10} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-                excepturi laudantium cupiditate labore! Porro explicabo iusto
-                rem provident. Corporis veniam fugiat consequuntur natus optio.
-                Explicabo magni nobis ullam delectus veniam?
+              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
               </p>
             </div>
           </div>
@@ -268,10 +255,7 @@ const Home = () => {
               <img src={img12} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-                excepturi laudantium cupiditate labore! Porro explicabo iusto
-                rem provident. Corporis veniam fugiat consequuntur natus optio.
-                Explicabo magni nobis ullam delectus veniam?
+              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
               </p>
             </div>
           </div>
@@ -296,7 +280,7 @@ const Home = () => {
               val.isPremium && (
                 <div className="box" key={ind}>
                   <span className="price">Rs. {val.price}/-</span>
-                  <img src={img13} alt="English" />
+                  <img src={img35} alt="English" />
                   <h3>{val.name}</h3>
                   <h4>{val.about}</h4>
                   <div className="stars">
@@ -317,79 +301,12 @@ const Home = () => {
             );
           })}
 
-          {/* <div className="box">
-            <span className="price">Rs. {price1}/-</span>
-            <img src={img13} alt="English" />
-            <h3>HTML</h3>
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="far fa-star"></i>
-            </div>
-            <button
-              onClick={() => handlePayment(price1, courseId)}
-              className="btn"
-            >
-              Buy Now
-            </button>
-          </div> */}
-
-          {/* <div className="box">
-            <span className="price">Rs. {price2}/-</span>
-            <img src={img13} alt="English" />
-            <h3>Object orienting Programmin</h3>
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="far fa-star"></i>
-            </div>
-            <button onClick={() => handlePayment(price2)} className="btn">
-              Buy Now
-            </button>
-          </div> */}
-
-          {/* Mathematics Box */}
-          {/* <div className="box">
-            <span className="price">Rs. {price3}/-</span>
-            <img src={img14} alt="Mathematics" />
-            <h3>Java + DSA</h3>
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="far fa-star"></i>
-            </div>
-            <button onClick={() => handlePayment(price3)} className="btn">
-              Buy Now
-            </button>
-          </div> */}
-
-          {/* <div className="box">
-            <span className="price">Rs. {price4}/-</span>
-            <img src={img15} alt="English" />
-            <h3>Mathmatics</h3>
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="far fa-star"></i>
-            </div>
-            <button onClick={() => handlePayment(price4)} className="btn">
-              Buy Now
-            </button>
-          </div> */}
-
+         
           {/* Add more boxes as needed... */}
         </div>
 
         <h1 className="heading">
-          Our <span>Popular</span> Subjects
+          Our <span> Free Popular</span> Subjects
         </h1>
         <div className="box-container">
           {/* English Box */}
@@ -405,15 +322,15 @@ const Home = () => {
               <i className="fas fa-star"></i>
               <i className="far fa-star"></i>
             </div>
-            <a href="#" className="btn">
-              Enroll Now
+            <a href="https://ncert.nic.in/" className="btn">
+              checkout
             </a>
           </div>
 
           <div className="box">
             <span className="price">$0 - $0</span>
-            <img src={img13} alt="English" />
-            <h3>English</h3>
+            <img src={img34} alt="English" />
+            <h3>Bengali</h3>
             <div className="stars">
               <i className="fas fa-star"></i>
               <i className="fas fa-star"></i>
@@ -421,8 +338,8 @@ const Home = () => {
               <i className="fas fa-star"></i>
               <i className="far fa-star"></i>
             </div>
-            <a href="#" className="btn">
-              Enroll Now
+            <a href="https://preply.com/en/online/bengali-tutors" className="btn">
+              Checkout
             </a>
           </div>
 
@@ -438,8 +355,8 @@ const Home = () => {
               <i className="fas fa-star"></i>
               <i className="far fa-star"></i>
             </div>
-            <a href="#" className="btn">
-              Enroll Now
+            <a href="https://ncert.nic.in/" className="btn">
+               Checkout
             </a>
           </div>
 
@@ -454,8 +371,8 @@ const Home = () => {
               <i className="fas fa-star"></i>
               <i className="far fa-star"></i>
             </div>
-            <a href="#" className="btn">
-              Enroll Now
+            <a href="https://ncert.nic.in/" className="btn">
+            Checkout
             </a>
           </div>
 
@@ -470,8 +387,8 @@ const Home = () => {
               <i className="fas fa-star"></i>
               <i className="far fa-star"></i>
             </div>
-            <a href="#" className="btn">
-              Enroll Now
+            <a href="https://ncert.nic.in/" className="btn">
+            Checkout
             </a>
           </div>
 
@@ -486,8 +403,8 @@ const Home = () => {
               <i className="fas fa-star"></i>
               <i className="far fa-star"></i>
             </div>
-            <a href="#" className="btn">
-              Enroll Now
+            <a href="https://ncert.nic.in/" className="btn">
+            Checkout
             </a>
           </div>
 
@@ -502,8 +419,8 @@ const Home = () => {
               <i className="fas fa-star"></i>
               <i className="far fa-star"></i>
             </div>
-            <a href="#" className="btn">
-              Enroll Now
+            <a href="https://ncert.nic.in/" className="btn">
+              Checkout
             </a>
           </div>
 
@@ -514,6 +431,7 @@ const Home = () => {
       {/* Steps section */}
       <section className="steps">
         {/* Steps section content */}
+       
 
         <div className="box">
           <img className="img" src={img19} alt="A. P. J. Abdul Kalam" />
@@ -542,6 +460,7 @@ const Home = () => {
       {/* Gallery section */}
       <section className="gallery" id="gallery">
         {/* Gallery section content */}
+        
         <h1 className="heading">
           Study<span>Materials</span>
         </h1>
@@ -551,8 +470,8 @@ const Home = () => {
             <img src={img23} alt="NCERT" />
             <div className="content">
               <h3>NCERT</h3>
-              <p>Lorem ipsum dolor sit, amet consectetur</p>
-              <a href="#" className="btn">
+              <p>"Excellence is a continuous process and not an accident."</p>
+              <a href="https://ncert.nic.in/" className="btn">
                 Check Now
               </a>
             </div>
@@ -563,8 +482,8 @@ const Home = () => {
             <img src={img24} alt="NCERT" />
             <div className="content">
               <h3>NCERT</h3>
-              <p>Lorem ipsum dolor sit, amet consectetur</p>
-              <a href="#" className="btn">
+              <p>"Excellence is a continuous process and not an accident."</p>
+              <a href="https://ncert.nic.in/" className="btn">
                 Check Now
               </a>
             </div>
@@ -574,8 +493,8 @@ const Home = () => {
             <img src={img25} alt="NCERT" />
             <div className="content">
               <h3>NCERT</h3>
-              <p>Lorem ipsum dolor sit, amet consectetur</p>
-              <a href="#" className="btn">
+              <p>"Excellence is a continuous process and not an accident."</p>
+              <a href="https://ncert.nic.in/" className="btn">
                 Check Now
               </a>
             </div>
@@ -585,8 +504,8 @@ const Home = () => {
             <img src={img26} alt="NCERT" />
             <div className="content">
               <h3>NCERT</h3>
-              <p>Lorem ipsum dolor sit, amet consectetur</p>
-              <a href="#" className="btn">
+              <p>"Excellence is a continuous process and not an accident."</p>
+              <a href="https://ncert.nic.in/" className="btn">
                 Check Now
               </a>
             </div>
@@ -596,8 +515,8 @@ const Home = () => {
             <img src={img27} alt="NCERT" />
             <div className="content">
               <h3>NCERT</h3>
-              <p>Lorem ipsum dolor sit, amet consectetur</p>
-              <a href="#" className="btn">
+              <p>"Excellence is a continuous process and not an accident."</p>
+              <a href="https://ncert.nic.in/" className="btn">
                 Check Now
               </a>
             </div>
@@ -607,8 +526,8 @@ const Home = () => {
             <img src={img28} alt="NCERT" />
             <div className="content">
               <h3>NCERT</h3>
-              <p>Lorem ipsum dolor sit, amet consectetur</p>
-              <a href="#" className="btn">
+              <p>"Excellence is a continuous process and not an accident."</p>
+              <a href="https://ncert.nic.in/" className="btn">
                 Check Now
               </a>
             </div>
@@ -633,8 +552,7 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              nesciunt, fu
+            The course provided excellent opportunities for networking with other professionals in my field. The discussion boards and group projects encouraged collaboration and the exchange of ideas, helping me build valuable connections that I can maintain beyond the course.
             </p>
           </div>
 
@@ -649,8 +567,8 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              nesciunt, fu
+            I recently completed an online eLearning class and I am incredibly impressed with the entire experience.
+            Overall, my experience with this online eLearning class was outstanding. It provided me with the flexibility I needed, high-quality and engaging content, expert instruction, practical knowledge, and valuable networking opportunities.
             </p>
           </div>
 
@@ -665,8 +583,7 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              nesciunt, fu
+            Overall, my experience with this online eLearning class was outstanding. It provided me with the flexibility I needed, high-quality and engaging content, expert instruction, practical knowledge, and valuable networking opportunities.
             </p>
           </div>
 
@@ -681,8 +598,7 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              nesciunt, fu
+            Overall, my experience with this online eLearning class was outstanding. It provided me with the flexibility I needed, high-quality and engaging content, expert instruction, practical knowledge, and valuable networking opportunities. I would highly recommend this course to anyone looking to further their education and skills in a convenient and effective way.
             </p>
           </div>
         </div>
