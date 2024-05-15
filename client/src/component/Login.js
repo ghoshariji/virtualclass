@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../customcss/login.css";
 import { FaUser, FaLock } from "react-icons/fa";
+import Beforelogin from "../navbar/Beforeloginnav";
 
 const LoginForm = () => {
 
@@ -170,8 +171,10 @@ const LoginForm = () => {
     //     </form>
     //   </div>
     // </div>
-
+<>
+<Beforelogin/>
     <div className="BODYLOGIN">
+    
       <div className="Welcome">
         <h1>Welcome Our eLearning Website</h1>
       </div>
@@ -230,6 +233,7 @@ const LoginForm = () => {
         </a>
       </div>
     </div>
+    </>
   );
 };
 

@@ -33,6 +33,7 @@ import Paymentdone from './afterlogin/Paymentdone';
 import Addvideo from './Instructor/Addvideo';
 import Premdash from './afterlogin/Premdash';
 import Premmodule from './afterlogin/Premmodule';
+import Beforehome from './pages/Beforehome';
 
 
 
@@ -57,6 +58,7 @@ function App() {
   <Routes>
     <Route path="/" element={<Login/>}  exact/>
     <Route path="/home" element={auth == null ? <Login/> :  <Home/>}/>
+    <Route path="/login-home" element={<Beforehome/>}/>
     <Route path="/contact" element={auth == null ? <Login/> :  <Contact/>} />
     <Route path="/about" element={auth == null ? <Login/> :  <About/>} />
     <Route path="/signup" element={<Signup/>} />
