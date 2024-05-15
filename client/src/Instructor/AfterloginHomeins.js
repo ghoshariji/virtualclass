@@ -100,9 +100,10 @@ const AfterloginHomeins = () => {
   }, []);
   return (
     <>
+    <div className="Headinstructorlogin">
       <Insnav />
       <ToastContainer />
-      <div style={{ marginTop: "10rem" }}>
+      <div style={{ marginTop: "10rem" }} className="AllCARDIV">
         <h5
           style={{
             display: "flex",
@@ -113,6 +114,15 @@ const AfterloginHomeins = () => {
         >
           Hello Instructor : {nameIns}
         </h5>
+
+        <h3  style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "2.5rem",
+          marginTop: "2rem",
+        }}>Normal Course</h3>
+
 
         <div
           className="container-home-ins"
@@ -125,7 +135,6 @@ const AfterloginHomeins = () => {
             alignItems: "center",
           }}
         >
-          <h3>Normal Course</h3>
           {allsub.map((val, ind) => {
             return (
               <div class="card-container" key={ind}>
@@ -168,6 +177,13 @@ const AfterloginHomeins = () => {
           })}
         </div>
 
+        <h3  style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "2.5rem",
+          marginTop: "2rem",
+        }}>Premium Course</h3>
         <div
           className="container-home-ins"
           style={{
@@ -179,7 +195,7 @@ const AfterloginHomeins = () => {
             alignItems: "center",
           }}
         >
-          <h3>Premiuim Course</h3>
+         
           {prem.map((val, ind) => {
             return (
               <div class="card-container" key={ind}>
@@ -223,17 +239,24 @@ const AfterloginHomeins = () => {
           })}
         </div>
       </div>
-      <section
+
+
+
+
+
+      <div
         class="sec"
-        style={{ display: "flex", justifyContent: "center" }}
+        style={{ display: "flex", justifyContent: "center",  }}
       >
+
+      
         <div
           class="contentBoxes"
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <div class="formBx">
+          <div class="formBx" >
             <h2 style={{ fontSize: "2rem" }}>Add Subject here</h2>
-            <form action="" onSubmit={submitModule}>
+            <form action="" onSubmit={submitModule} >
               <div class="inputBoxes">
                 <span>Enter the subject name</span>
                 <input
@@ -260,6 +283,9 @@ const AfterloginHomeins = () => {
             </form>
           </div>
         </div>
+
+
+
 
         <div
           class="contentBoxes"
@@ -303,8 +329,17 @@ const AfterloginHomeins = () => {
             </form>
           </div>
         </div>
-      </section>
-      <Foot />
+
+
+
+      </div>
+
+
+
+
+      
+    </div>
+    <Foot />
     </>
   );
 };
