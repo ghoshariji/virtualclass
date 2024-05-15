@@ -24,7 +24,7 @@ const Profile = () => {
         config
       );
       // console.log(res.data.data.image)
-      setProfilePic(`${process.env.REACT_APP_API_URL}/` + res.data.data.image);
+      setProfilePic(`${process.env.REACT_APP_API_URL}/uploads/` + res.data.data.image);
     } catch (error) {
       //console.log("Error " + error)
     }
