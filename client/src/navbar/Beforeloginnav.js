@@ -58,8 +58,6 @@ const Beforelogin = ({ userId }) => {
           <a onClick={() => navigate("/contact-before")}>Contact</a>
           <a onClick={() => navigate("/afterlogin")}>Course</a>
           <a onClick={() => navigate("/onlineclass")}>Online class</a>
-          <a onClick={() => navigate("/chat-with-admin")}>Chat us</a>
-          <a onClick={() => navigate("/")}>Sign In</a>
           <a onClick={() => navigate("/signup")}>Sign up</a>
           <a onClick={() => navigate("/profile")}>Profile</a>
         </nav>
