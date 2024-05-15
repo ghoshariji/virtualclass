@@ -63,6 +63,14 @@ const Afterloginhome = () => {
         <h1 style={{ textAlign: "center", fontSize: "28px"}}>
           premium courses
         </h1>
+         <div className="BoxBhai">
+         <input type="text" placeholder="Search"/>
+         
+          <i className="fas fa-search"></i>
+        
+         </div>
+
+        
         <div
           className="container-home-ins"
           style={{

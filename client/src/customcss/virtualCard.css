@@ -7,6 +7,50 @@
   font-family: "Poppins", sans-serif;
 }
 
+
+.moduleUser .BoxBhai{
+  margin-left: 100rem;
+  height: 30px;
+  display: flex;
+  cursor: pointer;
+  padding: 10px 20px;
+  /* background: #fff; */
+  /* width: 200px; */
+  /* border-radius: 30px; */
+  align-items: center;
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); */
+}
+
+.moduleUser .BoxBhai:hover{
+  width: 200px;
+  border-radius: 30px;
+  background-color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.BoxBhai:hover input{
+  width: 150px;
+}
+
+.BoxBhai input{
+  width: 0;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  transition: 0.8s;
+  background: transparent;
+  font-size: 15px;
+  color: #000;
+ 
+}
+
+.BoxBhai  .fas{
+  color: #1daf;
+  font-size: 24px;
+}
+
+
+
 .outer {
   height: 50vh;
   /* background: #f2f2f2; */
@@ -191,4 +235,14 @@
     width: 100%;
     margin-top: 30px;
   }
+
+  .moduleUser .BoxBhai{
+   margin-left: 15rem;
+   margin-right: 20rem;
+   background: #fff;
+   border-radius: 30px;
+   width: 100px;
+  }
+
+
 }
