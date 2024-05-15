@@ -63,6 +63,7 @@
   .profile{
     width: auto;
     height: auto;
+    overflow-x: hidden;
   }
   .afterprofile {
       margin-top: 7rem; 
