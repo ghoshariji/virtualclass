@@ -31,10 +31,8 @@ const About = () => {
           <h2>Success By Learning</h2>
           <p >
           
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Praesentium, ducimus perspiciatis vitae mollitia rem omnis illum
-            necessitatibus animi expedita, tempore fugit possimus quae corporis
-            doloremque earum placeat eos? Nesciunt, quasi?
+          A virtual classroom is an online teaching and learning environment where teachers and students can present course materials, engage and interact with other members of the virtual class, and work in groups together.
+
           </p>
         </div>
       </div>
@@ -46,22 +44,13 @@ const About = () => {
             About Us
           </h2>
           <p className="textMama" data-aos="fade-right">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere
-            quaerat nesciunt itaque eum? Laudantium, autem. Saepe provident
-            earum, illo nemo nostrum hic vel dolore sapiente cum consectetur.
-            Architecto, aperiam nulla. Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Rem architecto ipsa commodi hic corrupti
-            exercitationem maxime animi veniam! Nobis dicta magnam eum possimus
-            earum, accusantium laudantium. Animi pariatur cumque nesciunt?
+            An online virtual class, or virtual classroom, is an online learning environment where students and professionals can learn using a computer, laptop, or mobile device and an internet connection. Participants communicate through voice or video conferences and online chats.
+            An online virtual class, or virtual classroom, is an online learning environment where students and professionals can learn using a computer, laptop, or mobile device and an internet connection. Participants communicate through voice or video conferences and online chats.
+
             <br />
             <br />
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
-            tempore cum molestias explicabo, ipsa, quaerat totam expedita
-            quibusdam necessitatibus sapiente eaque quae at quia reprehenderit
-            modi, earum quisquam? Similique, illo? Lorem ipsum dolor sit, amet
-            consectetur adipisicing elit. Est cum iure fugit! Dicta officiis
-            repellendus, perspiciatis neque dolorum quam cupiditate velit,
-            expedita vero eius atque aliquid, odit alias obcaecati veritatis.
+            Virtual learning can be self-paced (asynchronous) or real-time (synchronous). Some virtual learning options have classes at scheduled times, while others allow students to learn at their own pace. Virtual learning can be a good choice for people who prefer to learn on their own, without restrictions on space and time.
+            Virtual learning can be self-paced (asynchronous) or real-time (synchronous). Some virtual learning options have classes at scheduled times, while others allow students to learn at their own pace. Virtual learning can be a good choice for people who prefer to learn on their own, without restrictions on space and time.
           </p>
         </div>
         <div className="imgMamaBx" data-aos="fade-left"></div>
@@ -73,10 +62,8 @@ const About = () => {
           Our Services
         </h2>
         <p data-aos="fade-left" style={{ fontSize: "20px" }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-          mollitia recusandae odit facilis iusto iste magnam accusamus quos
-          distinctio fuga, ipsa consectetur quae nam nesciunt totam tempora non
-          provident incidunt.
+        Offer real-time, interactive classes where students can engage directly with instructors, ask questions, and participate in discussions. This promotes a dynamic learning environment similar to traditional classrooms.
+        Offer reliable technical support to help students with any issues they may encounter. This ensures a smooth and uninterrupted learning experience.
         </p>
         <div className="containerMama">
           <div className="serviceMamaBx" data-aos="slide-right">
@@ -107,13 +94,7 @@ const About = () => {
             We have special Teachnology Subject
           </h2>
           <p data-aos="fade-right" style={{ fontSize: "15px" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-            suscipit veritatis, quae sunt est sapiente molestias labore
-            similique dolore nisi neque vel, tempore nulla esse facilis ipsam
-            eveniet velit iure! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Nisi, id perferendis nesciunt nulla vero facilis
-            facere similique earum voluptate, cumque dolorum eaque ipsam
-            maiores. Molestiae ut saepe aliquid cupiditate voluptate.
+          Online virtual classes for technical subjects encompass a broad range of fields, including computer science, engineering, data science, information technology, and more. These subjects often require a combination of theoretical knowledge and practical skills, which can be effectively delivered through various online platforms. Below, we discuss the key components and strategies for effectively teaching technical subjects online.
           </p>
         </div>
         <div className="imgMamaBx" data-aos="fade-left">
@@ -127,13 +108,8 @@ const About = () => {
           We are heart-to-heart connected
         </h2>
         <p className="textMama" data-aos="fade-left">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor tenetur
-          quidem sapiente suscipit similique animi, odio vitae nulla rerum
-          cupiditate minus dolorum repellendus aspernatur ab deserunt, illo
-          facere corporis vel! Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Eaque autem vel exercitationem neque, perspiciatis
-          dolorem eos adipisci corrupti? Dolorum debitis ratione quos qui
-          aliquid. Blanditiis sit harum excepturi aut tenetur.
+        Connecting "heart to heart" with members, whether in a community, team, or any group setting, involves building deep, meaningful relationships based on trust, empathy, and genuine communication. This concept goes beyond mere surface-level interactions and seeks to foster a sense of belonging and mutual understanding. Here's a discussion on how to achieve heart-to-heart connections with members:
+       <br></br> <span style={{color:"yellow"}}> 1.Arijit Ghosh <br></br> 2.Niladri Sekhar Rout   <br></br>3. Palash Manna  <br></br>  4. Snehasish Bera</span>
         </p>
         <div className="imgMamaBx">
           <img src={img5} alt="" />
@@ -150,11 +126,17 @@ const About = () => {
           <div className="contentMamaBx" data-aos="fade-right">
             <div>
               <p style={{ fontSize: "16px" }}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Similique sapiente adipisci aspernatur autem exercitationem
-                temporibus ipsa doloremque molestiae accusantium eos, nobis,
-                modi neque labore laudantium facilis quibusdam ratione eaque
-                perspiciatis.
+             Flexibility and Convenience
+
+              Resource: The flexibility of online classes allows learners to access course materials and complete assignments at their own pace and schedule.
+              Feedback: Many students appreciate being able to balance their studies with work, family, and other commitments.
+              Accessibility
+              
+              Resource: Online education makes learning accessible to people in remote or underserved areas who might not have access to traditional educational institutions.
+              Feedback: Students from diverse geographical locations can enroll in courses offered by prestigious institutions without the need to relocate.
+              Wide Range of Courses
+              
+            
               </p>
               <br />
               <h3>Some Famous</h3>
@@ -163,11 +145,17 @@ const About = () => {
           <div className="contentMamaBx" data-aos="fade-left">
             <div>
               <p style={{ fontSize: "16px" }}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Similique sapiente adipisci aspernatur autem exercitationem
-                temporibus ipsa doloremque molestiae accusantium eos, nobis,
-                modi neque labore laudantium facilis quibusdam ratione eaque
-                perspiciatis.
+              Flexibility and Convenience
+
+              Resource: The flexibility of online classes allows learners to access course materials and complete assignments at their own pace and schedule.
+              Feedback: Many students appreciate being able to balance their studies with work, family, and other commitments.
+              Accessibility
+              
+              Resource: Online education makes learning accessible to people in remote or underserved areas who might not have access to traditional educational institutions.
+              Feedback: Students from diverse geographical locations can enroll in courses offered by prestigious institutions without the need to relocate.
+              Wide Range of Courses
+              
+              
               </p>
               <br />
               <h3>Some Famous</h3>

@@ -137,7 +137,7 @@ object-fit: cover;
 
 
 
-@media (max-width:768px) {
+/* @media (max-width:768px) {
     .AllCARDIV {
         flex-direction: column;
         align-items: center;
@@ -158,7 +158,12 @@ object-fit: cover;
         left: 0;
 
         width: 100%;
-        height: 100%;
+        height: auto;
+    }
+
+    .sec .imageBoxes {
+        width: 100%;
+        height: 200px; 
     }
 
 
@@ -167,15 +172,18 @@ object-fit: cover;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 100%;
+        height: auto;
         z-index: 1;
         padding: 10px;
     }
+
+
     .sec .contentBoxes .formBx{
         width: 100%;
         padding: 40px;
         background: rgb(255 255 255 / 0.9);
-        margin: 50px;
+        margin: 10px;
+        overflow: scroll;
     }
     .sec .contentBoxes .formBx h3{
         color: #607d8b;
@@ -184,11 +192,61 @@ object-fit: cover;
         font-weight: 500;
     }
 
+    .sec-wrapper {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
 
     .Headinstructorlogin{
         overflow: hidden;
     }
     .Headinstructorlogin h5{
+        text-align: center;
+    }
+}  */
+
+
+
+@media (max-width: 768px) {
+    .AllCARDIV {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sec {
+        flex-direction: column;
+        height: auto;
+        margin-top: 2rem;
+
+    }
+
+    .sec .imageBoxes {
+        width: 100%;
+        height: 200px; 
+    }
+
+    .sec .contentBoxes {
+        width: 100%;
+        height: auto; 
+        z-index: 1;
+        padding: 10px;
+    }
+
+    .sec .contentBoxes .formBx {
+        width: 90%;
+        padding: 20px;
+        background: rgb(255 255 255 / 0.9);
+        margin: 20px;
+        overflow: auto;
+    }
+
+    .Headinstructorlogin {
+        overflow-x: hidden;
+    }
+
+    .Headinstructorlogin h5 {
         text-align: center;
     }
 }
