@@ -4,7 +4,6 @@ import img from "../image/first.jpg";
 import Foot from "../footer/Foot";
 import Afterloginusernav from "../navbar/Afterloginusernav";
 
-
 const Dynamicmod = () => {
   const [subjects, setSubjects] = useState([]);
   const queParams = new URLSearchParams(document.location.search);
@@ -23,17 +22,20 @@ const Dynamicmod = () => {
           config
         );
         setSubjects(response.data.data);
-       // console.log(response.data.data);
       } catch (error) {
-        console.log("Error from dynamic data fetch: " + error);
       }
     };
     fetchData();
   }, [className]);
 
   return (
-    <div style={{marginTop:"10rem", background:"linear-gradient(45deg, #00bcd4, #ffeb3b)"}}>
-     <Afterloginusernav/>
+    <div
+      style={{
+        marginTop: "10rem",
+        background: "linear-gradient(45deg, #00bcd4, #ffeb3b)",
+      }}
+    >
+      <Afterloginusernav />
 
       <div
         className="container-home-ins"
@@ -76,7 +78,7 @@ const Dynamicmod = () => {
           );
         })}
       </div>
-      <Foot/>
+      <Foot />
     </div>
   );
 };

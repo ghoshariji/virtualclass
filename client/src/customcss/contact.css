@@ -32,10 +32,6 @@ h1 {
     transition: color 0.3s ease-in-out;
 }
 
-h1:hover {
-    color: #ff6347; /* Change to your desired hover color */
-}
-
 .first_col {
     background-color: #f8f9fa;
     height: 550px;

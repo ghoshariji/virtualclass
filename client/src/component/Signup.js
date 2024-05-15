@@ -4,6 +4,8 @@ import "../customcss/signup.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import Beforehome from "../pages/Beforehome";
+import Beforelogin from "../navbar/Beforeloginnav";
 
 const Signup = () => {
   const navigate = useNavigate();

@@ -322,4 +322,37 @@ router.get("/get-course-user", async (req, res) => {
     });
   }
 });
+
+router.put("/edit-name", async (req, res) => {
+  try {
+    console.log(req.body.name);
+    const data = await userModel.findOneAndUpdate(
+      { email: req.query.name },
+      { name: req.body.name },
+      { new: true }
+    );
+    return res.status(201).send({
+      message: "Updated succesfullt",
+      success: true,
+      data: data,
+    });
+  } catch (error) {
+    return res.status(401).send({
+      message: error.message,
+    });
+  }
+});
+
+router.get("/start-server", async (req, res) => {
+  try {
+    return res.status(201).send({
+      message: "Server start",
+      success: true,
+    });
+  } catch (error) {
+    return res.status(401).send({
+      message: error.message,
+    });
+  }
+});
 module.exports = router;

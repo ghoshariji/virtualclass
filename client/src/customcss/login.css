@@ -1,391 +1,388 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins",sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-.BODYLOGIN
-{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #eff0f4;
-     background: url("../image/newLoginPage.jpg")no-repeat; 
-     background-size: cover;
-     background-position: center;
+.BODYLOGIN {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #eff0f4;
+  background: url("../image/newLoginPage.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-  .Welcome {
-    position: absolute;
-    top: 20px; 
-    left: 50%;
-    transform: translateX(-50%);
-    
-
-  }
-  .Welcome h1{
-    font-family: "POppins";
-    font-size: 30px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-align: center;
-    background: linear-gradient(135deg,#ff00d2,#fed90f,#00a2ff,#09f1b8,#ff00d2,#fed90f,#00a2ff,#09f1b8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 300% 300%;
-    animation: color 8s ease-in-out infinite;
-  }
-
+.Welcome {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.Welcome h2 {
+  font-family: "POppins";
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    #ff00d2,
+    #fed90f,
+    #00a2ff,
+    #09f1b8,
+    #ff00d2,
+    #fed90f,
+    #00a2ff,
+    #09f1b8
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  animation: color 8s ease-in-out infinite;
+}
 
 @keyframes color {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
   }
-
-.container1000{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: -80px;
-}
-.container1000 .drop{
-    position: relative;
-    width: 450px;
-    height: 450px;
-    box-shadow: inset 20px 20px 20px rgba(0,0,0,0.05),25px 35px 20px rgba(0,0,0,0.05),25px 30px 30px rgba(0,0,0,0.05),inset -20px -20px 25px rgba(255,255,255,0.9);
-    transition: 0.5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 48% 52% 31% 69% / 49% 42% 58% 51% ;
-   
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.container1000 .drop:hover{
-    border-radius: 50%;
+.container1000 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -80px;
+}
+.container1000 .drop {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 48% 52% 31% 69% / 49% 42% 58% 51%;
 }
 
-
-.container1000 .drop::before{
-    content: '';
-    position: absolute;
-    top: 50px;
-    left: 85px;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: #fff;
-    opacity: 0.9;
-} 
-
-
-.container1000 .drop::after{
-    content: '';
-    position: absolute;
-    top: 90px;
-    left: 110px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #fff;
-    opacity: 0.9;
+.container1000 .drop:hover {
+  border-radius: 50%;
 }
 
-.container1000 .drop .content100{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 40px;
-    gap: 15px;
-}
-.container1000 .drop .content100 h2{
-    position: relative;
-    color: #000;
-    font-size:3.4rem;
-}
-.container1000 .drop .content100 form{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
+.container1000 .drop::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 85px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.9;
 }
 
-.container1000 .drop .content100 form .inputBox{
-    position: relative;
-    width: 280px;
-    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.05),inset -2px -5px 10px rgba(255,255,255,1),15px 15px 10px rgba(0,0,0,0.05),15px 10px 15px rgba(0,0,0,0.025);
-    border-radius: 25px;
+.container1000 .drop::after {
+  content: "";
+  position: absolute;
+  top: 90px;
+  left: 110px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.9;
 }
 
-.container1000 .drop .content100 form .inputBox::before{
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform:translateX(-50%) ;
-    width: 70%;
-    height: 5px;
-    background: rgb(255,255,255,1);
-    border-radius: 5px;
+.container1000 .drop .content100 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px;
+  gap: 15px;
+}
+.container1000 .drop .content100 h2 {
+  position: relative;
+  color: #000;
+  font-size: 3.4rem;
+}
+.container1000 .drop .content100 form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.container1000 .drop .content100 form .inputBox input{
-    border: none;
-    outline: none;
-    background: transparent;
-    width: 100%;
-    font-size: 1.4rem;
-    padding: 10px 15px;
-}
-.container1000 .drop .content100 form .inputBox input[type="submit"]{
-    color: #fff;
-    /* text-transform: uppercase; */
-    font-size: 1rem;
-    cursor: pointer;
-    letter-spacing: 0.1rem;
-    font-weight: 500;
-}
-.container1000 .drop .content100 form .inputBox:last-child{
-    width: 120px;
-    background: #ff0f5b;
-    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.05),15px 15px 10px rgba(0,0,0,0.05),15px 10px 15px rgba(0,0,0,0.025);
-    transition: 0.5s;
-    margin-bottom: 20px;
+.container1000 .drop .content100 form .inputBox {
+  position: relative;
+  width: 280px;
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.05),
+    inset -2px -5px 10px rgba(255, 255, 255, 1),
+    15px 15px 10px rgba(0, 0, 0, 0.05), 15px 10px 15px rgba(0, 0, 0, 0.025);
+  border-radius: 25px;
 }
 
-.container1000 .drop .content100 form .inputBox:last-child:hover{
-   width: 150px;
+.container1000 .drop .content100 form .inputBox::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 5px;
+  background: rgb(255, 255, 255, 1);
+  border-radius: 5px;
 }
 
-.btns100{
-    position: absolute;
-    right: -120px;
-    bottom: 0;
-    width: 150px;
-    height: 150px;
-    background: #c61dff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
-    line-height: 1.2rem;
-    letter-spacing: 0.1rem;
-    font-size: 0.8rem;
-    transition: 0.25s;
-    text-align: center;
-    box-shadow: inset 10px 10px 10px rgba(190,0,254,0.05),15px 25px 10px rgba(190,0,254,0.1),15px 20px 20px rgba(190,0,254,0.1),inset -10px -10px 15px rgba(255,255,255,0.5);
-    border-radius:63% 37% 68% 32% / 54% 52% 48% 46%;
-
+.container1000 .drop .content100 form .inputBox input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 10px 15px;
+}
+.container1000 .drop .content100 form .inputBox input[type="submit"] {
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+}
+.container1000 .drop .content100 form .inputBox:last-child {
+  width: 120px;
+  background: #ff0f5b;
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.05),
+    15px 15px 10px rgba(0, 0, 0, 0.05), 15px 10px 15px rgba(0, 0, 0, 0.025);
+  transition: 0.5s;
+  margin-bottom: 20px;
 }
 
-.btns100:hover{
-    border-radius: 50%;
-}
-.btns100::before{
-    content: '';
-    position: absolute;
-    top: 15px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #fff;
-    opacity: 0.45;
-}
-.btns100.signup{
-    width: 90px;
-    height: 90px;
-    bottom: 150px;
-    right: -140px;
-    border-radius: 45% 55% 55% 45% / 43% 39% 61% 57% ;
-    background: #01b4ff;
-    box-shadow: inset 10px 10px 10px rgba(1,180,255,0.05),15px 25px 10px rgba(1,180,255,0.1),15px 20px 20px rgba(1,180,255,0.1),inset -10px -10px 15px rgba(255,255,255,0.5);
+.container1000 .drop .content100 form .inputBox:last-child:hover {
+  width: 150px;
 }
 
-
-.btns100.signup::before{
-    left: 20px;
-    width: 15px;
-    height: 15px;
+.btns100 {
+  position: absolute;
+  right: -120px;
+  bottom: 0;
+  width: 150px;
+  height: 150px;
+  background: #c61dff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  line-height: 1.2rem;
+  letter-spacing: 0.1rem;
+  font-size: 0.8rem;
+  transition: 0.25s;
+  text-align: center;
+  box-shadow: inset 10px 10px 10px rgba(190, 0, 254, 0.05),
+    15px 25px 10px rgba(190, 0, 254, 0.1), 15px 20px 20px rgba(190, 0, 254, 0.1),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.5);
+  border-radius: 63% 37% 68% 32% / 54% 52% 48% 46%;
 }
 
-.btns100.signup:hover{
-    border-radius: 50%;
+.btns100:hover {
+  border-radius: 50%;
+}
+.btns100::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.45;
+}
+.btns100.signup {
+  width: 90px;
+  height: 90px;
+  bottom: 150px;
+  right: -140px;
+  border-radius: 45% 55% 55% 45% / 43% 39% 61% 57%;
+  background: #01b4ff;
+  box-shadow: inset 10px 10px 10px rgba(1, 180, 255, 0.05),
+    15px 25px 10px rgba(1, 180, 255, 0.1), 15px 20px 20px rgba(1, 180, 255, 0.1),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.5);
 }
 
-
-
-.btns{
-    position: absolute;
-    left: -130px;
-    bottom: 0;
-    width: 160px;
-    height: 160px;
-    background: #ff1d87;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
-    line-height: 1.2rem;
-    letter-spacing: 0.1rem;
-    font-size: 0.8rem;
-    transition: 0.25s;
-    text-align: center;
-    box-shadow: inset 10px 10px 10px rgba(190,0,254,0.05),15px 25px 10px rgba(190,0,254,0.1),15px 20px 20px rgba(190,0,254,0.1),inset -10px -10px 15px rgba(255,255,255,0.5);
-    border-radius:43% 57% 53% 47% / 35% 40% 60% 65% ;
+.btns100.signup::before {
+  left: 20px;
+  width: 15px;
+  height: 15px;
 }
 
-.btns.Instructor{
-    width: 130px;
-    height: 130px;
-    bottom: 10px;
+.btns100.signup:hover {
+  border-radius: 50%;
 }
 
-.btns::before{
-    content: '';
-    position: absolute;
-    top: 15px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #fff;
-    opacity: 0.45;
+.btns {
+  position: absolute;
+  left: -130px;
+  bottom: 0;
+  width: 160px;
+  height: 160px;
+  background: #ff1d87;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  line-height: 1.2rem;
+  letter-spacing: 0.1rem;
+  font-size: 0.8rem;
+  transition: 0.25s;
+  text-align: center;
+  box-shadow: inset 10px 10px 10px rgba(190, 0, 254, 0.05),
+    15px 25px 10px rgba(190, 0, 254, 0.1), 15px 20px 20px rgba(190, 0, 254, 0.1),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.5);
+  border-radius: 43% 57% 53% 47% / 35% 40% 60% 65%;
 }
 
-.btns.Instructor::before{
-    left: 10px;
-    width: 20px;
-    height: 20px;
+.btns.Instructor {
+  width: 130px;
+  height: 130px;
+  bottom: 10px;
 }
 
-
-.btns.Instructor:hover{
-    border-radius: 50%;
+.btns::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.45;
 }
 
+.btns.Instructor::before {
+  left: 10px;
+  width: 20px;
+  height: 20px;
+}
 
+.btns.Instructor:hover {
+  border-radius: 50%;
+}
 
 @media only screen and (max-width: 768px) {
-    .Welcome h1{
-        font-size: 20px;
-    }
-    .container1000 {
-        left: 0;
-        width: 110px;
-        padding: 0 20px;
-    }
+  .Welcome h2 {
+    font-size: 20px;
+  }
+  .container1000 {
+    left: 0;
+    width: 110px;
+    padding: 0 20px;
+  }
 
-    .container1000 .drop {
-        width: 250px;
-        height: 250px;
-        
-    }
+  .container1000 .drop {
+    width: 250px;
+    height: 250px;
+  }
 
-    .container1000 .drop::before {
-         display: none;
-    }
+  .container1000 .drop::before {
+    display: none;
+  }
 
-    .container1000 .drop::after {
-        top: 40px;
-        left: 35px;
-    }
+  .container1000 .drop::after {
+    top: 40px;
+    left: 35px;
+  }
 
-    .container1000 .drop .content100 {
-        padding: 20px;
-    }
+  .container1000 .drop .content100 {
+    padding: 20px;
+  }
 
-    .container1000 .drop .content100 h2 {
-        font-size: 1.5rem; 
-    }
-    
-    .container1000 .drop .content100 form .inputBox {
-        width: 190px;
-    }
+  .container1000 .drop .content100 h2 {
+    font-size: 1.5rem;
+  }
 
-    .container1000 .drop .content100 form .inputBox::before {
-        top: 5px;
-    }
+  .container1000 .drop .content100 form .inputBox {
+    width: 190px;
+  }
 
-  
+  .container1000 .drop .content100 form .inputBox::before {
+    top: 5px;
+  }
 
-     .btns100 {
-        width: 80px;
-        height: 80px;
-        right: -90px;
-        bottom: -50px;
-       
-    } 
+  .btns100 {
+    width: 80px;
+    height: 80px;
+    right: -90px;
+    bottom: -50px;
+  }
 
-    .btns100.signup {
-        width: 60px;
-        height: 60px;
-        right: -110px;
-        bottom: -90px;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
-        bottom: -130px;
-        margin-right: 40px;
-      
-    }
+  .btns100.signup {
+    width: 60px;
+    height: 60px;
+    right: -110px;
+    bottom: -90px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    bottom: -130px;
+    margin-right: 40px;
+  }
 
-    .btns100::before {
-        top: 10px;
-        width: 15px;
-        height: 15px;
-    }
+  .btns100::before {
+    top: 10px;
+    width: 15px;
+    height: 15px;
+  }
 
-    .btns100.signup::before {
-        left: 15px;
-    }
+  .btns100.signup::before {
+    left: 15px;
+  }
 
+  .btns {
+    left: -100px;
+    bottom: -50px;
+    width: 120px;
+    height: 100px;
+  }
 
-    .btns {
-        left: -100px;
-        bottom: -50px;
-        width: 120px;
-        height: 100px;
-    }
+  .btns.Instructor {
+    width: 80px;
+    height: 80px;
+    bottom: -70px;
+    left: -130px;
+    margin-left: 50px;
+  }
 
-    .btns.Instructor {
-        width: 80px;
-        height: 80px;
-        bottom: -70px;
-        left: -130px; 
-        margin-left: 50px;
-    }
+  .btns::before {
+    top: 10px;
+    width: 15px;
+    height: 15px;
+  }
 
-    .btns::before {
-        top: 10px;
-        width: 15px;
-        height: 15px;
-    }
-
-    .btns.Instructor::before {
-        left: 10px;
-        width: 10px;
-        height: 10px;
-    }
- 
+  .btns.Instructor::before {
+    left: 10px;
+    width: 10px;
+    height: 10px;
+  }
 }

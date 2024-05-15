@@ -88,21 +88,9 @@ const AfterLoginAdmin = () => {
         <Navbar />
         <ToastContainer />
         <div style={{ marginTop: "10rem" }}>
-          {/*<div>
-          {prem.map((val, ind) => {
-            return (
-              <div key={ind}>
-                <p>name:{val.name}</p>
-                <p>price:{val.price}</p>
-                <p>about:{val.about}</p>
-                <p>Status:{JSON.stringify(val.isPremium)}</p>
-                <button onClick={() => makePremium(val._id)}>
-                  Make premium
-                </button>
-              </div>
-            );
-          })}
-        </div>*/}
+          <h1 style={{ fontSize: "2rem" }}>
+            Hello admin : {localStorage.getItem("name")}
+          </h1>
 
           <div className="containerMami">
             {prem.map((val, ind) => {
@@ -122,82 +110,29 @@ const AfterLoginAdmin = () => {
             })}
           </div>
 
-          {/*<div className="container-admin">
-            <h1 style={{ fontSize: "2rem" }}>
-              Hello admin : {params.get("name")}
-            </h1>
-            <h2 style={{ fontWeight: "900" }}>
-              Below all the List Who have applied for the Become a Instructor
-            </h2>
+          <h2 style={{ fontWeight: "900", textAlign: "center" }}>
+            Below all the List Who have applied for the Become a Instructor
+          </h2>
+
+          <div className="containerMami">
             {data.map((val, ind) => {
               return (
-                <div
-                  key={ind}
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    padding: "1rem",
-                  }}
-                >
-                  <p style={{ fontSize: "2rem" }}>{val.email}</p>
-                  <p style={{ fontSize: "2rem" }}>
-                    {" "}
-                    isInstructor : {JSON.stringify(val.isInstructor)}
-                  </p>
-                  <div style={{ alignItems: "center" }}>
-                    <button
-                      onClick={() => makeIns(val.email)}
-                      style={{ display: "grid", gap: "2px", fontSize: "15px" }}
-                    >
-                      Make instructor
-                    </button>
-                    <button
-                      onClick={() => removIns(val.email)}
-                      style={{ display: "grid", gap: "2px", fontSize: "15px" }}
-                    >
-                      Remove instructor
-                    </button>
-                  </div>
+                <div className="boxMami" key={ind}>
+                  <h3>eLearning</h3>
+                  <p>Name: {val.email}</p>
+                  <p> isInstructor : {JSON.stringify(val.isInstructor)}</p>
+                  <button onClick={() => makeIns(val.email)}>
+                    Make Instructor
+                  </button>
+
+                  <button onClick={() => removIns(val.email)}>
+                    Remove Instructor
+                  </button>
+                  <span className="count">VC</span>
                 </div>
               );
             })}
-          </div>*/}
-
-
-          <h1 style={{ fontSize: "2rem" }}>
-          Hello admin : {localStorage.getItem("name")}
-        </h1>
-
-        <h2 style={{ fontWeight: "900" ,textAlign:"center"}}>
-        Below all the List Who have applied for the Become a Instructor
-      </h2>
-
-
-      <div className="containerMami">
-      {data.map((val, ind) => {
-        return (
-          <div className="boxMami" key={ind}>
-            <h3>eLearning</h3>
-            <p>Name: {val.email}</p>
-            <p>{" "}
-            isInstructor : {JSON.stringify(val.isInstructor)}</p>
-            <button onClick={() => makeIns(val.email)}>
-              Make Instructor
-            </button>
-
-            <button  onClick={() => removIns(val.email)}>
-            Remove Instructor
-          </button>
-            <span className="count">VC</span>
           </div>
-        );
-      })}
-    </div>
-
-
-
         </div>
       </div>
       <Foot />

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import first from "../image/a.jpeg";
 import Foot from "../footer/Foot";
 import axios from "axios";
 import "../customcss/Card.css";
-// import img from "../image/first.jpg";
 import Afterloginusernav from "../navbar/Afterloginusernav";
 import img1 from "../image/virtualcard.webp";
 import "../customcss/virtualCard.css";
@@ -35,17 +33,6 @@ const Afterloginhome = () => {
       console.log("Error from the userhome fetching data" + error);
     }
   };
-  // const fetchPremium = async() =>{
-  //   try {
-  //     const response = await axios.get(
-  //       `https://virtualclass-yz7w.onrender.com/api/user/get-module-premium/id=${userID}`,
-  //     );
-  //     console.log(response.data.data);
-  //     setDataPre(response.data.data);
-  //   } catch (error) {
-  //     console.log("Error from the userhome fetching data" + error);
-  //   }
-  // }
   const fetchPremuim = async (id) => {
     try {
       const res = await axios.get(
@@ -70,16 +57,12 @@ const Afterloginhome = () => {
       <Afterloginusernav />
       <div
         style={{
-          marginTop: "9rem",
-          // background: "linear-gradient(45deg, #00bcd4, #ffeb3b)",
-          // background:"#fff",
+          marginTop: "8.5rem",
         }}
       >
-        <h1 style={{ textAlign: "center", fontSize: "26px" }}>
-          {" "}
-          <i>Your premium couses</i>
+        <h1 style={{ textAlign: "center", fontSize: "28px"}}>
+          premium courses
         </h1>
-
         <div
           className="container-home-ins"
           style={{
@@ -133,8 +116,7 @@ const Afterloginhome = () => {
         }}
       >
         <h1 style={{ textAlign: "center", fontSize: "26px" }}>
-          {" "}
-          <i>OTHER COURSES</i>
+         Free courses available on YouTube
         </h1>
         <div
           className="container-home-ins"

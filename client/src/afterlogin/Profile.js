@@ -3,14 +3,17 @@ import Afterloginusernav from "../navbar/Afterloginusernav";
 import Foot from "../footer/Foot";
 import axios from "axios";
 import "../customcss/profile.css";
-
-
+import "../customcss/modal.css";
+import { toast,ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const [profilePic, setProfilePic] = useState("");
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const navigate = useNavigate();
   const fetchImg = async () => {
     const email = localStorage.getItem("email");
-    //  console.log(email);
     setEmail(email);
     try {
       const config = {
@@ -23,11 +26,9 @@ const Profile = () => {
         { email },
         config
       );
-      // console.log(res.data.data.image)
-      setProfilePic(`${process.env.REACT_APP_API_URL}/uploads/` + res.data.data.image);
-    } catch (error) {
-      //console.log("Error " + error)
-    }
+      setName(res.data.data.name)
+      setProfilePic(`${process.env.REACT_APP_API_URL}/` + res.data.data.image);
+    } catch (error) {}
   };
   useEffect(() => {
     fetchImg();
@@ -39,7 +40,6 @@ const Profile = () => {
       input.type = "file";
       input.onchange = async () => {
         const file = input.files[0];
-        console.log(file);
         const formData = new FormData();
         formData.append("file", file);
         formData.append("email", email);
@@ -47,46 +47,75 @@ const Profile = () => {
           `${process.env.REACT_APP_API_URL}/api/user/profile-pic-upload`,
           formData
         );
-        // console.log(response.data)
-        // console.log(response.data.image)
-        setProfilePic(`${process.env.REACT_APP_API_URL}/` + response.data.image);
+        setProfilePic(
+          `${process.env.REACT_APP_API_URL}/` + response.data.image
+        );
       };
       input.click();
-    } catch (error) {
-      console.log("Error" + error);
-    }
-  };
-  const editUsername = () => {
-    try {
     } catch (error) {}
   };
 
-  const editPassword = () => {
+  const toggleEditModal = () => {
+    setIsEditModalOpen(!isEditModalOpen);
+  };
+
+  const handleUsernameEdit = async () => {
     try {
+      if (!name) {
+        toast.info("Please Enter name ");
+        toggleEditModal();
+        return;
+      }
+      const email = localStorage.getItem("email");
+      const data = await axios.put(
+        `${process.env.REACT_APP_API_URL}/api/user/edit-name?name=${email}`,
+        { name }
+      );
+      toast.success("Updated successfully");
+      fetchImg();
+      toggleEditModal();
     } catch (error) {}
   };
+
   return (
     <div className="profile">
       <Afterloginusernav />
-      {/* <div className='afterprofile' style={{height:'50%',width:'50%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-        <div style={{marginTop:'10rem',display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',height:'50%',width:'50%'}}>
-            <img src={profilePic} alt="" style={{borderRadius:'50%', height:'200px', width:'200px',display:'flex',justifyContent:'center',alignItems:'center',marginLeft:'600px'}}/>
-            <button onClick={editprofile} style={{marginLeft:'600px' , width:'100px',display:'flex',flexDirection:"row"}}>Edit Profile Picture</button>
-            <button onClick={editprofile} style={{marginLeft:'600px', width:'100px',display:'flex',flexDirection:'row'}}>Edit Username</button>
-            <button onClick={editprofile} style={{marginLeft:'600px',width:'100px',display:'flex',flexDirection:'row'}}>Edit Password</button>
-        </div>
-       </div>*/}
-
+      <ToastContainer/>
       <div className="afterprofile">
         <div>
           <img src={profilePic} alt="" className="imageProfile" />
-          <div className="profileButton">
+          <div className="profileButton" style={{display:"flex",flexDirection:'column'}}>
+            <div>
+            <h2>Name : {name}</h2>
+            <h2>Email : {localStorage.getItem("email")}</h2>
+            </div>
+          <div>
             <button onClick={editprofile}>Edit Profile Picture</button>
-            <button onClick={editUsername}>Edit Username</button>
-            <button onClick={editPassword}>Edit Password</button>
+            <button onClick={toggleEditModal}>Edit Username</button>
+            <button onClick={() => navigate("/enteremail")}>
+              Edit Password
+            </button>
+            </div>
           </div>
         </div>
       </div>
+      {isEditModalOpen && (
+        <div className={`modal ${isEditModalOpen ? "show" : ""}`}>
+          <div className="modal-content">
+            <span className="close" onClick={toggleEditModal}>
+              &times;
+            </span>
+            <h2>Edit Username</h2>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter new username"
+            />
+            <button onClick={handleUsernameEdit}>Save</button>
+          </div>
+        </div>
+      )}
       <Foot />
     </div>
   );
