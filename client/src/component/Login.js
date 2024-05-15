@@ -171,11 +171,11 @@ const LoginForm = () => {
     //     </form>
     //   </div>
     // </div>
-<>
+<div >
 <Beforelogin/>
-    <div className="BODYLOGIN">
+    <div className="BODYLOGIN" style={{marginTop:"6rem"}}>
     
-      <div className="Welcome">
+      <div className="Welcome" style={{marginTop:"8rem"}}>
         <h1>Welcome Our eLearning Website</h1>
       </div>
 
@@ -233,7 +233,7 @@ const LoginForm = () => {
         </a>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 

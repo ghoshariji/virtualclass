@@ -65,7 +65,7 @@ const Beforelogin = ({userId}) => {
           <a href="/onlineclass">Online class</a>
           <a onClick={logout}>Logout</a>
           <a href="/chat-with-admin">Chat us</a>   
-          <a href="/profile">Profile</a>
+          <a href="/login">Profile</a>
         </nav>
       </header>
       
