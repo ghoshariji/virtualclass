@@ -4,6 +4,7 @@ import img from "./online.png";
 import Foot from "../footer/Foot";
 import axios from "axios";
 import Afterloginusernav from "../navbar/Afterloginusernav";
+import Beforelogin from "../navbar/Beforeloginnav";
 
 const Beforecontact = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,7 @@ const Beforecontact = () => {
 
   return (
     <div>
-    <Afterloginusernav/>
+    <Beforelogin/>
 
       <div className="container" style={{marginTop:"10rem"}}>
         <div className="row py-5 g-3">
