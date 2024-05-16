@@ -104,6 +104,9 @@ const AfterLoginAdmin = () => {
                   <button onClick={() => makePremium(val._id)}>
                     Make Premium
                   </button>
+                  <button onClick={() => makePremium(val._id)}>
+                    Make Premium
+                  </button>
                   <span className="count">VC</span>
                 </div>
               );

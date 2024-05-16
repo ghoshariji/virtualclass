@@ -9,13 +9,15 @@ import "../customcss/virtualCard.css";
 
 const Afterloginhome = () => {
   const [data, setData] = useState([]);
-  // const [dataPre, setDataPre] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filterVal, setFilterVal] = useState([]);
   const navigate = useNavigate();
   const params = new URLSearchParams(document.location.search);
   const userID = params.get("id");
   const [prem, setPrem] = useState([]);
   const [id, setId] = useState("");
   const [courseId, setCourseId] = useState([]);
+  const [originalData, setOriginalData] = useState([]);
   const fetchData = async () => {
     const config = {
       headers: {
@@ -38,11 +40,30 @@ const Afterloginhome = () => {
       const res = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/user/get-course-user/?id=${id}`
       );
+      console.log(res.data.courses);
       setPrem(res.data.courses);
+      setOriginalData(res.data.courses);
+      setFilterVal(res.data.courses);
     } catch (error) {
       console.log("Error from the error" + error);
     }
   };
+
+  const handleSearch = (e) => {
+    const searchvalue = e.target.value.toLowerCase().trim();
+    console.log(searchvalue);
+    setSearch(searchvalue);
+    if (searchvalue === "") {
+      setFilterVal(originalData);
+    } else {
+      const filterData = originalData.filter((val) =>
+        val.name.toLowerCase().includes(searchvalue)
+      );
+      console.log(filterData);
+      setFilterVal(filterData);
+    }
+  };
+
   useEffect(() => {
     // fetchPremium()
     const id = localStorage.getItem("id");
@@ -60,17 +81,20 @@ const Afterloginhome = () => {
           marginTop: "8.5rem",
         }}
       >
-        <h1 style={{ textAlign: "center", fontSize: "28px"}}>
+        <h1 style={{ textAlign: "center", fontSize: "28px" }}>
           premium courses
         </h1>
-         <div className="BoxBhai">
-         <input type="text" placeholder="Search your course"/>
-         
-          <i className="fas fa-search"></i>
-        
-         </div>
+        <div className="BoxBhai">
+          <input
+            type="text"
+            placeholder="Search your course"
+            value={search}
+            onChange={handleSearch}
+          />
 
-        
+          <i className="fas fa-search"></i>
+        </div>
+
         <div
           className="container-home-ins"
           style={{
@@ -82,7 +106,7 @@ const Afterloginhome = () => {
             alignItems: "center",
           }}
         >
-          {prem.map((val, ind) => {
+          {filterVal.map((val, ind) => {
             return (
               <div className="containerMaa" key={ind}>
                 <input
@@ -124,7 +148,7 @@ const Afterloginhome = () => {
         }}
       >
         <h1 style={{ textAlign: "center", fontSize: "26px" }}>
-         Free courses available on YouTube
+          Free courses available on YouTube
         </h1>
         <div
           className="container-home-ins"
