@@ -110,7 +110,7 @@ const AfterLoginAdmin = () => {
                   <p>Price:{val.price}</p>
                   <p>About:{val.about}</p>
                   <p>Status:{JSON.stringify(val.isPremium)}</p>
-                  <button onClick={() => makePremium(val._id)}>
+                  <button onClick={() => makePremium(val._id)} className="btnMami">
                     Make Premium
                   </button>
                   <button onClick={() => deleteCourse(val._id)}>
