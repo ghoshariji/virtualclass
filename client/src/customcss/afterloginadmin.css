@@ -27,7 +27,7 @@
 
 .boxMami{
     width: 300px;
-    height: 455px;
+    height: 540px;
     background-color: #fff;
     border-radius: 5px;
     padding: 20px;
@@ -66,6 +66,10 @@
     border-radius: 50px;
     margin-top: 40px;
     transition: 0.5s;
+}
+
+.boxMami button .btnMami{
+    width: 30px;
 }
 
 .boxMami button:hover{

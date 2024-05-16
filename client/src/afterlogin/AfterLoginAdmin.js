@@ -101,11 +101,11 @@ const AfterLoginAdmin = () => {
                   <p>Price:{val.price}</p>
                   <p>About:{val.about}</p>
                   <p>Status:{JSON.stringify(val.isPremium)}</p>
-                  <button onClick={() => makePremium(val._id)}>
+                  <button onClick={() => makePremium(val._id)} className="btnMami">
                     Make Premium
                   </button>
-                  <button onClick={() => makePremium(val._id)}>
-                    Make Premium
+                  <button onClick={() => makePremium(val._id)} className="btnMami">
+                    Delete Course
                   </button>
                   <span className="count">VC</span>
                 </div>
