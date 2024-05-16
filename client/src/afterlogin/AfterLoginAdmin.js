@@ -82,6 +82,15 @@ const AfterLoginAdmin = () => {
       console.log("Error" + error);
     }
   };
+  const deleteCourse = async (id) => {
+    try {
+      const data = await axios.delete(
+        `${process.env.REACT_APP_API_URL}/api/instructor/delete-course/?id=${id}`
+      );
+      toast.success("Deleted succeessfully");
+      fetchPremuicourse()
+    } catch (error) {}
+  };
   return (
     <>
       <div className="containerMamiHead">
@@ -104,7 +113,7 @@ const AfterLoginAdmin = () => {
                   <button onClick={() => makePremium(val._id)}>
                     Make Premium
                   </button>
-                  <button onClick={() => makePremium(val._id)}>
+                  <button onClick={() => deleteCourse(val._id)}>
                     Make Premium
                   </button>
                   <span className="count">VC</span>

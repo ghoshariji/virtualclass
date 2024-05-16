@@ -40,7 +40,6 @@ import img35 from "../image/pemium-course-picture.jpg";
 import "../customcss/home.css";
 import Afterloginusernav from "../navbar/Afterloginusernav";
 
-
 import axios from "axios";
 
 const Home = () => {
@@ -51,7 +50,6 @@ const Home = () => {
   const [courseId1, setCourseId] = useState([]);
   const [final, setFinal] = useState([]);
   const handlePayment = async (price, courseId) => {
-    // const price = 4999;
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -62,8 +60,6 @@ const Home = () => {
       { price },
       config
     );
-    // console.log(res.data.data);
-    // console.log(window);
     const options = {
       key: `${process.env.REACT_APP_razorPay}`,
       amount: res.data.data.amout,
@@ -92,19 +88,11 @@ const Home = () => {
       const res = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/instructor/get-premium-course`
       );
-      // console.log(res.data.data);
       setData(res.data.data);
-      // const filterData = data.filter((val) => !courseId1.includes(val._id));
-      // setFinal(filterData);
-      // console.log(filterData)
     } catch (error) {
       console.log("Error from the geeting premuim course home page " + error);
     }
   };
-  // useEffect(() => {
-  //   const filterData = data.filter((val) => !courseId1.includes(val));
-  //   setFinal(filterData);
-  // }, [data, courseId1]);
   useEffect(() => {
     const name = localStorage.getItem("name");
     const email = localStorage.getItem("email");
@@ -112,6 +100,7 @@ const Home = () => {
     const course = localStorage.getItem("course");
     if (course) {
       const courseArray = course.split(",");
+      console.log(courseArray);
       setCourseId(courseArray);
     }
     setName(name);
@@ -138,14 +127,10 @@ const Home = () => {
         }
       }
     };
-
     if (menu && navbar) {
       menu.onclick = handleMenuClick;
     }
-
     window.onscroll = handleScroll;
-
-    // Cleanup the event listeners on component unmount
     return () => {
       if (menu && navbar) {
         menu.onclick = null;
@@ -169,10 +154,10 @@ const Home = () => {
         })} */}
           <h3>Taking failures in your stride. ...</h3>
           <p>
-          You have to dream before your dreams can come true."
-          "Excellence is a continuous process and not an accident."
-          "Life is a difficult game. You can win it only by retaining your birthright to be a person."
-          
+            You have to dream before your dreams can come true." "Excellence is
+            a continuous process and not an accident." "Life is a difficult
+            game. You can win it only by retaining your birthright to be a
+            person."
           </p>
           <a href="#popular" className="btn">
             Get Started
@@ -199,7 +184,12 @@ const Home = () => {
               <img src={img2} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
+                An online class study room is a virtual space where students can
+                participate in live classes, access learning materials,
+                collaborate with peers, and communicate with instructors. It
+                serves as a central hub for all course-related activities,
+                integrating various tools and resources to facilitate a seamless
+                learning experience.
               </p>
             </div>
           </div>
@@ -211,7 +201,12 @@ const Home = () => {
               <img src={img4} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
+                An online class study room is a virtual space where students can
+                participate in live classes, access learning materials,
+                collaborate with peers, and communicate with instructors. It
+                serves as a central hub for all course-related activities,
+                integrating various tools and resources to facilitate a seamless
+                learning experience.
               </p>
             </div>
           </div>
@@ -222,7 +217,12 @@ const Home = () => {
               <img src={img6} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
+                An online class study room is a virtual space where students can
+                participate in live classes, access learning materials,
+                collaborate with peers, and communicate with instructors. It
+                serves as a central hub for all course-related activities,
+                integrating various tools and resources to facilitate a seamless
+                learning experience.
               </p>
             </div>
           </div>
@@ -233,7 +233,12 @@ const Home = () => {
               <img src={img8} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
+                An online class study room is a virtual space where students can
+                participate in live classes, access learning materials,
+                collaborate with peers, and communicate with instructors. It
+                serves as a central hub for all course-related activities,
+                integrating various tools and resources to facilitate a seamless
+                learning experience.
               </p>
             </div>
           </div>
@@ -244,7 +249,12 @@ const Home = () => {
               <img src={img10} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
+                An online class study room is a virtual space where students can
+                participate in live classes, access learning materials,
+                collaborate with peers, and communicate with instructors. It
+                serves as a central hub for all course-related activities,
+                integrating various tools and resources to facilitate a seamless
+                learning experience.
               </p>
             </div>
           </div>
@@ -255,7 +265,12 @@ const Home = () => {
               <img src={img12} alt="" />
               <h3>Our Responsible Study Room</h3>
               <p>
-              An online class study room is a virtual space where students can participate in live classes, access learning materials, collaborate with peers, and communicate with instructors. It serves as a central hub for all course-related activities, integrating various tools and resources to facilitate a seamless learning experience.
+                An online class study room is a virtual space where students can
+                participate in live classes, access learning materials,
+                collaborate with peers, and communicate with instructors. It
+                serves as a central hub for all course-related activities,
+                integrating various tools and resources to facilitate a seamless
+                learning experience.
               </p>
             </div>
           </div>
@@ -275,33 +290,34 @@ const Home = () => {
           {/* English Box */}
 
           {/* getting fetchData */}
-          {data.map((val, ind) => {
-            return (
-              val.isPremium && (
-                <div className="box" key={ind}>
-                  <span className="price">Rs. {val.price}/-</span>
-                  <img src={img35} alt="English" />
-                  <h3>{val.name}</h3>
-                  <h4>{val.about}</h4>
-                  <div className="stars">
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                    <i className="far fa-star"></i>
+          {data
+            .filter((val) => !courseId1.includes(val._id))
+            .map((val, ind) => {
+              return (
+                val.isPremium && (
+                  <div className="box" key={ind}>
+                    <span className="price">Rs. {val.price}/-</span>
+                    <img src={img35} alt="English" />
+                    <h3>{val.name}</h3>
+                    <h4>{val.about}</h4>
+                    <div className="stars">
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="far fa-star"></i>
+                    </div>
+                    <button
+                      onClick={() => handlePayment(val.price, val._id)}
+                      className="btn"
+                    >
+                      Buy Now
+                    </button>
                   </div>
-                  <button
-                    onClick={() => handlePayment(val.price, val._id)}
-                    className="btn"
-                  >
-                    Buy Now
-                  </button>
-                </div>
-              )
-            );
-          })}
+                )
+              );
+            })}
 
-         
           {/* Add more boxes as needed... */}
         </div>
 
@@ -338,7 +354,10 @@ const Home = () => {
               <i className="fas fa-star"></i>
               <i className="far fa-star"></i>
             </div>
-            <a href="https://preply.com/en/online/bengali-tutors" className="btn">
+            <a
+              href="https://preply.com/en/online/bengali-tutors"
+              className="btn"
+            >
               Checkout
             </a>
           </div>
@@ -356,7 +375,7 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <a href="https://ncert.nic.in/" className="btn">
-               Checkout
+              Checkout
             </a>
           </div>
 
@@ -372,7 +391,7 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <a href="https://ncert.nic.in/" className="btn">
-            Checkout
+              Checkout
             </a>
           </div>
 
@@ -388,7 +407,7 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <a href="https://ncert.nic.in/" className="btn">
-            Checkout
+              Checkout
             </a>
           </div>
 
@@ -404,7 +423,7 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <a href="https://ncert.nic.in/" className="btn">
-            Checkout
+              Checkout
             </a>
           </div>
 
@@ -431,7 +450,6 @@ const Home = () => {
       {/* Steps section */}
       <section className="steps">
         {/* Steps section content */}
-       
 
         <div className="box">
           <img className="img" src={img19} alt="A. P. J. Abdul Kalam" />
@@ -460,7 +478,7 @@ const Home = () => {
       {/* Gallery section */}
       <section className="gallery" id="gallery">
         {/* Gallery section content */}
-        
+
         <h1 className="heading">
           Study<span>Materials</span>
         </h1>
@@ -552,7 +570,11 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <p>
-            The course provided excellent opportunities for networking with other professionals in my field. The discussion boards and group projects encouraged collaboration and the exchange of ideas, helping me build valuable connections that I can maintain beyond the course.
+              The course provided excellent opportunities for networking with
+              other professionals in my field. The discussion boards and group
+              projects encouraged collaboration and the exchange of ideas,
+              helping me build valuable connections that I can maintain beyond
+              the course.
             </p>
           </div>
 
@@ -567,8 +589,12 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <p>
-            I recently completed an online eLearning class and I am incredibly impressed with the entire experience.
-            Overall, my experience with this online eLearning class was outstanding. It provided me with the flexibility I needed, high-quality and engaging content, expert instruction, practical knowledge, and valuable networking opportunities.
+              I recently completed an online eLearning class and I am incredibly
+              impressed with the entire experience. Overall, my experience with
+              this online eLearning class was outstanding. It provided me with
+              the flexibility I needed, high-quality and engaging content,
+              expert instruction, practical knowledge, and valuable networking
+              opportunities.
             </p>
           </div>
 
@@ -583,7 +609,10 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <p>
-            Overall, my experience with this online eLearning class was outstanding. It provided me with the flexibility I needed, high-quality and engaging content, expert instruction, practical knowledge, and valuable networking opportunities.
+              Overall, my experience with this online eLearning class was
+              outstanding. It provided me with the flexibility I needed,
+              high-quality and engaging content, expert instruction, practical
+              knowledge, and valuable networking opportunities.
             </p>
           </div>
 
@@ -598,7 +627,12 @@ const Home = () => {
               <i className="far fa-star"></i>
             </div>
             <p>
-            Overall, my experience with this online eLearning class was outstanding. It provided me with the flexibility I needed, high-quality and engaging content, expert instruction, practical knowledge, and valuable networking opportunities. I would highly recommend this course to anyone looking to further their education and skills in a convenient and effective way.
+              Overall, my experience with this online eLearning class was
+              outstanding. It provided me with the flexibility I needed,
+              high-quality and engaging content, expert instruction, practical
+              knowledge, and valuable networking opportunities. I would highly
+              recommend this course to anyone looking to further their education
+              and skills in a convenient and effective way.
             </p>
           </div>
         </div>

@@ -40,12 +40,12 @@ const Afterloginhome = () => {
       const res = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/user/get-course-user/?id=${id}`
       );
-      console.log(res.data.courses);
+      //console.log(res.data.courses);
       setPrem(res.data.courses);
       setOriginalData(res.data.courses);
       setFilterVal(res.data.courses);
     } catch (error) {
-      console.log("Error from the error" + error);
+      //console.log("Error from the error" + error);
     }
   };
 
@@ -106,39 +106,48 @@ const Afterloginhome = () => {
             alignItems: "center",
           }}
         >
-          {filterVal.map((val, ind) => {
-            return (
-              <div className="containerMaa" key={ind}>
-                <input
-                  type="checkbox"
-                  id="switch"
-                  style={{ display: "none" }}
-                />
-                <div className="outer">
-                  <div className="contentMaa">
-                    <label htmlFor="switch">
-                      <span className="toggle">
-                        <span className="circle"></span>
-                      </span>
-                    </label>
+          {filterVal.length > 0 ? (
+            filterVal.map((val, ind) =>
+              val ? (
+                <div className="containerMaa" key={ind}>
+                  <input
+                    type="checkbox"
+                    id="switch"
+                    style={{ display: "none" }}
+                  />
+                  <div className="outer">
+                    <div className="contentMaa">
+                      <label htmlFor="switch">
+                        <span className="toggle">
+                          <span className="circle"></span>
+                        </span>
+                      </label>
 
-                    <div className="image-boxMaa">
-                      <img src={img1} alt="" />
-                    </div>
-                    <div className="details">
-                      <div className="name"> Subject Name: {val.name}</div>
-                      <p>About:{val.about}</p>
-                      <button
-                        onClick={() => navigate(`/dashboard/?id=${val._id}`)}
-                      >
-                        Read More
-                      </button>
+                      <div className="image-boxMaa">
+                        <img src={img1} alt="" />
+                      </div>
+
+                      {val.name && val.about ? (
+                        <div className="details">
+                          <div className="name">Subject Name: {val.name}</div>
+                          <p>About: {val.about}</p>
+                          <button
+                            onClick={() =>
+                              navigate(`/dashboard/?id=${val._id}`)
+                            }
+                          >
+                            Read More
+                          </button>
+                        </div>
+                      ) :""}
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              ) : ""
+            )
+          ) : (
+            <div>No course found</div>
+          )}
         </div>
       </div>
 

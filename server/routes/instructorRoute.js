@@ -5,21 +5,21 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const middleware = require("../middleware/authMiddleware");
 const courseModel = require("../model/courseModel");
-const multer = require("multer")
+const multer = require("multer");
 const storage1 = multer.diskStorage({
-  destination:function(req,file,cb){
-    cb(null,"./videouploads")
+  destination: function (req, file, cb) {
+    cb(null, "./videouploads");
   },
-  filename:function(req,file,cb){
-    cb(null, file.originalname)
-  }
-})
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
 const upload = multer({
-  storage:storage1,
-  limits:{
-    fileSize: 1024 * 1024 * 100
-  }
-})
+  storage: storage1,
+  limits: {
+    fileSize: 1024 * 1024 * 100,
+  },
+});
 router.post("/signup", async (req, res) => {
   try {
     console.log(req.body);
@@ -402,7 +402,7 @@ router.get("/get-premium-course", async (req, res) => {
     });
   }
 });
-router.get("/get-course-admin",async(req,res)=>{
+router.get("/get-course-admin", async (req, res) => {
   try {
     const data = await courseModel.find({});
     return res.status(201).send({
@@ -415,12 +415,16 @@ router.get("/get-course-admin",async(req,res)=>{
       message: error.message,
     });
   }
-})
-router.put("/update-course",async(req,res)=>{
+});
+router.put("/update-course", async (req, res) => {
   try {
     const data = await courseModel.findById(req.query.id);
     const update = !data.isPremium;
-    await courseModel.findByIdAndUpdate(req.query.id,{isPremium:update},{new:true})
+    await courseModel.findByIdAndUpdate(
+      req.query.id,
+      { isPremium: update },
+      { new: true }
+    );
     return res.status(201).send({
       message: "fetch succesfully",
       success: true,
@@ -430,10 +434,10 @@ router.put("/update-course",async(req,res)=>{
       message: error.message,
     });
   }
-})
-router.get("/get-premium",async(req,res)=>{
+});
+router.get("/get-premium", async (req, res) => {
   try {
-    const data = await courseModel.find({insId:req.query.id});
+    const data = await courseModel.find({ insId: req.query.id });
     return res.status(201).send({
       message: "fetch succesfully",
       success: true,
@@ -444,18 +448,18 @@ router.get("/get-premium",async(req,res)=>{
       message: error.message,
     });
   }
-})
-router.post("/upload-video",upload.single("videoFile"),async(req,res)=>{
+});
+router.post("/upload-video", upload.single("videoFile"), async (req, res) => {
   try {
     const id = req.query.id;
     const cid = req.query.cid;
     const data = await courseModel.findById(cid);
     data.examname.push({
-      name:req.body.topicName,
-      description:req.body.description,
-      video:req.file.originalname
-    })
-    await data.save()
+      name: req.body.topicName,
+      description: req.body.description,
+      video: req.file.originalname,
+    });
+    await data.save();
     return res.status(201).send({
       message: "fetch succesfully",
       success: true,
@@ -466,8 +470,8 @@ router.post("/upload-video",upload.single("videoFile"),async(req,res)=>{
       message: error.message,
     });
   }
-})
-router.get("/get-prem-course-data",async(req,res)=>{
+});
+router.get("/get-prem-course-data", async (req, res) => {
   try {
     const id = req.query.id;
     const data = await courseModel.findById(id);
@@ -475,12 +479,25 @@ router.get("/get-prem-course-data",async(req,res)=>{
       message: "fetch succesfully",
       success: true,
       data: data,
-      courseDetail:data.examname
+      courseDetail: data.examname,
     });
   } catch (error) {
     res.status(500).send({
       message: error.message,
     });
   }
-})
+});
+router.delete("/delete-course", async (req, res) => {
+  try {
+    const data = await courseModel.findByIdAndDelete(req.query.id);
+    return res.status(201).send({
+      message: "Delete succesfully",
+      success: true,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
+});
 module.exports = router;
