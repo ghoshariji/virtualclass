@@ -40,7 +40,7 @@ const Afterloginhome = () => {
       const res = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/user/get-course-user/?id=${id}`
       );
-      //console.log(res.data.courses);
+      console.log(res.data.courses);
       setPrem(res.data.courses);
       setOriginalData(res.data.courses);
       setFilterVal(res.data.courses);
@@ -50,20 +50,21 @@ const Afterloginhome = () => {
   };
 
   const handleSearch = (e) => {
-    const searchvalue = e.target.value.toLowerCase().trim();
-    console.log(searchvalue);
-    setSearch(searchvalue);
-    if (searchvalue === "") {
+    const searchValue = e.target.value.toLowerCase().trim();
+    console.log(searchValue);
+    setSearch(searchValue);
+    if (searchValue === "") {
       setFilterVal(originalData);
     } else {
-      const filterData = originalData.filter((val) =>
-        val.name.toLowerCase().includes(searchvalue)
-      );
+      const filterData = originalData
+        .filter((val) => val !== null)
+        .filter((val) => {
+          return val.name && val.name.toLowerCase().includes(searchValue);
+        });
       console.log(filterData);
       setFilterVal(filterData);
     }
   };
-
   useEffect(() => {
     // fetchPremium()
     const id = localStorage.getItem("id");
@@ -139,11 +140,15 @@ const Afterloginhome = () => {
                             Read More
                           </button>
                         </div>
-                      ) :""}
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                 </div>
-              ) : ""
+              ) : (
+                ""
+              )
             )
           ) : (
             <div>No course found</div>
