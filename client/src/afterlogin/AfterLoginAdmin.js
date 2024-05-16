@@ -114,7 +114,7 @@ const AfterLoginAdmin = () => {
                     Make Premium
                   </button>
                   <button onClick={() => deleteCourse(val._id)}>
-                    Make Premium
+                    Delete course
                   </button>
                   <span className="count">VC</span>
                 </div>
